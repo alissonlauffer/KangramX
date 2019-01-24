@@ -1940,6 +1940,14 @@ public class AndroidUtilities {
         }
     }*/
 
+    public static void startAppCenter(Activity context) {
+
+    }
+
+    private static long lastUpdateCheckTime;
+    public static void checkForUpdates() {
+    }
+
     public static void addToClipboard(CharSequence str) {
         try {
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager) ApplicationLoader.applicationContext.getSystemService(Context.CLIPBOARD_SERVICE);
