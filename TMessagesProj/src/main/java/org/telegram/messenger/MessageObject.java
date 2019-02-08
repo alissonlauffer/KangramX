@@ -3721,7 +3721,9 @@ public class MessageObject {
                 return false;
             }
             TLRPC.User user = MessagesController.getInstance(currentAccount).getUser(messageOwner.from_id);
-            if (user != null && user.bot) {
+            if (user != null && !DialogObject.isSecretDialogId(getDialogId())
+            //  && user.bot
+                && messageOwner.from_id != UserConfig.getInstance(currentAccount).getClientUserId()) {
                 return true;
             }
             if (!isOut()) {
