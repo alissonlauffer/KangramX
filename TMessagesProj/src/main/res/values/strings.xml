@@ -3644,4 +3644,5 @@
     <string name="EventLogRestrictedSendStickers2">Send Stickers</string>
     <string name="UserRestrictionsSendGifs">Send GIFs</string>
     <string name="EventLogRestrictedSendGifs">Send GIFs</string>
+    <string name="FastForward">Fast Forward</string>
 </resources>
