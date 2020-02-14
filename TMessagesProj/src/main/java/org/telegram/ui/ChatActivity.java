@@ -16070,6 +16070,18 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                     selectedObjectToEditCaption = null;
                     return;
                 }
+                ChatMessageCell messageCell = null;
+                int count = chatListView.getChildCount();
+                for (int a = 0; a < count; a++) {
+                    View child = chatListView.getChildAt(a);
+                    if (child instanceof ChatMessageCell) {
+                        ChatMessageCell cell = (ChatMessageCell) child;
+                        if (cell.getMessageObject() == selectedObject) {
+                            messageCell = cell;
+                            break;
+                        }
+                    }
+                }
                 String fileName = FileLoader.getDocumentFileName(selectedObject.getDocument());
                 if (TextUtils.isEmpty(fileName)) {
                     fileName = selectedObject.getFileName();
@@ -16087,7 +16099,10 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 File file = new File(path);
                 boolean isDeleted = file.delete();
                 if (isDeleted) {
-                    Toast.makeText(getParentActivity(), "File deleted from cache successfully.", Toast.LENGTH_SHORT).show();
+                    selectedObject.mediaExists = false;
+                    if (messageCell != null) {
+                        messageCell.updateButtonState(false, true, false);
+                    }
                 }
                 else {
                     Toast.makeText(getParentActivity(), "Looks like something went wrong.", Toast.LENGTH_SHORT).show();
