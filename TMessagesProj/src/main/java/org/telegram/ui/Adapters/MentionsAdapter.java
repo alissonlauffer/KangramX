@@ -1001,7 +1001,7 @@ public class MentionsAdapter extends RecyclerListView.SelectionAdapter {
     }
 
     public boolean isLongClickEnabled() {
-        return searchResultHashtags != null || searchResultCommands != null;
+        return searchResultHashtags != null || searchResultCommands != null || searchResultUsernames != null;
     }
 
     public boolean isBotCommands() {
