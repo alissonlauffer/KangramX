@@ -3639,4 +3639,7 @@
     <string name="RemindTodayAt">\'Lembrar hoje às\' HH:mm</string>
     <string name="RemindDayAt">\'Lembrar em\' d \'de\' MMM \'às\' HH:mm</string>
     <string name="RemindDayYearAt">\'Lembrar em\' d \'de\' MMM \'de\' yyyy \'às\' HH:mm</string>
+    <!--Customgram specific strings-->
+    <string name="UserRestrictionsSendStickers2">Enviar Stickers</string>
+    <string name="UserRestrictionsSendGifs">Enviar GIFs</string>
 </resources>
