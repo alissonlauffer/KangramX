@@ -1165,13 +1165,21 @@ public class MessageObject {
                 rights.append('\n').append(!n.send_messages ? '+' : '-').append(' ');
                 rights.append(LocaleController.getString("EventLogRestrictedSendMessages", R.string.EventLogRestrictedSendMessages));
             }
-            if (o.send_stickers != n.send_stickers || o.send_inline != n.send_inline || o.send_gifs != n.send_gifs || o.send_games != n.send_games) {
+            if (o.send_stickers != n.send_stickers || o.send_inline != n.send_inline || o.send_games != n.send_games) {
                 if (!added) {
                     rights.append('\n');
                     added = true;
                 }
                 rights.append('\n').append(!n.send_stickers ? '+' : '-').append(' ');
-                rights.append(LocaleController.getString("EventLogRestrictedSendStickers", R.string.EventLogRestrictedSendStickers));
+                rights.append(LocaleController.getString("EventLogRestrictedSendStickers2", R.string.EventLogRestrictedSendStickers2));
+            }
+            if (o.send_gifs != n.send_gifs) {
+                if (!added) {
+                    rights.append('\n');
+                    added = true;
+                }
+                rights.append('\n').append(!n.send_gifs ? '+' : '-').append(' ');
+                rights.append(LocaleController.getString("EventLogRestrictedSendGifs", R.string.EventLogRestrictedSendGifs));
             }
             if (o.send_media != n.send_media) {
                 if (!added) {
@@ -1298,14 +1306,21 @@ public class MessageObject {
                 }
                 if (o.send_stickers != n.send_stickers ||
                         o.send_inline != n.send_inline ||
-                        o.send_gifs != n.send_gifs ||
                         o.send_games != n.send_games) {
                     if (!added) {
                         rights.append('\n');
                         added = true;
                     }
                     rights.append('\n').append(!n.send_stickers ? '+' : '-').append(' ');
-                    rights.append(LocaleController.getString("EventLogRestrictedSendStickers", R.string.EventLogRestrictedSendStickers));
+                    rights.append(LocaleController.getString("EventLogRestrictedSendStickers2", R.string.EventLogRestrictedSendStickers2));
+                }
+                if (o.send_gifs != n.send_gifs) {
+                    if (!added) {
+                        rights.append('\n');
+                        added = true;
+                    }
+                    rights.append('\n').append(!n.send_gifs ? '+' : '-').append(' ');
+                    rights.append(LocaleController.getString("EventLogRestrictedSendGifs", R.string.EventLogRestrictedSendGifs));
                 }
                 if (o.send_media != n.send_media) {
                     if (!added) {

@@ -3641,5 +3641,6 @@
     <string name="RemindDayYearAt">\'Lembrar em\' d \'de\' MMM \'de\' yyyy \'às\' HH:mm</string>
     <!--Customgram specific strings-->
     <string name="UserRestrictionsSendStickers2">Enviar Stickers</string>
-    <string name="UserRestrictionsSendGifs">Enviar GIFs</string>
+    <string name="EventLogRestrictedSendGifs">Enviar GIFs</string>
+    <string name="ClearFromCache">Apagar do cache</string>
 </resources>

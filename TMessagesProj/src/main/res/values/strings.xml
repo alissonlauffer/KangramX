@@ -3640,6 +3640,6 @@
     <string name="RemindDayAt">\'Remind on\' MMM d \'at\' HH:mm</string>
     <string name="RemindDayYearAt">\'Remind on\' MMM d yyyy \'at\' HH:mm</string>
     <!--Customgram specific strings-->
-    <string name="UserRestrictionsSendStickers2">Send Stickers</string>
-    <string name="UserRestrictionsSendGifs">Send GIFs</string>
+    <string name="EventLogRestrictedSendStickers2">Send Stickers</string>
+    <string name="EventLogRestrictedSendGifs">Send GIFs</string>
 </resources>

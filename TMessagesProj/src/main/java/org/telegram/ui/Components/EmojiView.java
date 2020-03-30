@@ -3449,10 +3449,27 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
 
         String text;
         if (!ChatObject.hasAdminRights(chat) && chat.default_banned_rights != null && chat.default_banned_rights.send_stickers) {
+            if (!gif) {
+                mediaBanTooltip.setText(LocaleController.getString("GlobalAttachStickersRestricted", R.string.GlobalAttachStickersRestricted));
+            }
+        } else {
+            if (chat.banned_rights == null) {
+                return;
+            }
+            if (AndroidUtilities.isBannedForever(chat.banned_rights)) {
+                if (!gif) {
+                    mediaBanTooltip.setText(LocaleController.getString("AttachStickersRestrictedForever", R.string.AttachStickersRestrictedForever));
+                }
+            } else {
+                if (!gif) {
+                    mediaBanTooltip.setText(LocaleController.formatString("AttachStickersRestricted", R.string.AttachStickersRestricted, LocaleController.formatDateForBan(chat.banned_rights.until_date)));
+                }
+            }
+        }
+
+        if (!ChatObject.hasAdminRights(chat) && chat.default_banned_rights != null && chat.default_banned_rights.send_gifs) {
             if (gif) {
                 mediaBanTooltip.setText(LocaleController.getString("GlobalAttachGifRestricted", R.string.GlobalAttachGifRestricted));
-            } else {
-                mediaBanTooltip.setText(LocaleController.getString("GlobalAttachStickersRestricted", R.string.GlobalAttachStickersRestricted));
             }
         } else {
             if (chat.banned_rights == null) {
@@ -3461,14 +3478,10 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             if (AndroidUtilities.isBannedForever(chat.banned_rights)) {
                 if (gif) {
                     mediaBanTooltip.setText(LocaleController.getString("AttachGifRestrictedForever", R.string.AttachGifRestrictedForever));
-                } else {
-                    mediaBanTooltip.setText(LocaleController.getString("AttachStickersRestrictedForever", R.string.AttachStickersRestrictedForever));
                 }
             } else {
                 if (gif) {
                     mediaBanTooltip.setText(LocaleController.formatString("AttachGifRestricted", R.string.AttachGifRestricted, LocaleController.formatDateForBan(chat.banned_rights.until_date)));
-                } else {
-                    mediaBanTooltip.setText(LocaleController.formatString("AttachStickersRestricted", R.string.AttachStickersRestricted, LocaleController.formatDateForBan(chat.banned_rights.until_date)));
                 }
             }
         }
