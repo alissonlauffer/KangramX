@@ -63,7 +63,6 @@ public class UserConfig extends BaseController {
     public TLRPC.TL_help_appUpdate pendingAppUpdate;
     public int pendingAppUpdateBuildVersion;
     public long pendingAppUpdateInstallTime;
-    public long lastUpdateCheckTime;
     public long autoDownloadConfigLoadTime;
 
     public volatile byte[] savedPasswordHash;
@@ -186,25 +185,6 @@ public class UserConfig extends BaseController {
                     }
                 } else {
                     editor.remove("terms");
-                }
-
-                if (currentAccount == 0) {
-                    if (pendingAppUpdate != null) {
-                        try {
-                            SerializedData data = new SerializedData(pendingAppUpdate.getObjectSize());
-                            pendingAppUpdate.serializeToStream(data);
-                            String str = Base64.encodeToString(data.toByteArray(), Base64.DEFAULT);
-                            editor.putString("appUpdate", str);
-                            editor.putInt("appUpdateBuild", pendingAppUpdateBuildVersion);
-                            editor.putLong("appUpdateTime", pendingAppUpdateInstallTime);
-                            editor.putLong("appUpdateCheckTime", lastUpdateCheckTime);
-                            data.cleanup();
-                        } catch (Exception ignore) {
-
-                        }
-                    } else {
-                        editor.remove("appUpdate");
-                    }
                 }
 
                 SharedConfig.saveConfig();
@@ -332,38 +312,6 @@ public class UserConfig extends BaseController {
                 }
             } catch (Exception e) {
                 FileLog.e(e);
-            }
-
-            if (currentAccount == 0) {
-                lastUpdateCheckTime = preferences.getLong("appUpdateCheckTime", System.currentTimeMillis());
-                try {
-                    String update = preferences.getString("appUpdate", null);
-                    if (update != null) {
-                        pendingAppUpdateBuildVersion = preferences.getInt("appUpdateBuild", BuildVars.BUILD_VERSION);
-                        pendingAppUpdateInstallTime = preferences.getLong("appUpdateTime", System.currentTimeMillis());
-                        byte[] arr = Base64.decode(update, Base64.DEFAULT);
-                        if (arr != null) {
-                            SerializedData data = new SerializedData(arr);
-                            pendingAppUpdate = (TLRPC.TL_help_appUpdate) TLRPC.help_AppUpdate.TLdeserialize(data, data.readInt32(false), false);
-                            data.cleanup();
-                        }
-                    }
-                    if (pendingAppUpdate != null) {
-                        long updateTime = 0;
-                        try {
-                            PackageInfo packageInfo = ApplicationLoader.applicationContext.getPackageManager().getPackageInfo(ApplicationLoader.applicationContext.getPackageName(), 0);
-                            updateTime = Math.max(packageInfo.lastUpdateTime, packageInfo.firstInstallTime);
-                        } catch (Exception e) {
-                            FileLog.e(e);
-                        }
-                        if (pendingAppUpdateBuildVersion != BuildVars.BUILD_VERSION || pendingAppUpdateInstallTime < updateTime) {
-                            pendingAppUpdate = null;
-                            AndroidUtilities.runOnUIThread(() -> saveConfig(false));
-                        }
-                    }
-                } catch (Exception e) {
-                    FileLog.e(e);
-                }
             }
 
             migrateOffsetId = preferences.getInt("6migrateOffsetId", 0);

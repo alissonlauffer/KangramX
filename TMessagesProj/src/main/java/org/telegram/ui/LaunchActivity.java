@@ -692,7 +692,6 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
             FileLog.e(e);
         }
         MediaController.getInstance().setBaseActivity(this, true);
-        AndroidUtilities.startAppCenter(this);
     }
 
     private void openSettings(boolean expanded) {
@@ -882,23 +881,6 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
             rightActionBarLayout.setVisibility(View.GONE);
             backgroundTablet.setVisibility(!actionBarLayout.fragmentsStack.isEmpty() ? View.GONE : View.VISIBLE);
         }
-    }
-
-    private void showUpdateActivity(int account, TLRPC.TL_help_appUpdate update, boolean check) {
-        if (blockingUpdateView == null) {
-            blockingUpdateView = new BlockingUpdateView(LaunchActivity.this) {
-                @Override
-                public void setVisibility(int visibility) {
-                    super.setVisibility(visibility);
-                    if (visibility == View.GONE) {
-                        drawerLayoutContainer.setAllowOpenDrawer(true, false);
-                    }
-                }
-            };
-            drawerLayoutContainer.addView(blockingUpdateView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
-        }
-        blockingUpdateView.show(account, update, check);
-        drawerLayoutContainer.setAllowOpenDrawer(false, false);
     }
 
     private void showTosActivity(int account, TLRPC.TL_help_termsOfService tos) {
@@ -2500,49 +2482,6 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
         }
     }
 
-    public void checkAppUpdate(boolean force) {
-        if (!force && BuildVars.DEBUG_VERSION || !force && !BuildVars.CHECK_UPDATES) {
-            return;
-        }
-        if (!force && Math.abs(System.currentTimeMillis() - UserConfig.getInstance(0).lastUpdateCheckTime) < 24 * 60 * 60 * 1000) {
-            return;
-        }
-        TLRPC.TL_help_getAppUpdate req = new TLRPC.TL_help_getAppUpdate();
-        try {
-            req.source = ApplicationLoader.applicationContext.getPackageManager().getInstallerPackageName(ApplicationLoader.applicationContext.getPackageName());
-        } catch (Exception ignore) {
-
-        }
-        if (req.source == null) {
-            req.source = "";
-        }
-        final int accountNum = currentAccount;
-        ConnectionsManager.getInstance(currentAccount).sendRequest(req, (response, error) -> {
-            UserConfig.getInstance(0).lastUpdateCheckTime = System.currentTimeMillis();
-            UserConfig.getInstance(0).saveConfig(false);
-            if (response instanceof TLRPC.TL_help_appUpdate) {
-                final TLRPC.TL_help_appUpdate res = (TLRPC.TL_help_appUpdate) response;
-                AndroidUtilities.runOnUIThread(() -> {
-                    if (res.can_not_skip) {
-                        UserConfig.getInstance(0).pendingAppUpdate = res;
-                        UserConfig.getInstance(0).pendingAppUpdateBuildVersion = BuildVars.BUILD_VERSION;
-                        try {
-                            PackageInfo packageInfo = ApplicationLoader.applicationContext.getPackageManager().getPackageInfo(ApplicationLoader.applicationContext.getPackageName(), 0);
-                            UserConfig.getInstance(0).pendingAppUpdateInstallTime = Math.max(packageInfo.lastUpdateTime, packageInfo.firstInstallTime);
-                        } catch (Exception e) {
-                            FileLog.e(e);
-                            UserConfig.getInstance(0).pendingAppUpdateInstallTime = 0;
-                        }
-                        UserConfig.getInstance(0).saveConfig(false);
-                        showUpdateActivity(accountNum, res, false);
-                    } else {
-                        (new UpdateAppAlertDialog(LaunchActivity.this, res, accountNum)).show();
-                    }
-                });
-            }
-        });
-    }
-
     public AlertDialog showAlertDialog(AlertDialog.Builder builder) {
         try {
             if (visibleDialog != null) {
@@ -3033,10 +2972,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
         }
         if (UserConfig.getInstance(UserConfig.selectedAccount).unacceptedTermsOfService != null) {
             showTosActivity(UserConfig.selectedAccount, UserConfig.getInstance(UserConfig.selectedAccount).unacceptedTermsOfService);
-        } else if (UserConfig.getInstance(0).pendingAppUpdate != null) {
-            showUpdateActivity(UserConfig.selectedAccount, UserConfig.getInstance(0).pendingAppUpdate, true);
         }
-        checkAppUpdate(false);
     }
 
     @Override

@@ -290,7 +290,6 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
         NotificationCenter.getGlobalInstance().addObserver(this, NotificationCenter.suggestedLangpack);
 
         AndroidUtilities.handleProxyIntent(this, getIntent());
-        AndroidUtilities.startAppCenter(this);
     }
 
     @Override
