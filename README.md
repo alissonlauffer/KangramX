@@ -10,7 +10,7 @@ Telegram API manuals: https://core.telegram.org/api
 
 MTproto protocol manuals: https://core.telegram.org/mtproto
 
-## Kangram X changes
+## Kangram X features
 
 - Upload date for profile picture.
 - "Delete for everyone" enabled by default.
@@ -19,4 +19,14 @@ MTproto protocol manuals: https://core.telegram.org/mtproto
 - Separate stickers and gifs permissions (experimental)
 - Aways show "recent actions" in groups edit menu.
 - Show chat titles in profile picture dates.
+- Forward without quote.
+- Force enable YouTube PiP option.
+- Force enable beta streaming options.
+- Added more options for mute notifications alert.
+- Added ability to copy url from inline button / links alert.
+- Added ability to select all messages between 2 selections from bar.
+- Check if google play service installed before show google contact pop-up.
+- Long press to mention users by name
+- Click on the version number to open the official channel.
+- Clear from cache option.
 - Other internal improvements.
