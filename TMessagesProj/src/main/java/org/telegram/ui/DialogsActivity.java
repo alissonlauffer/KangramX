@@ -1652,6 +1652,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
             if (folderId == 0) {
                 actionBar.setSupportsHolidayImage(true);
             }
+            actionBar.setTitle("Kangram X");
         }
         if (!onlySelect) {
             actionBar.setAddToContainer(false);
