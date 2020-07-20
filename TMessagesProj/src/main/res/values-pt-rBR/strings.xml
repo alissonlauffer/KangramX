@@ -3639,8 +3639,9 @@
     <string name="RemindTodayAt">\'Lembrar hoje às\' HH:mm</string>
     <string name="RemindDayAt">\'Lembrar em\' d \'de\' MMM \'às\' HH:mm</string>
     <string name="RemindDayYearAt">\'Lembrar em\' d \'de\' MMM \'de\' yyyy \'às\' HH:mm</string>
-    <!--Customgram specific strings-->
-    <string name="UserRestrictionsSendStickers2">Enviar Stickers</string>
-    <string name="EventLogRestrictedSendGifs">Enviar GIFs</string>
-    <string name="ClearFromCache">Apagar do cache</string>
+    <!--KangramX specific strings-->
+    <string name="UserRestrictionsSendStickers2">Send Stickers</string>
+    <string name="EventLogRestrictedSendStickers2">Send Stickers</string>
+    <string name="UserRestrictionsSendGifs">Send GIFs</string>
+    <string name="EventLogRestrictedSendGifs">Send GIFs</string>
 </resources>
