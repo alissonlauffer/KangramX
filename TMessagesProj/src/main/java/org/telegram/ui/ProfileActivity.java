@@ -2366,6 +2366,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 }
             } else if (position == numberRow) {
                 presentFragment(new ActionIntroActivity(ActionIntroActivity.ACTION_TYPE_CHANGE_PHONE_NUMBER));
+            } else if (position == versionRow) {
+                MessagesController.getInstance(currentAccount).openByUserName("KangramX", SettingsActivity.this, 1);
             } else if (position == setAvatarRow) {
                 writeButton.callOnClick();
             } else {
