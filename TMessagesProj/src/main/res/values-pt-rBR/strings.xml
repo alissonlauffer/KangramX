@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="AppName">Telegram</string>
-    <string name="AppNameBeta">Telegram Beta</string>
+    <string name="AppName">Kangram X</string>
+    <string name="AppNameBeta">Kangram X Beta</string>
     <string name="LanguageName">Português (Brasil)</string>
     <string name="English">Inglês</string>
     <string name="LanguageNameInEnglish">Portuguese (Brazil)</string>
@@ -3640,8 +3640,8 @@
     <string name="RemindDayAt">\'Lembrar em\' d \'de\' MMM \'às\' HH:mm</string>
     <string name="RemindDayYearAt">\'Lembrar em\' d \'de\' MMM \'de\' yyyy \'às\' HH:mm</string>
     <!--KangramX specific strings-->
-    <string name="UserRestrictionsSendStickers2">Send Stickers</string>
-    <string name="EventLogRestrictedSendStickers2">Send Stickers</string>
-    <string name="UserRestrictionsSendGifs">Send GIFs</string>
-    <string name="EventLogRestrictedSendGifs">Send GIFs</string>
+    <string name="UserRestrictionsSendStickers2">Enviar Stickers</string>
+    <string name="EventLogRestrictedSendStickers2">Enviar Stickers</string>
+    <string name="UserRestrictionsSendGifs">Enviar GIFs</string>
+    <string name="EventLogRestrictedSendGifs">Enviar GIFs</string>
 </resources>
