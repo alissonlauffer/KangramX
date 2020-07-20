@@ -5940,7 +5940,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                                 abi = "universal " + Build.CPU_ABI + " " + Build.CPU_ABI2;
                                 break;
                         }
-                        cell.setText(string.format("Kangram X %1$s", R.string.TelegramVersion, String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi)));
+                        cell.setText(String.format("%1$s %2$s", LocaleController.getString("Kangram X", R.string.AppName), String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi)));
                     } catch (Exception e) {
                         FileLog.e(e);
                     }
