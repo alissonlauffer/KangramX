@@ -23,7 +23,7 @@
     <!--code enter view-->
     <string name="YourCode">Verificación</string>
     <string name="SentSmsCode">Enviamos un SMS con un código de activación a tu teléfono **%1$s**.</string>
-    <string name="SentAppCode">Enviamos el código a la app de **Telegram** en tu otro dispositivo.</string>
+    <string name="SentAppCode">Enviamos el código a la app de **Kangram X** en tu otro dispositivo.</string>
     <string name="SentAppCodeTitle">Revisa tus mensajes en Telegram</string>
     <string name="SentSmsCodeTitle">Pon el código</string>
     <string name="SentCallCode">Estamos llamando al número **%1$s**.\n\nNo contestes. Telegram hará todo el proceso automáticamente.</string>
@@ -212,7 +212,7 @@
     <string name="Strike">Tachado</string>
     <string name="Underline">Subrayar</string>
     <string name="Regular">Borrar formato</string>
-    <string name="ContactsPermissionAlert">**Telegram** necesita acceso a tus contactos para que puedas comunicarte con tus amigos en todos tus dispositivos. Tus contactos se sincronizarán continuamente con los servidores en la nube fuertemente cifrados de Telegram.</string>
+    <string name="ContactsPermissionAlert">**Kangram X** necesita acceso a tus contactos para que puedas comunicarte con tus amigos en todos tus dispositivos. Tus contactos se sincronizarán continuamente con los servidores en la nube fuertemente cifrados de Telegram.</string>
     <string name="ContactsPermissionAlertNotNow">AHORA NO</string>
     <string name="ContactsPermissionAlertContinue">CONTINUAR</string>
     <string name="YourContacts">Tus contactos en Telegram</string>
@@ -1283,7 +1283,7 @@
     <string name="UsernameInvalidShort">Un nombre de usuario debe tener al menos 5 caracteres.</string>
     <string name="UsernameInvalidLong">El nombre de usuario no debe exceder los 32 caracteres.</string>
     <string name="UsernameInvalidStartNumber">Lo sentimos, un nombre de usuario no puede comenzar con un número.</string>
-    <string name="UsernameHelp">Puedes elegir un nombre de usuario en **Telegram**. Si lo haces, otras personas te podrán encontrar por ese nombre y contactarte sin saber tu número de teléfono.\n\nPuedes usar **a–z**, **0–9** y guiones bajos.\nLa longitud mínima es de **5** caracteres.</string>
+    <string name="UsernameHelp">Puedes elegir un nombre de usuario en **Kangram X**. Si lo haces, otras personas te podrán encontrar por ese nombre y contactarte sin saber tu número de teléfono.\n\nPuedes usar **a–z**, **0–9** y guiones bajos.\nLa longitud mínima es de **5** caracteres.</string>
     <string name="UsernameHelpLink">Este enlace abre un chat contigo:\n%1$s</string>
     <string name="UsernameChecking">Verificando nombre de usuario...</string>
     <string name="UsernameAvailable">%1$s está disponible.</string>
@@ -1335,7 +1335,7 @@
     <string name="NoEmojiFound">No se encontraron emojis</string>
     <string name="NoMasks">Aún no hay máscaras</string>
     <string name="EmojiSuggestions">Sugerencias de emojis</string>
-    <string name="EmojiSuggestionsInfo">**Telegram** te permite encontrar emojis a partir de miles de palabras clave, pero siempre puede faltar alguna. Si quieres sugerir una palabra clave, puedes ayudarnos visitando:</string>
+    <string name="EmojiSuggestionsInfo">**Kangram X** te permite encontrar emojis a partir de miles de palabras clave, pero siempre puede faltar alguna. Si quieres sugerir una palabra clave, puedes ayudarnos visitando:</string>
     <string name="EmojiSuggestionsUrl">https://translations.telegram.org/%1$s/emoji</string>
     <string name="Masks">Máscaras</string>
     <string name="MasksInfo">Puedes añadir máscaras a las fotos que envías. Para hacerlo, abre el editor de fotos antes de enviar una foto.</string>
@@ -2963,11 +2963,11 @@
     <string name="Page5Title">Poderosa</string>
     <string name="Page6Title">Basada en la nube</string>
     <string name="Page1Message">La app de mensajería **más rápida**\ndel mundo. Es **gratis** y **segura**.</string>
-    <string name="Page2Message">**Telegram** entrega mensajes más rápido\nque cualquier otra aplicación.</string>
-    <string name="Page3Message">**Telegram** es gratis para siempre.\nSin publicidad. Sin suscripciones.</string>
-    <string name="Page4Message">**Telegram** mantiene tus mensajes\na salvo del ataque de hackers.</string>
-    <string name="Page5Message">**Telegram** no tiene límite de espacio\npara tus archivos multimedia y chats.</string>
-    <string name="Page6Message">**Telegram** te permite acceder a tus\nmensajes desde múltiples dispositivos.</string>
+    <string name="Page2Message">**Kangram X** entrega mensajes más rápido\nque cualquier otra aplicación.</string>
+    <string name="Page3Message">**Kangram X** es gratis para siempre.\nSin publicidad. Sin suscripciones.</string>
+    <string name="Page4Message">**Kangram X** mantiene tus mensajes\na salvo del ataque de hackers.</string>
+    <string name="Page5Message">**Kangram X** no tiene límite de espacio\npara tus archivos multimedia y chats.</string>
+    <string name="Page6Message">**Kangram X** te permite acceder a tus\nmensajes desde múltiples dispositivos.</string>
     <string name="StartMessaging">Empezar a chatear</string>
     <!-- VoIP -->
     <string name="AccountSettings">Ajustes de la cuenta</string>

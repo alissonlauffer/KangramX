@@ -23,7 +23,7 @@
     <!--code enter view-->
     <string name="YourCode">Telefoonverificatie</string>
     <string name="SentSmsCode">Een SMS met activatiecode is verzonden naar **%1$s**.</string>
-    <string name="SentAppCode">We hebben de code naar je andere  **Telegram**-app gestuurd.</string>
+    <string name="SentAppCode">We hebben de code naar je andere  **Kangram X**-app gestuurd.</string>
     <string name="SentAppCodeTitle">Controleer je Telegramberichten</string>
     <string name="SentSmsCodeTitle">Code invoeren</string>
     <string name="SentCallCode">We bellen je op nummer **%1$s**.\n\nNeem niet op, Telegram verwerkt alles automatisch.</string>
@@ -212,7 +212,7 @@
     <string name="Strike">Doorstrepen</string>
     <string name="Underline">Onderstrepen</string>
     <string name="Regular">Normaal</string>
-    <string name="ContactsPermissionAlert">**Telegram** heeft toegang tot je contacten nodig zodat je makkelijk contact kunt opnemen met je vrienden vanaf al je apparaten. Telegram synchroniseert je contacten continu naar onze zwaar versleutelde Cloud-servers.</string>
+    <string name="ContactsPermissionAlert">**Kangram X** heeft toegang tot je contacten nodig zodat je makkelijk contact kunt opnemen met je vrienden vanaf al je apparaten. Telegram synchroniseert je contacten continu naar onze zwaar versleutelde Cloud-servers.</string>
     <string name="ContactsPermissionAlertNotNow">NU NIET</string>
     <string name="ContactsPermissionAlertContinue">DOORGAAN</string>
     <string name="YourContacts">Je contacten op Telegram</string>
@@ -1283,7 +1283,7 @@
     <string name="UsernameInvalidShort">Je naam moet minimaal 5 tekens hebben.</string>
     <string name="UsernameInvalidLong">Je naam mag niet langer zijn dan 32 tekens.</string>
     <string name="UsernameInvalidStartNumber">Sorry, begincijfers zijn niet toegestaan.</string>
-    <string name="UsernameHelp">Je kan een gebruikersnaam kiezen voor **Telegram**. Hiermee kunnen anderen je vinden en contact met je opnemen zonder je telefoonnummer te weten.\n\nJe mag **a–z**, **0–9** en liggend streepje gebruiken. De minimale lengte is **5** tekens.</string>
+    <string name="UsernameHelp">Je kan een gebruikersnaam kiezen voor **Kangram X**. Hiermee kunnen anderen je vinden en contact met je opnemen zonder je telefoonnummer te weten.\n\nJe mag **a–z**, **0–9** en liggend streepje gebruiken. De minimale lengte is **5** tekens.</string>
     <string name="UsernameHelpLink">Deze link opent een chat met je:\n%1$s</string>
     <string name="UsernameChecking">Gebruikersnaam controleren.</string>
     <string name="UsernameAvailable">%1$s is beschikbaar.</string>
@@ -1335,7 +1335,7 @@
     <string name="NoEmojiFound">Geen Emoji gevonden</string>
     <string name="NoMasks">Nog geen maskers</string>
     <string name="EmojiSuggestions">Emojisuggesties</string>
-    <string name="EmojiSuggestionsInfo">**Telegram** maakt het mogelijk om emoji te vinden op basis van duizenden woorden, maar er zullen er altijd wat missen. Als je suggesties wilt doen om emoji\'s nog makkelijker te vinden kan dat via:\n</string>
+    <string name="EmojiSuggestionsInfo">**Kangram X** maakt het mogelijk om emoji te vinden op basis van duizenden woorden, maar er zullen er altijd wat missen. Als je suggesties wilt doen om emoji\'s nog makkelijker te vinden kan dat via:\n</string>
     <string name="EmojiSuggestionsUrl">https://translations.telegram.org/%1$s/emoji</string>
     <string name="Masks">Maskers</string>
     <string name="MasksInfo">Je kunt maskers toevoegen aan foto\'s , gebruik de fotobewerkingsoptie en verstuur ze.</string>
@@ -2963,11 +2963,11 @@
     <string name="Page5Title">Krachtig</string>
     <string name="Page6Title">In de cloud</string>
     <string name="Page1Message">\'s Werelds **snelste** berichtendienst.\nHet is **gratis** en **veilig**.</string>
-    <string name="Page2Message">**Telegram** bezorgt berichten sneller dan\nelke andere applicatie.</string>
-    <string name="Page3Message">**Telegram** is altijd gratis. Geen advertenties.\nGeen abonnementskosten.</string>
-    <string name="Page4Message">**Telegram** beveiligt je berichten\ntegen aanvallen van hackers.</string>
-    <string name="Page5Message">**Telegram** beperkt je niet in de grootte van\nje media of chats.</string>
-    <string name="Page6Message">**Telegram** biedt toegang tot je berichten\nvanaf meerdere apparaten.</string>
+    <string name="Page2Message">**Kangram X** bezorgt berichten sneller dan\nelke andere applicatie.</string>
+    <string name="Page3Message">**Kangram X** is altijd gratis. Geen advertenties.\nGeen abonnementskosten.</string>
+    <string name="Page4Message">**Kangram X** beveiligt je berichten\ntegen aanvallen van hackers.</string>
+    <string name="Page5Message">**Kangram X** beperkt je niet in de grootte van\nje media of chats.</string>
+    <string name="Page6Message">**Kangram X** biedt toegang tot je berichten\nvanaf meerdere apparaten.</string>
     <string name="StartMessaging">Begin met chatten</string>
     <!-- VoIP -->
     <string name="AccountSettings">Accountinstellingen</string>
