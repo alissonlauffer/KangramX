@@ -321,6 +321,9 @@ android {
         versionName "6.3.0"
 
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
+        // obtain your own keys at https://core.telegram.org/api/obtaining_api_id
+        buildConfigField 'int', 'APP_ID', System.getenv("APP_ID")
+        buildConfigField 'String', 'APP_HASH', "\"" + System.getenv("APP_HASH") + "\""
 
         externalNativeBuild {
             ndkBuild {
