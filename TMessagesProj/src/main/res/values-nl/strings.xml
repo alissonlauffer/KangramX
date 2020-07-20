@@ -1753,7 +1753,7 @@
     <string name="Emoji">Emoji</string>
     <string name="LargeEmoji">Grote emoji</string>
     <string name="EmojiUseDefault">Systeem-emoji gebruiken</string>
-    <string name="TelegramVersion">Telegram voor Android %1$s</string>
+    <string name="TelegramVersion">Kangram X %1$s</string>
     <string name="DebugMenu">Debug-menu</string>
     <string name="DebugSendLogs">Logbestanden versturen</string>
     <string name="DebugClearLogs">Logboek opschonen</string>
