@@ -1,5 +1,6 @@
 # Kangram X for Android
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bf775b6ec8b6417cb0ae381cab14ee1c)](https://app.codacy.com/gh/Kangram-Dev/Kangram?utm_source=github.com&utm_medium=referral&utm_content=Kangram-Dev/Kangram&utm_campaign=Badge_Grade_Dashboard)
 [![Releases](https://img.shields.io/github/release/Kangram-Dev/Kangram.svg)](https://github.com/Kangram-Dev/Kangram/releases/latest)
 [![Channel](https://img.shields.io/badge/Channel-Telegram-blue.svg)](https://t.me/KangramX)
 ![Build](https://github.com/Project-WKF/Telegram-Builds/workflows/Telegram%20CI/badge.svg)
