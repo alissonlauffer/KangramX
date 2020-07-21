@@ -1,5 +1,10 @@
 # Kangram X for Android
 
+[![Releases](https://img.shields.io/github/release/Kangram-Dev/Kangram.svg)](https://github.com/Kangram-Dev/Kangram/releases/latest)
+[![Channel](https://img.shields.io/badge/Channel-Telegram-blue.svg)](https://t.me/KangramX)
+![Build](https://github.com/Project-WKF/Telegram-Builds/workflows/Telegram%20CI/badge.svg)
+[![Github All Releases](https://img.shields.io/github/downloads/Kangram-Dev/Kangram/total.svg)](https://github.com/Kangram-Dev/Kangram/releases)
+
 [Kangram X](https://t.me/KangramX) is an unofficial Telegram client for Android that has some additions to the official Telegram app.
 
 [Telegram](https://telegram.org) is a messaging app with a focus on speed and security. It’s superfast, simple and free.
