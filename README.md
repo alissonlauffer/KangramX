@@ -29,4 +29,7 @@ MTproto protocol manuals: https://core.telegram.org/mtproto
 - Long press to mention users by name
 - Click on the version number to open the official channel.
 - Clear from cache option.
+- Old BoringSSL prebuilts are replaced with the newest upstream source code built at compile time.
+- Old FFmpeg prebuilts are replaced with the newest upstream source code built at compile time.
+- Bundled libWebP is updated.
 - Other internal improvements.
