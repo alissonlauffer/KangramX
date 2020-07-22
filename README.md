@@ -5,6 +5,7 @@
 [![Channel](https://img.shields.io/badge/Channel-Telegram-blue.svg)](https://t.me/KangramX)
 ![Build](https://github.com/Project-WKF/Telegram-Builds/workflows/Telegram%20CI/badge.svg)
 [![Github All Releases](https://img.shields.io/github/downloads/Kangram-Dev/Kangram/total.svg)](https://github.com/Kangram-Dev/Kangram/releases)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=Kangram-Dev/Kangram)](https://dependabot.com)
 
 [Kangram X](https://t.me/KangramX) is an unofficial Telegram client for Android that has some additions to the official Telegram app.
 
