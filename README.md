@@ -40,4 +40,6 @@ MTproto protocol manuals: https://core.telegram.org/mtproto
 - Old BoringSSL prebuilts are replaced with the newest upstream source code built at compile time.
 - Old FFmpeg prebuilts are replaced with the newest upstream source code built at compile time.
 - Bundled libWebP is updated.
+- Added ability to copy ID of dialogs.
+- Show full number of subscribers.
 - Other internal improvements.
