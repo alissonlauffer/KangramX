@@ -317,7 +317,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionName "T6.3.0-K3.5"
+        versionName "T6.3.0-K3.6"
 
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
         // obtain your own keys at https://core.telegram.org/api/obtaining_api_id
