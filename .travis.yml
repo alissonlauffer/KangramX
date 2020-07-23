@@ -18,7 +18,7 @@ env:
   - secure: lOGhCoEj9YzPb4g6LipZOZHWZvZ5IcnadvVaqudxlTh+9PeDrZaz+A28NoaDp1AthNLr7U2CudY0ea2S4Ryo1xH3KZUUICJ6lMo/FNP6WX9v9MxDWNvCdO4CZwyJZCagCMUZ4ctGZNJ9HuD40jIRec6T0O2KLo97fzQ68AWCXTkM7IlUS50ihoCnF05NRBXrihoSKHer5YhvuvRGB6OI/CzNcOCjJtsMLwaadTDAEhcHC75BoTjo3GI/aLq4GN+aRfZXyKBmMc3454gAaXUrBMeHoIzLEAGfqpwmUuUkbyoKrxHZsjUsO3rqUTLcRUQlE7cQ2WS513thb9w7iPzxWYJCiAr0YqegcN/RSPRavZlMhdf0dN13FBxxzvPoby0Qa4JhTGqmN3IHwQQVQGtR78M9w3EM45t+OIe0TOcl0b+1plcrL6jmrct8onoHV/V5Nui6KI1G3ZoZ3cetcQKYsUIVjmZrsPxgT+OsguzzwIx7EYLRf69YWZ1eF0bKqIVpfbVxFJIqnwGwuLN+O4dpDfoclitOYaFGYsQo0TghbC2pvFKTCx1IjhTX3Am5mUccIuYAlDziRLA7+07ItThrTNcpxsy5+LvZ6a62u6HS3JhWRac0X89WRfpTzDwkOssssFFrovxgTGLLbJL0ODRfcnLl49WO68k4cnOJZLezrGA=
 install:
 - set -e
-- echo y | sdkmanager "ndk;21.1.6352462"
+- echo y | sdkmanager "ndk;21.3.6528147"
 - echo y | sdkmanager "cmake;3.6.4111459"
 - echo y | sdkmanager "cmake;3.10.2.4988404"
 before_script:
