@@ -2400,7 +2400,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                                 BuildVars.DEBUG_PRIVATE_VERSION ? "Check for app updates" : null,
                                 LocaleController.getString("DebugMenuReadAllDialogs", R.string.DebugMenuReadAllDialogs),
                                 SharedConfig.pauseMusicOnRecord ? LocaleController.getString("DebugMenuDisablePauseMusic", R.string.DebugMenuDisablePauseMusic) : LocaleController.getString("DebugMenuEnablePauseMusic", R.string.DebugMenuEnablePauseMusic),
-                                BuildVars.DEBUG_VERSION && !AndroidUtilities.isTablet() && Build.VERSION.SDK_INT >= 23 ? (SharedConfig.smoothKeyboard ? LocaleController.getString("DebugMenuDisableSmoothKeyboard", R.string.DebugMenuDisableSmoothKeyboard) : LocaleController.getString("DebugMenuEnableSmoothKeyboard", R.string.DebugMenuEnableSmoothKeyboard)) : null,
+                                !AndroidUtilities.isTablet() && Build.VERSION.SDK_INT >= 23 ? (SharedConfig.smoothKeyboard ? LocaleController.getString("DebugMenuDisableSmoothKeyboard", R.string.DebugMenuDisableSmoothKeyboard) : LocaleController.getString("DebugMenuEnableSmoothKeyboard", R.string.DebugMenuEnableSmoothKeyboard)) : null,
                                 Build.VERSION.SDK_INT >= 29 ? (SharedConfig.chatBubbles ? "Disable chat bubbles" : "Enable chat bubbles") : null
                         };
                         builder.setItems(items, (dialog, which) -> {
