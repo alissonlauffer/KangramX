@@ -1,14 +1,14 @@
 language: android
 dist: trusty
 jdk:
-- openjdk8
+  - openjdk8
 android:
   components:
-  - build-tools-28.0.3
-  - android-28
+    - build-tools-28.0.3
+    - android-28
 addons:
   apt_packages:
-  - ninja-build
+    - ninja-build
 env:
   global:
   - APP_ID=4
@@ -16,26 +16,27 @@ env:
   - secure: Rmd1t+XNa2ypqus3sKjvSFx86PbkMkoO366JXQ49pLYKHpDjnOsoZeuaalkAMACrdczyY5e3rlq8HfPoRYSCn4lf1fupEO6shJMs7ygRi00Ei1oNgtNS4qL4WFLXbjTCsZ2wNf8ArWkes63gt7s8PC3L52e17PPCwtgHJpO+cj1ESPY6D97Psr7uGN68mfbcloWnYlrl7vkHqV5XZh9EMyCAA6pvjaDz73NC0WtQg55azTvxpm9X3LA5WhO2pD5D7daRU4SLmroYGG9Aq/0Oj5wtZK26uCVyr6novfHX7tnYRtIAJrl9os+gfu0mURNY3SIB2c/4ybEb6yKd4sf0vc0vULZOHX3AutJy5WbKR3szYk9/p3DUjVU7+Z7TxnCGqI5dGhHZP5HdzmBkYCf8nXWjNrYUHbZ8lgS/MEEobdRMPRZiKUUg/SEt1811rcfFzhX2iGP823O7zMkagUazwc8gd78H/HM+84sEciSsvOebjjUsgrH8hQk4Rp0y54hGmqy441Q/iHhjv1M2Np1PcrX3eBNWuqYyQ9/fioJdshDqTj+H9hJGsRxiVZ/HT7xR7F0GviS/zVrlze6uhy+00PeT2tUDOLdcumLF9UKZ74Rl7rKEI6I0q/Fa1GrSeL9u/nEZa5RKmEQRcFzFQVTydtcUnc3n2SOiqKnQsB13JIA=
   - secure: P86ozT4is+xnAu2/mMxZuuZR8UOsWu1jB3IgG5ofbxKx4GELdGKTQYkFWiIBey0mT/UuQHAvm40nuDITNKg4uruN7AxijPhlW77CqfwnAlG6AxiEVOvjuZrn7/B3aaQi2o3rp2cdrmr0xiNAY2OAXQ8uN9iBEgo0APd0wFcue3y0plP37agNOHeLxo0JtHjZVWc/of1E+F2Q1DYtN5TXZfqNqjjueybZ+ndOMLqZZY+Om+FvB6DcXCOG9TmzJ810Yh81zhSXI/lpcflM6x4sDzgJ6Ai/pVPDw9h1NxTj6rMn8oPzVzufRkd23ajKi+6i6ANsMV1MKNi0hap19Yvo3idTAr0q8GOYnQcu/ZKllgcs2yT/aWSmgRjC/hQ0/4NELk7g+coOLZt7l4iykhiWIAg7s9mRk1did6guGhArJ/Y7MvIPDehEIGkJj/ZbNlUqzsSqSkloVN+lhoeTYs5skD8WrQ4M1/XfNshRrExiFkxiJIfsbYvOmiGSHGNFfUlfKZWPzEq7HQBmIIrkESbMhgd0S7KqGrC9fJHCfEf3L8q9fTAAk9nYrscQp39jaq2anA/vSEfXZbwcXhH/l1v+i9aZXCX+yUjGiKpV2/NeR6KWj0bX3jKF91Oa0nn9ADlFQHtaGLscZqvRDZa7T8KTw1AkWRnP96LPU3R2xSRos5Y=
   - secure: lOGhCoEj9YzPb4g6LipZOZHWZvZ5IcnadvVaqudxlTh+9PeDrZaz+A28NoaDp1AthNLr7U2CudY0ea2S4Ryo1xH3KZUUICJ6lMo/FNP6WX9v9MxDWNvCdO4CZwyJZCagCMUZ4ctGZNJ9HuD40jIRec6T0O2KLo97fzQ68AWCXTkM7IlUS50ihoCnF05NRBXrihoSKHer5YhvuvRGB6OI/CzNcOCjJtsMLwaadTDAEhcHC75BoTjo3GI/aLq4GN+aRfZXyKBmMc3454gAaXUrBMeHoIzLEAGfqpwmUuUkbyoKrxHZsjUsO3rqUTLcRUQlE7cQ2WS513thb9w7iPzxWYJCiAr0YqegcN/RSPRavZlMhdf0dN13FBxxzvPoby0Qa4JhTGqmN3IHwQQVQGtR78M9w3EM45t+OIe0TOcl0b+1plcrL6jmrct8onoHV/V5Nui6KI1G3ZoZ3cetcQKYsUIVjmZrsPxgT+OsguzzwIx7EYLRf69YWZ1eF0bKqIVpfbVxFJIqnwGwuLN+O4dpDfoclitOYaFGYsQo0TghbC2pvFKTCx1IjhTX3Am5mUccIuYAlDziRLA7+07ItThrTNcpxsy5+LvZ6a62u6HS3JhWRac0X89WRfpTzDwkOssssFFrovxgTGLLbJL0ODRfcnLl49WO68k4cnOJZLezrGA=
+
 install:
-- set -e
-- echo y | sdkmanager "ndk;21.3.6528147"
-- echo y | sdkmanager "cmake;3.6.4111459"
-- echo y | sdkmanager "cmake;3.10.2.4988404"
+  - set -e
+  - echo y | sdkmanager "ndk;21.3.6528147"
+  - echo y | sdkmanager "cmake;3.6.4111459"
+  - echo y | sdkmanager "cmake;3.10.2.4988404"
 before_script:
-- export NDK=$ANDROID_HOME/ndk/21.1.6352462
-- export NINJA_PATH=/usr/bin/ninja
-- export PATH=`echo $ANDROID_HOME/cmake/3.10.2.4988404/bin`:$PATH
-- echo -e "APP_ID = ${APP_ID}\nAPP_HASH = ${APP_HASH}" > API_KEYS
+  - export NDK=$ANDROID_HOME/ndk/21.3.6528147
+  - export NINJA_PATH=/usr/bin/ninja
+  - export PATH=`echo $ANDROID_HOME/cmake/3.10.2.4988404/bin`:$PATH
 script:
-- set -e
-- cd TMessagesProj/jni
-- "./build_ffmpeg_clang.sh"
-- "./patch_ffmpeg.sh"
-- "./patch_boringssl.sh"
-- "./build_boringssl.sh"
-- cd ../..
-- "./gradlew assembleAfatRelease"
+  # If some stage fails, exit inmediatly
+  - set -e
+  # Prebuild
+  - "cd TMessagesProj/jni"
+  - "./build_ffmpeg_clang.sh"
+  - "./patch_ffmpeg.sh"
+  - "./patch_boringssl.sh"
+  - "./build_boringssl.sh"
+  - "cd ../.."
+  # Build
+  - "./gradlew assembleAfatRelease"
 after_success:
-- "./gradlew test"
-after_script:
-- rm API_KEYS
+  - "./gradlew test"
