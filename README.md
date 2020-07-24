@@ -1,4 +1,10 @@
+<img src="https://i.imgur.com/NjfzwHf_d.png?maxwidth=640&shape=thumb&fidelity=medium" width="150" align="right"/>
+
 # Kangram X for Android
+
+[Kangram X](https://t.me/KangramX) is an unofficial Telegram client for Android that has some additions to the official Telegram app.
+
+[Telegram](https://telegram.org) is a messaging app with a focus on speed and security. It’s superfast, simple and free.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bf775b6ec8b6417cb0ae381cab14ee1c)](https://app.codacy.com/gh/Kangram-Dev/Kangram?utm_source=github.com&utm_medium=referral&utm_content=Kangram-Dev/Kangram&utm_campaign=Badge_Grade_Dashboard)
 [![Releases](https://img.shields.io/github/release/Kangram-Dev/Kangram.svg)](https://github.com/Kangram-Dev/Kangram/releases/latest)
@@ -7,10 +13,6 @@
 [![Github All Releases](https://img.shields.io/github/downloads/Kangram-Dev/Kangram/total.svg)](https://github.com/Kangram-Dev/Kangram/releases)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=Kangram-Dev/Kangram)](https://dependabot.com)
 [![Build Status](https://travis-ci.org/Kangram-Dev/Kangram.svg?branch=master)](https://travis-ci.org/Kangram-Dev/Kangram)
-
-[Kangram X](https://t.me/KangramX) is an unofficial Telegram client for Android that has some additions to the official Telegram app.
-
-[Telegram](https://telegram.org) is a messaging app with a focus on speed and security. It’s superfast, simple and free.
 
 ## API, Protocol documentation
 
@@ -42,4 +44,14 @@ MTproto protocol manuals: https://core.telegram.org/mtproto
 - Bundled libWebP is updated.
 - Added ability to copy ID of dialogs.
 - Show full number of subscribers.
+- Enable smooth keyboard switch for non-debug builds.
 - Other internal improvements.
+
+## Credits
+ 
+<ul>
+    <li>Telegram-FOSS: <a href="https://github.com/Telegram-FOSS-Team/Telegram-FOSS/blob/master/LICENSE">GPLv2</a></li>
+    <li><del>Nekogram: <a href="https://github.com/Nekogram/Nekogram/blob/master/LICENSE">GPLv2</a></del> (No longer open source)</li>
+    <li>Forkgram: <a href="https://github.com/Forkgram/TelegramAndroid/blob/master/LICENSE">GPLv2</a></li>
+    <li>Customgram: <a href="https://github.com/AmanoTeam/Customgram/blob/master/LICENSE">GPLv2</a></li>
+</ul>
