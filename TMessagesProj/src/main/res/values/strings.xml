@@ -3639,10 +3639,33 @@
     <string name="RemindTodayAt">\'Remind today at\' HH:mm</string>
     <string name="RemindDayAt">\'Remind on\' MMM d \'at\' HH:mm</string>
     <string name="RemindDayYearAt">\'Remind on\' MMM d yyyy \'at\' HH:mm</string>
-    <!--KangramX specific strings-->
+    <!--Kangram X specific strings-->
     <string name="UserRestrictionsSendStickers2">Send Stickers</string>
     <string name="EventLogRestrictedSendStickers2">Send Stickers</string>
     <string name="UserRestrictionsSendGifs">Send GIFs</string>
     <string name="EventLogRestrictedSendGifs">Send GIFs</string>
     <string name="FastForward">Fast Forward</string>
+	<string name="formatterDay24HSec">HH:mm:ss</string>
+    <string name="formatterDay12HSec">h:mm:ss a</string>
+	<!--Kangram X settings strings-->
+	<string name="KangXSettingsTitle">KangX Settings</string>
+    <string name="InAppCamera">Enable In-App Camera</string>
+    <string name="InAppCameraInfo">In Attachments</string>
+    <string name="SyncPins">Sync Pinned Dialogs</string>
+    <string name="SyncPinsInfo">Sync off allows to pin unlimited amount of dialogs</string>
+    <string name="UnmutedOnTop">Unmuted Messages are Primary</string>
+    <string name="UnmutedOnTopInfo">Unmuted Messages will be under pinned dialogs</string>
+    <string name="PhotoHasSticker">Send Sticker Info in Photo</string>
+    <string name="PhotoHasStickerInfo">When using Stickers on Photo</string>
+    <string name="PinDialogsOrder">Pin Dialogs Order</string>
+    <string name="RearVideoMessages">Rear camera in Video Messages</string>
+    <string name="ReplaceForward">Replace original Forward</string>
+    <string name="SystemCamera">Use System Camera for Photo</string>
+    <string name="SystemCameraInfo">Only in Attachment Dialog</string>
+    <string name="MentionByName">Mention User by Name</string>
+    <string name="OpenArchiveOnPull">Open Archive on Pulldown</string>
+    <string name="StickerSize">Sticker Size</string>
+    <string name="DisableFlipPhotos">Disable Flip Photos by Tapping</string>
+    <string name="FormatWithSeconds">Format Message Time with Seconds</string>
+    <string name="DisableThumbsInDialogList">Disable Thumbs in Dialog List</string>
 </resources>

@@ -111,6 +111,8 @@ public class SharedConfig {
 
     public static int distanceSystemType;
 
+    public static boolean hasSticker = false;;
+
     static {
         loadConfig();
     }
@@ -282,6 +284,8 @@ public class SharedConfig {
             lockRecordAudioVideoHint = preferences.getInt("lockRecordAudioVideoHint", 0);
             preferences = ApplicationLoader.applicationContext.getSharedPreferences("Notifications", Activity.MODE_PRIVATE);
             showNotificationsForAllAccounts = preferences.getBoolean("AllAccounts", true);
+
+            hasSticker = preferences.getBoolean("photoHasSticker", false);
 
             configLoaded = true;
         }
@@ -760,6 +764,14 @@ public class SharedConfig {
         editor.putInt("distanceSystemType", distanceSystemType);
         editor.commit();
         LocaleController.resetImperialSystemType();
+    }
+
+    public static void toggleHasSticker() {
+        hasSticker = !hasSticker;
+        SharedPreferences preferences = MessagesController.getGlobalMainSettings();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("photoHasSticker", hasSticker);
+        editor.commit();
     }
 
     public static void loadProxyList() {

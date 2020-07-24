@@ -1097,6 +1097,16 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                                 }
                                 ((DialogCell) view).startOutAnimation();
                                 parentPage.archivePullViewState = ARCHIVE_ITEM_STATE_SHOWED;
+
+                                if (MessagesController.getGlobalMainSettings().getBoolean("openArchiveOnPull", true)) {
+                                    AndroidUtilities.runOnUIThread(() -> {
+                                        // Open the folder.
+                                        // Delay was taken from PullForegroundDrawable::startOutAnimation().
+                                        Bundle args = new Bundle();
+                                        args.putInt("folderId", 1); // 1 is the ID of the archive folder.
+                                        presentFragment(new DialogsActivity(args));
+                                    }, 200);
+                                }
                             }
                         }
 
@@ -4066,10 +4076,14 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                     alreadyAdded++;
                 }
             }
+
+            SharedPreferences preferences = MessagesController.getGlobalMainSettings();
+            boolean syncPins = preferences.getBoolean("syncPins", true);
+
             int maxPinnedCount;
             if (viewPages[0].dialogsType == 7 || viewPages[0].dialogsType == 8) {
                 maxPinnedCount = 100 - filter.alwaysShow.size();
-            } else if (folderId != 0 || filter != null) {
+            } else if (folderId != 0 || filter != null || !syncPins) {
                 maxPinnedCount = getMessagesController().maxFolderPinnedDialogsCount;
             } else {
                 maxPinnedCount = getMessagesController().maxPinnedDialogsCount;

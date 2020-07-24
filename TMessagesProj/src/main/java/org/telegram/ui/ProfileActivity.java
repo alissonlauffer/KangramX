@@ -383,6 +383,10 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     private int transitionIndex;
     private TLRPC.Document preloadedSticker;
 
+    private int kangxHeaderRow;
+    private int kangxSectionCell;
+    private int kangxRow;
+
     private final Property<ProfileActivity, Float> HEADER_SHADOW = new AnimationProperties.FloatProperty<ProfileActivity>("headerShadow") {
         @Override
         public void setValue(ProfileActivity object, float value) {
@@ -2331,6 +2335,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 presentFragment(new FiltersSetupActivity());
             } else if (position == devicesRow) {
                 presentFragment(new SessionsActivity(0));
+            } else if (position == kangxRow) {
+                presentFragment(new KangXSettingsActivity());
             } else if (position == questionRow) {
                 showDialog(AlertsCreator.createSupportAlert(ProfileActivity.this));
             } else if (position == faqRow) {
@@ -4727,6 +4733,9 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 devicesRow = rowCount++;
                 languageRow = rowCount++;
                 devicesSectionRow = rowCount++;
+                kangxHeaderRow = rowCount++;
+                kangxRow = rowCount++;
+                kangxSectionCell = rowCount++;
                 helpHeaderRow = rowCount++;
                 questionRow = rowCount++;
                 faqRow = rowCount++;
@@ -5983,6 +5992,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                         }
                     } else if (position == membersHeaderRow) {
                         headerCell.setText(LocaleController.getString("ChannelMembers", R.string.ChannelMembers));
+                    } else if (position == kangxHeaderRow) {
+                        headerCell.setText("Kangram X");
                     } else if (position == settingsSectionRow2) {
                         headerCell.setText(LocaleController.getString("SETTINGS", R.string.SETTINGS));
                     } else if (position == numberSectionRow) {
@@ -6141,6 +6152,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                         textCell.setTextAndIcon(LocaleController.getString("DataSettings", R.string.DataSettings), R.drawable.menu_data, true);
                     } else if (position == chatRow) {
                         textCell.setTextAndIcon(LocaleController.getString("ChatSettings", R.string.ChatSettings), R.drawable.menu_chats, true);
+                    } else if (position == kangxRow) {
+                        textCell.setTextAndIcon(LocaleController.getString("KangXSettingsTitle", R.string.KangXSettingsTitle), R.drawable.menu_settings, true);
                     } else if (position == filtersRow) {
                         textCell.setTextAndIcon(LocaleController.getString("Filters", R.string.Filters), R.drawable.menu_folders, true);
                     } else if (position == questionRow) {
@@ -6283,7 +6296,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                         position == versionRow || position == dataRow || position == chatRow ||
                         position == questionRow || position == devicesRow || position == filtersRow ||
                         position == faqRow || position == policyRow || position == sendLogsRow ||
-                        position == clearLogsRow || position == switchBackendRow || position == setAvatarRow;
+                        position == clearLogsRow || position == switchBackendRow || position == setAvatarRow || position == kangxRow;
             }
             int type = holder.getItemViewType();
             return type != 1 && type != 5 && type != 7 && type != 9 && type != 10 && type != 11 && type != 12 && type != 13;
@@ -6296,6 +6309,13 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
 
         @Override
         public int getItemViewType(int position) {
+            if (position == kangxSectionCell) {
+                return 1;
+            } else if (position == kangxHeaderRow) {
+                return 4;
+            } else if (position == kangxRow) {
+                return 2;
+            }
             if (position == infoHeaderRow || position == membersHeaderRow || position == settingsSectionRow2 ||
                     position == numberSectionRow || position == helpHeaderRow || position == debugHeaderRow) {
                 return 1;
