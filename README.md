@@ -6,7 +6,7 @@
 
 [Telegram](https://telegram.org) is a messaging app with a focus on speed and security. It’s superfast, simple and free.
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bf775b6ec8b6417cb0ae381cab14ee1c)](https://app.codacy.com/gh/HitaloSama/KangramX?utm_source=github.com&utm_medium=referral&utm_content=HitaloSama/KangramX&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d29c9dfb65a14e0faa2c925b9e1021e7)](https://www.codacy.com/manual/HitaloSama/KangramX?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HitaloSama/KangramX&amp;utm_campaign=Badge_Grade)
 [![Releases](https://img.shields.io/github/release/HitaloSama/KangramX.svg)](https://github.com/HitaloSama/KangramX/releases/latest)
 [![Channel](https://img.shields.io/badge/Channel-Telegram-blue.svg)](https://t.me/KangramX)
 ![Build](https://github.com/Project-WKF/Kangram-Builds/workflows/Telegram%20CI/badge.svg)
