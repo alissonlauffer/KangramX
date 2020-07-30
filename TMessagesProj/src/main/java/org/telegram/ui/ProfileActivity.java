@@ -6321,7 +6321,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                         position == versionRow || position == dataRow || position == chatRow ||
                         position == questionRow || position == devicesRow || position == filtersRow ||
                         position == faqRow || position == policyRow || position == sendLogsRow ||
-                        position == clearLogsRow || position == switchBackendRow || position == setAvatarRow || position == kangxRow;
+                        position == kangxRow ||
+                        position == clearLogsRow || position == switchBackendRow || position == setAvatarRow;
             }
             int type = holder.getItemViewType();
             return type != 1 && type != 5 && type != 7 && type != 9 && type != 10 && type != 11 && type != 12 && type != 13;
@@ -6335,11 +6336,11 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         @Override
         public int getItemViewType(int position) {
             if (position == kangxSectionCell) {
-                return 1;
+                return 7;
             } else if (position == kangxHeaderRow) {
-                return 4;
+                return 1;
             } else if (position == kangxRow) {
-                return 2;
+                return 4;
             }
             if (position == infoHeaderRow || position == membersHeaderRow || position == settingsSectionRow2 ||
                     position == numberSectionRow || position == helpHeaderRow || position == debugHeaderRow) {
