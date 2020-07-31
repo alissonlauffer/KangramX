@@ -12,7 +12,6 @@
 ![Build](https://github.com/Project-WKF/Kangram-Builds/workflows/Telegram%20CI/badge.svg)
 [![Github All Releases](https://img.shields.io/github/downloads/HitaloSama/KangramX/total.svg)](https://github.com/Kangram-Dev/Kangram/releases)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=HitaloSama/KangramX)](https://dependabot.com)
-[![Build Status](https://travis-ci.org/Kangram-Dev/Kangram.svg?branch=master)](https://travis-ci.org/Kangram-Dev/Kangram)
 
 ## API, Protocol documentation
 
@@ -45,6 +44,9 @@ MTproto protocol manuals: https://core.telegram.org/mtproto
 - Added ability to copy ID of dialogs.
 - Show full number of subscribers.
 - Enable smooth keyboard switch for non-debug builds.
+- Quick share button for every media in private chats.
+- Original message date for forwarded messages.
+- Tap on sticker with pre-written text will send both.
 - Other internal improvements.
 
 ## Credits
