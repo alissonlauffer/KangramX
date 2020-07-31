@@ -23842,6 +23842,10 @@ public class TLRPC {
 		public String url;
 		public String language;
 
+		public int getOffset() {
+		    return offset;
+        }
+
 		public static MessageEntity TLdeserialize(AbstractSerializedData stream, int constructor, boolean exception) {
 			MessageEntity result = null;
 			switch (constructor) {
@@ -24934,6 +24938,10 @@ public class TLRPC {
 
 		public int user_id;
 		public boolean mutual;
+
+		public int getUserId() {
+		    return user_id;
+        }
 
 		public static TL_contact TLdeserialize(AbstractSerializedData stream, int constructor, boolean exception) {
 			if (TL_contact.constructor != constructor) {
@@ -32858,6 +32866,10 @@ public class TLRPC {
 		public int chat_id;
 		public int seq_start;
 
+        public int getPts() {
+            return pts;
+        }
+
 		public static Updates TLdeserialize(AbstractSerializedData stream, int constructor, boolean exception) {
 			Updates result = null;
 			switch (constructor) {
@@ -34718,6 +34730,10 @@ public class TLRPC {
 
 		public Peer peer;
 		public double rating;
+
+		public double getRating() {
+		    return rating;
+        }
 
 		public static TL_topPeer TLdeserialize(AbstractSerializedData stream, int constructor, boolean exception) {
 			if (TL_topPeer.constructor != constructor) {
@@ -42077,6 +42093,9 @@ public class TLRPC {
         public int realId; //custom
         public int stickerVerified = 1; //custom
 
+        public int getSeqOut() {
+            return seq_out;
+        }
 
         public static Message TLdeserialize(AbstractSerializedData stream, int constructor, boolean exception) {
             Message result = null;
