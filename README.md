@@ -11,7 +11,7 @@
 [![Channel](https://img.shields.io/badge/Channel-Telegram-blue.svg)](https://t.me/KangramX)
 ![Build](https://github.com/Project-WKF/Kangram-Builds/workflows/Telegram%20CI/badge.svg)
 [![Github All Releases](https://img.shields.io/github/downloads/HitaloSama/KangramX/total.svg)](https://github.com/Kangram-Dev/Kangram/releases)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=HitaloSama/KangramX)](https://dependabot.com)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=KangX-Dev/KangramX)](https://dependabot.com)
 
 ## API, Protocol documentation
 
