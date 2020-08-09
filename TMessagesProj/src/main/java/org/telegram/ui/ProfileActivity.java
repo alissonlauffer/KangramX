@@ -4665,6 +4665,9 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         filtersRow = -1;
         devicesRow = -1;
         devicesSectionRow = -1;
+        kangxHeaderRow = -1;
+        kangxRow = -1;
+        kangxSectionCell = -1;
         helpHeaderRow = -1;
         questionRow = -1;
         faqRow = -1;
