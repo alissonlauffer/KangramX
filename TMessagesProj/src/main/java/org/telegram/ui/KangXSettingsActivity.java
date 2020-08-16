@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.os.Build;
 import android.text.TextPaint;
 import android.view.Gravity;
 import android.view.View;
@@ -131,8 +132,8 @@ public class KangXSettingsActivity extends BaseFragment {
     private ListAdapter listAdapter;
 
     private ArrayList<Integer> sectionRows = new ArrayList<Integer>();
-    private String[] sectionStrings = {"General", "ChatList", "FilterChats", "ChatCamera", "StickerSize"};
-    private int[] sectionInts = {0, R.string.ChatList, R.string.FilterChats, 0, R.string.StickerSize};
+    private String[] sectionStrings = {"General", "ChatList", "FilterChats", "ChatCamera", "StickerSize", "ExperimentalSettings"};
+    private int[] sectionInts = {0, R.string.ChatList, R.string.FilterChats, 0, R.string.StickerSize, R.string.ExperimentalSettings};
 
     private int rowCount;
 
@@ -140,6 +141,8 @@ public class KangXSettingsActivity extends BaseFragment {
     private int systemCameraRow;
     private int photoHasStickerRow;
     private int pauseMusicRecording;
+    private int smoothKeyboard;
+    private int chatBubbles;
     private int unmutedOnTopRow;
     private int rearVideoMessages;
     private int replaceForward;
@@ -210,6 +213,11 @@ public class KangXSettingsActivity extends BaseFragment {
         emptyRows.add(rowCount++);
         sectionRows.add(rowCount++);
         stickerSizeRow = rowCount++;
+
+        emptyRows.add(rowCount++);
+        sectionRows.add(rowCount++);
+        smoothKeyboard = rowCount++;
+        chatBubbles = rowCount++;
 
         return true;
     }
@@ -290,9 +298,19 @@ public class KangXSettingsActivity extends BaseFragment {
                     ((TextCheckCell) view).setChecked(SharedConfig.hasSticker);
                 }
             } else if (position == pauseMusicRecording) {
-                SharedConfig.togglePauseMusicOnRecord()
+                SharedConfig.togglePauseMusicOnRecord();
                 if (view instanceof TextCheckCell) {
                     ((TextCheckCell) view).setChecked(SharedConfig.pauseMusicOnRecord);
+                }
+            } else if (position == smoothKeyboard) {
+                SharedConfig.toggleSmoothKeyboard();
+                if (view instanceof TextCheckCell) {
+                    ((TextCheckCell) view).setChecked(SharedConfig.smoothKeyboard);
+                }
+            } else if (position == chatBubbles) {
+                SharedConfig.toggleChatBubbles();
+                if (view instanceof TextCheckCell) {
+                    ((TextCheckCell) view).setChecked(SharedConfig.chatBubbles);
                 }
             } else if (position == unmutedOnTopRow) {
                 toggleGlobalMainSetting("unmutedOnTop", view, false);
@@ -364,6 +382,12 @@ public class KangXSettingsActivity extends BaseFragment {
                     } else if (position == pauseMusicRecording) {
                         String t = LocaleController.getString("DebugMenuEnablePauseMusic", R.string.DebugMenuEnablePauseMusic);
                         textCell.setTextAndCheck(t, preferences.getBoolean("pauseMusicOnRecord", true), false);
+                    } else if (position == smoothKeyboard) {
+                        String t = LocaleController.getString("DebugMenuEnableSmoothKeyboard", R.string.DebugMenuEnableSmoothKeyboard);
+                        textCell.setTextAndCheck(t, preferences.getBoolean("smoothKeyboard", false), false);
+                    } else if (position == chatBubbles) {
+                        String t = "Enable chat bubbles";
+                        textCell.setTextAndCheck(t, preferences.getBoolean("chatBubbles", Build.VERSION.SDK_INT >= 30), false);
                     } else if (position == unmutedOnTopRow) {
                         String t = LocaleController.getString("UnmutedOnTop", R.string.UnmutedOnTop);
                         String info = LocaleController.getString("UnmutedOnTopInfo", R.string.UnmutedOnTopInfo);
@@ -419,7 +443,9 @@ public class KangXSettingsActivity extends BaseFragment {
                         || position == disableThumbsInDialogList
                         || position == syncPinsRow
                         || position == photoHasStickerRow
-                        || position == pauseMusicRecording;
+                        || position == pauseMusicRecording
+                        || position == smoothKeyboard
+                        || position == chatBubbles;
             return kangx;
         }
 
@@ -470,7 +496,9 @@ public class KangXSettingsActivity extends BaseFragment {
                 || position == formatWithSeconds
                 || position == disableThumbsInDialogList
                 || position == photoHasStickerRow
-                || position == pauseMusicRecording) {
+                || position == pauseMusicRecording
+                || position == smoothKeyboard
+                || position == chatBubbles) {
                 return 3;
             } else if (sectionRows.contains(position)) {
                 return 4;

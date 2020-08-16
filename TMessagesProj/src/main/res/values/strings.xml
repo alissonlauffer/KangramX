@@ -3685,7 +3685,7 @@
 	<string name="formatterDay24HSec">HH:mm:ss</string>
     <string name="formatterDay12HSec">h:mm:ss a</string>
 	<!--Kangram X settings strings-->
-	<string name="KangXSettingsTitle">KangX Settings</string>
+    <string name="KangXSettingsTitle">KangX Settings</string>
     <string name="InAppCamera">Enable In-App Camera</string>
     <string name="InAppCameraInfo">In Attachments</string>
     <string name="SyncPins">Sync Pinned Dialogs</string>
@@ -3705,4 +3705,5 @@
     <string name="DisableFlipPhotos">Disable Flip Photos by Tapping</string>
     <string name="FormatWithSeconds">Format Message Time with Seconds</string>
     <string name="DisableThumbsInDialogList">Disable Thumbs in Dialog List</string>
+    <string name="ExperimentalSettings">Experimental</string>
 </resources>
