@@ -290,7 +290,10 @@ public class KangXSettingsActivity extends BaseFragment {
                     ((TextCheckCell) view).setChecked(SharedConfig.hasSticker);
                 }
             } else if (position == pauseMusicRecording) {
-                toggleGlobalMainSetting("pauseMusicOnRecord", view, true);
+                SharedConfig.togglePauseMusicOnRecord()
+                if (view instanceof TextCheckCell) {
+                    ((TextCheckCell) view).setChecked(SharedConfig.pauseMusicOnRecord);
+                }
             } else if (position == unmutedOnTopRow) {
                 toggleGlobalMainSetting("unmutedOnTop", view, false);
                 MessagesController.getInstance(currentAccount).sortDialogs(null);
