@@ -139,6 +139,7 @@ public class KangXSettingsActivity extends BaseFragment {
     private int inappCameraRow;
     private int systemCameraRow;
     private int photoHasStickerRow;
+    private int pauseMusicRecording;
     private int unmutedOnTopRow;
     private int rearVideoMessages;
     private int replaceForward;
@@ -185,6 +186,7 @@ public class KangXSettingsActivity extends BaseFragment {
         
         sectionRows.add(rowCount++);
         photoHasStickerRow = rowCount++;
+        pauseMusicRecording = rowCount++;
     
         emptyRows.add(rowCount++);
         sectionRows.add(rowCount++);
@@ -287,6 +289,8 @@ public class KangXSettingsActivity extends BaseFragment {
                 if (view instanceof TextCheckCell) {
                     ((TextCheckCell) view).setChecked(SharedConfig.hasSticker);
                 }
+            } else if (position == pauseMusicRecording) {
+                toggleGlobalMainSetting("pauseMusicOnRecord", view, true);
             } else if (position == unmutedOnTopRow) {
                 toggleGlobalMainSetting("unmutedOnTop", view, false);
                 MessagesController.getInstance(currentAccount).sortDialogs(null);
@@ -354,6 +358,9 @@ public class KangXSettingsActivity extends BaseFragment {
                         String t = LocaleController.getString("PhotoHasSticker", R.string.PhotoHasSticker);
                         String info = LocaleController.getString("PhotoHasStickerInfo", R.string.PhotoHasStickerInfo);
                         textCell.setTextAndValueAndCheck(t, info, preferences.getBoolean("photoHasSticker", false), true, false);
+                    } else if (position == pauseMusicRecording) {
+                        String t = LocaleController.getString("DebugMenuEnablePauseMusic", R.string.DebugMenuEnablePauseMusic);
+                        textCell.setTextAndCheck(t, preferences.getBoolean("pauseMusicOnRecord", true), false);
                     } else if (position == unmutedOnTopRow) {
                         String t = LocaleController.getString("UnmutedOnTop", R.string.UnmutedOnTop);
                         String info = LocaleController.getString("UnmutedOnTopInfo", R.string.UnmutedOnTopInfo);
@@ -408,7 +415,8 @@ public class KangXSettingsActivity extends BaseFragment {
                         || position == formatWithSeconds
                         || position == disableThumbsInDialogList
                         || position == syncPinsRow
-                        || position == photoHasStickerRow;
+                        || position == photoHasStickerRow
+                        || position == pauseMusicRecording;
             return kangx;
         }
 
@@ -458,7 +466,8 @@ public class KangXSettingsActivity extends BaseFragment {
                 || position == disableFlipPhotos
                 || position == formatWithSeconds
                 || position == disableThumbsInDialogList
-                || position == photoHasStickerRow) {
+                || position == photoHasStickerRow
+                || position == pauseMusicRecording) {
                 return 3;
             } else if (sectionRows.contains(position)) {
                 return 4;
