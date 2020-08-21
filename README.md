@@ -47,6 +47,8 @@ MTproto protocol manuals: https://core.telegram.org/mtproto
 - Quick share button for every media in private chats.
 - Original message date for forwarded messages.
 - Tap on sticker with pre-written text will send both.
+- Added option for pausing music when recording on KangX settings.
+- Added smooth keyboard and chat bubbles options on KangX settings.
 - Other internal improvements.
 
 ## Credits
