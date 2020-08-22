@@ -43,7 +43,7 @@ dependencies {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion '30.0.1'
+    buildToolsVersion '30.0.2'
     ndkVersion "21.3.6528147"
 
     defaultConfig.applicationId = "org.kangx.messenger"
@@ -227,7 +227,7 @@ android {
         }
     }
 
-    defaultConfig.versionCode = 2064
+    defaultConfig.versionCode = 2065
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
@@ -262,7 +262,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionName "T7.0.0-K4.1"
+        versionName "T7.0.1-K4.1"
 
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
         // obtain your own keys at https://core.telegram.org/api/obtaining_api_id
