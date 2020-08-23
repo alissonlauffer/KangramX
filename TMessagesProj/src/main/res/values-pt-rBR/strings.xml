@@ -3684,4 +3684,24 @@
     <string name="formatterDay12HSec">h:mm:ss a</string>
 	<!--Kangram X settings strings-->
     <string name="KangXSettingsTitle">Configurações do KangX</string>
+    <string name="InAppCamera">Ativar câmera no app</string>
+    <string name="InAppCameraInfo">Em anexar</string>
+    <string name="SyncPins">Sincronizar conversas fixadas</string>
+    <string name="SyncPinsInfo">Desativar a sincronização permite fixar conversas ilimitadas</string>
+    <string name="UnmutedOnTop">Mensagens não silenciada serão as primeiras</string>
+    <string name="UnmutedOnTopInfo">Mensagens não silenciadas ficarão em baixo das conversas fixadas</string>
+    <string name="PhotoHasSticker">Enviar info de stickers em fotos</string>
+    <string name="PhotoHasStickerInfo">Quando usar stickers em fotos</string>
+    <string name="PinDialogsOrder">Ordem de conversas fixadas</string>
+    <string name="RearVideoMessages">Câmera traseira em mensagens de vídeos</string>
+    <string name="ReplaceForward">Substituir o encaminhar</string>
+    <string name="SystemCamera">Usar câmera do sistema para fotos</string>
+    <string name="SystemCameraInfo">Apenas no menu de anexos</string>
+    <string name="MentionByName">Mencionar usuários pelo nome</string>
+    <string name="OpenArchiveOnPull">Abrir conversas arquivadas ao puxar para baixo</string>
+    <string name="StickerSize">Tamanho dos stickers</string>
+    <string name="DisableFlipPhotos">Desativar pular fotos com toque</string>
+    <string name="FormatWithSeconds">Mostrar segundos nas mensagens</string>
+    <string name="DisableThumbsInDialogList">Desativar miniaturas na lista de conversas</string></string>
+    <string name="ExperimentalSettings">Experimental</string>
 </resources>
