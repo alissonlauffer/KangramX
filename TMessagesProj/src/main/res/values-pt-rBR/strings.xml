@@ -3702,6 +3702,6 @@
     <string name="StickerSize">Tamanho dos stickers</string>
     <string name="DisableFlipPhotos">Desativar pular fotos com toque</string>
     <string name="FormatWithSeconds">Mostrar segundos nas mensagens</string>
-    <string name="DisableThumbsInDialogList">Desativar miniaturas na lista de conversas</string></string>
+    <string name="DisableThumbsInDialogList">Desativar miniaturas na lista de conversas</string>
     <string name="ExperimentalSettings">Experimental</string>
 </resources>
