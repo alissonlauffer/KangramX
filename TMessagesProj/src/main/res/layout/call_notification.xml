@@ -28,8 +28,7 @@
 		android:src="@drawable/call_custom_notification_icon"/>
 
 	<LinearLayout
-		android:id="@+id/text_wrap"
-		android:layout_width="match_parent"
+        android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@+id/photo"
 		android:layout_alignTop="@+id/photo"
@@ -78,8 +77,7 @@
 	</LinearLayout>
 
 	<LinearLayout
-		android:id="@+id/buttons"
-		android:layout_width="match_parent"
+        android:layout_width="match_parent"
 		android:layout_height="48.3dip"
 		android:paddingTop=".3dip"
 		android:layout_alignParentBottom="true"
