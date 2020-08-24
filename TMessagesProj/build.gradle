@@ -260,7 +260,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
         versionName "T7.0.1-K4.1"
 
