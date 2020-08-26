@@ -144,7 +144,6 @@ public class DrawerLayoutContainer extends FrameLayout {
 
     private int getTopInset(Object insets) {
         return insets != null ? ((WindowInsets) insets).getSystemWindowInsetTop() : 0;
-        return 0;
     }
 
     public void setDrawerLayout(ViewGroup layout) {
