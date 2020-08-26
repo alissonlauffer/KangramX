@@ -148,14 +148,14 @@ public class DialogsEmptyCell extends LinearLayout {
         if (getParent() instanceof View) {
             View view = (View) getParent();
             totalHeight = view.getMeasuredHeight();
-            if (view.getPaddingTop() != 0 && Build.VERSION.SDK_INT >= 21) {
+            if (view.getPaddingTop() != 0) {
                 totalHeight -= AndroidUtilities.statusBarHeight;
             }
         } else {
             totalHeight = MeasureSpec.getSize(heightMeasureSpec);
         }
         if (totalHeight == 0) {
-            totalHeight = AndroidUtilities.displaySize.y - ActionBar.getCurrentActionBarHeight() - (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0);
+            totalHeight = AndroidUtilities.displaySize.y - ActionBar.getCurrentActionBarHeight() - AndroidUtilities.statusBarHeight;
         }
         if (currentType == 0 || currentType == 2 || currentType == 3) {
             ArrayList<TLRPC.RecentMeUrl> arrayList = MessagesController.getInstance(currentAccount).hintDialogs;

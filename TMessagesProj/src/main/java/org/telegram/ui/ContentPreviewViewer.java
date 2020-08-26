@@ -585,13 +585,11 @@ public class ContentPreviewViewer {
         windowView = new FrameLayout(activity);
         windowView.setFocusable(true);
         windowView.setFocusableInTouchMode(true);
-        if (Build.VERSION.SDK_INT >= 21) {
-            windowView.setFitsSystemWindows(true);
-            windowView.setOnApplyWindowInsetsListener((v, insets) -> {
-                lastInsets = insets;
-                return insets;
-            });
-        }
+        windowView.setFitsSystemWindows(true);
+        windowView.setOnApplyWindowInsetsListener((v, insets) -> {
+            lastInsets = insets;
+            return insets;
+        });
 
         containerView = new FrameLayoutDrawer(activity);
         containerView.setFocusable(false);
@@ -609,11 +607,7 @@ public class ContentPreviewViewer {
         windowLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
         windowLayoutParams.gravity = Gravity.TOP;
         windowLayoutParams.type = WindowManager.LayoutParams.LAST_APPLICATION_WINDOW;
-        if (Build.VERSION.SDK_INT >= 21) {
-            windowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
-        } else {
-            windowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-        }
+        windowLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS | WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
         centerImage.setAspectFit(true);
         centerImage.setInvalidateAll(true);
         centerImage.setParentView(containerView);
@@ -803,7 +797,7 @@ public class ContentPreviewViewer {
         int size;
         int insets = 0;
         int top;
-        if (Build.VERSION.SDK_INT >= 21 && lastInsets != null) {
+        if (lastInsets != null) {
             insets = lastInsets.getStableInsetBottom() + lastInsets.getStableInsetTop();
             top = lastInsets.getStableInsetTop();
         } else {

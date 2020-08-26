@@ -184,7 +184,7 @@ public abstract class BaseLocationAdapter extends RecyclerListView.SelectionAdap
             }
             notifyDataSetChanged();
         }));
-        if (animated && Build.VERSION.SDK_INT >= 19) {
+        if (animated) {
             if (places.isEmpty() || wasSearching) {
                 if (!wasSearching) {
                     notifyItemChanged(getItemCount() - 1);

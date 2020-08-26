@@ -40,9 +40,6 @@ public class AdjustPanLayoutHelper {
             parentView.getLocationInWindow(loc);
             if (loc[1] <= 0) {
                 loc[1] -= parentView.getTranslationY();
-                if (Build.VERSION.SDK_INT < 21) {
-                    loc[1] -= AndroidUtilities.statusBarHeight;
-                }
             } else {
                 loc[1] = 0;
             }

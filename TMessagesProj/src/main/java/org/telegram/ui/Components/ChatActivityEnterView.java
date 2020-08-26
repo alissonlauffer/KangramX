@@ -1920,9 +1920,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             };
             emojiButton[a].setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_messagePanelIcons), PorterDuff.Mode.MULTIPLY));
             emojiButton[a].setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            if (Build.VERSION.SDK_INT >= 21) {
-                emojiButton[a].setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-            }
+            emojiButton[a].setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
             frameLayout.addView(emojiButton[a], LayoutHelper.createFrame(48, 48, Gravity.BOTTOM | Gravity.LEFT, 3, 0, 0, 0));
             emojiButton[a].setOnClickListener(view -> {
                 if (!isPopupShowing() || currentPopupContentType != 0) {
@@ -2209,9 +2207,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
                 scheduledButton.setVisibility(GONE);
                 scheduledButton.setContentDescription(LocaleController.getString("ScheduledMessages", R.string.ScheduledMessages));
                 scheduledButton.setScaleType(ImageView.ScaleType.CENTER);
-                if (Build.VERSION.SDK_INT >= 21) {
-                    scheduledButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-                }
+                scheduledButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
                 frameLayout.addView(scheduledButton, LayoutHelper.createFrame(48, 48, Gravity.BOTTOM | Gravity.RIGHT));
                 scheduledButton.setOnClickListener(v -> {
                     if (delegate != null) {
@@ -2231,9 +2227,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             botButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_messagePanelIcons), PorterDuff.Mode.MULTIPLY));
             botButton.setImageResource(R.drawable.input_bot2);
             botButton.setScaleType(ImageView.ScaleType.CENTER);
-            if (Build.VERSION.SDK_INT >= 21) {
-                botButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-            }
+            botButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
             botButton.setVisibility(GONE);
             attachLayout.addView(botButton, LayoutHelper.createLinear(48, 48));
             botButton.setOnClickListener(v -> {
@@ -2269,9 +2263,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             notifyButton.setContentDescription(silent ? LocaleController.getString("AccDescrChanSilentOn", R.string.AccDescrChanSilentOn) : LocaleController.getString("AccDescrChanSilentOff", R.string.AccDescrChanSilentOff));
             notifyButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_messagePanelIcons), PorterDuff.Mode.MULTIPLY));
             notifyButton.setScaleType(ImageView.ScaleType.CENTER);
-            if (Build.VERSION.SDK_INT >= 21) {
-                notifyButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-            }
+            notifyButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
             notifyButton.setVisibility(canWriteToChannel && (delegate == null || !delegate.hasScheduledMessages()) ? VISIBLE : GONE);
             attachLayout.addView(notifyButton, LayoutHelper.createLinear(48, 48));
             notifyButton.setOnClickListener(new OnClickListener() {
@@ -2307,9 +2299,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             attachButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_messagePanelIcons), PorterDuff.Mode.MULTIPLY));
             attachButton.setImageResource(R.drawable.input_attach);
             attachButton.setScaleType(ImageView.ScaleType.CENTER);
-            if (Build.VERSION.SDK_INT >= 21) {
-                attachButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-            }
+            attachButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
             attachLayout.addView(attachButton, LayoutHelper.createLinear(48, 48));
             attachButton.setOnClickListener(v -> delegate.didPressAttachButton());
             attachButton.setContentDescription(LocaleController.getString("AccDescrAttachButton", R.string.AccDescrAttachButton));
@@ -2329,9 +2319,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         updateRecordedDeleteIconColors();
 
         recordDeleteImageView.setContentDescription(LocaleController.getString("Delete", R.string.Delete));
-        if (Build.VERSION.SDK_INT >= 21) {
-            recordDeleteImageView.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-        }
+        recordDeleteImageView.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
         recordedAudioPanel.addView(recordDeleteImageView, LayoutHelper.createFrame(48, 48));
         recordDeleteImageView.setOnClickListener(v -> {
             if (runningAnimationAudio != null && runningAnimationAudio.isRunning()) {
@@ -2637,9 +2625,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         cancelBotButton.setScaleX(0.1f);
         cancelBotButton.setScaleY(0.1f);
         cancelBotButton.setAlpha(0.0f);
-        if (Build.VERSION.SDK_INT >= 21) {
-            cancelBotButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-        }
+        cancelBotButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
         sendButtonContainer.addView(cancelBotButton, LayoutHelper.createFrame(48, 48));
         cancelBotButton.setOnClickListener(view -> {
             String text = messageEditText.getText().toString();
@@ -2774,9 +2760,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         sendButton.setScaleX(0.1f);
         sendButton.setScaleY(0.1f);
         sendButton.setAlpha(0.0f);
-        if (Build.VERSION.SDK_INT >= 21) {
-            sendButton.setBackgroundDrawable(Theme.createSelectorDrawable(Color.argb(24, Color.red(color), Color.green(color), Color.blue(color)), 1));
-        }
+        sendButton.setBackgroundDrawable(Theme.createSelectorDrawable(Color.argb(24, Color.red(color), Color.green(color), Color.blue(color)), 1));
         sendButtonContainer.addView(sendButton, LayoutHelper.createFrame(48, 48));
         sendButton.setOnClickListener(view -> {
             if (sendPopupWindow != null && sendPopupWindow.isShowing() || (runningAnimationAudio != null && runningAnimationAudio.isRunning())) {
@@ -2824,9 +2808,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         expandStickersButton.setScaleX(0.1f);
         expandStickersButton.setScaleY(0.1f);
         expandStickersButton.setAlpha(0.0f);
-        if (Build.VERSION.SDK_INT >= 21) {
-            expandStickersButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-        }
+        expandStickersButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
         sendButtonContainer.addView(expandStickersButton, LayoutHelper.createFrame(48, 48));
         expandStickersButton.setOnClickListener(v -> {
             if (expandStickersButton.getVisibility() != VISIBLE || expandStickersButton.getAlpha() != 1.0f) {
@@ -3611,8 +3593,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         if (hasRecordVideo) {
             return;
         }
-        if (attachLayout == null || Build.VERSION.SDK_INT < 18) {
-            hasRecordVideo = false;
+        if (attachLayout == null) {
             setRecordVideoButtonVisible(false, false);
             return;
         }
@@ -6262,7 +6243,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
                 wasExpanded = stickersExpanded;
                 stickersExpanded = true;
                 NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.stopAllHeavyOperations, 1);
-                stickersExpandedHeight = sizeNotifierLayout.getHeight() - (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? AndroidUtilities.statusBarHeight : 0) - ActionBar.getCurrentActionBarHeight() - getHeight() + Theme.chat_composeShadowDrawable.getIntrinsicHeight();
+                stickersExpandedHeight = sizeNotifierLayout.getHeight() - AndroidUtilities.statusBarHeight - ActionBar.getCurrentActionBarHeight() - getHeight() + Theme.chat_composeShadowDrawable.getIntrinsicHeight();
                 if (searchingType == 2) {
                     stickersExpandedHeight = Math.min(stickersExpandedHeight, AndroidUtilities.dp(120) + (AndroidUtilities.displaySize.x > AndroidUtilities.displaySize.y ? keyboardHeightLand : keyboardHeight));
                 }
@@ -7013,7 +6994,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
 
     private void checkStickresExpandHeight() {
         final int origHeight = AndroidUtilities.displaySize.x > AndroidUtilities.displaySize.y ? keyboardHeightLand : keyboardHeight;
-        int newHeight = originalViewHeight - (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? AndroidUtilities.statusBarHeight : 0) - ActionBar.getCurrentActionBarHeight() - getHeight() + Theme.chat_composeShadowDrawable.getIntrinsicHeight();
+        int newHeight = originalViewHeight - AndroidUtilities.statusBarHeight - ActionBar.getCurrentActionBarHeight() - getHeight() + Theme.chat_composeShadowDrawable.getIntrinsicHeight();
         if (searchingType == 2) {
             newHeight = Math.min(newHeight, AndroidUtilities.dp(120) + origHeight);
         }
@@ -7092,7 +7073,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
         if (stickersExpanded) {
             NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.stopAllHeavyOperations, 1);
             originalViewHeight = sizeNotifierLayout.getHeight();
-            stickersExpandedHeight = originalViewHeight - (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? AndroidUtilities.statusBarHeight : 0) - ActionBar.getCurrentActionBarHeight() - getHeight() + Theme.chat_composeShadowDrawable.getIntrinsicHeight();
+            stickersExpandedHeight = originalViewHeight - AndroidUtilities.statusBarHeight - ActionBar.getCurrentActionBarHeight() - getHeight() + Theme.chat_composeShadowDrawable.getIntrinsicHeight();
             if (searchingType == 2) {
                 stickersExpandedHeight = Math.min(stickersExpandedHeight, AndroidUtilities.dp(120) + origHeight);
             }
@@ -7280,9 +7261,7 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 pressed = cancelRect.contains(x, y);
                 if (pressed) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        selectableBackground.setHotspot(x, y);
-                    }
+                    selectableBackground.setHotspot(x, y);
                     setPressed(true);
                 }
                 return pressed;

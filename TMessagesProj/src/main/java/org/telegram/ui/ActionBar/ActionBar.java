@@ -57,7 +57,7 @@ public class ActionBar extends FrameLayout {
     private ActionBarMenu menu;
     private ActionBarMenu actionMode;
     private boolean ignoreLayoutRequest;
-    private boolean occupyStatusBar = Build.VERSION.SDK_INT >= 21;
+    private boolean occupyStatusBar = true;
     private boolean actionModeVisible;
     private boolean addToContainer = true;
     private boolean clipContent;

@@ -172,7 +172,7 @@ public class TrendingStickersAlert extends BottomSheet {
 
         @Override
         protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-            final int statusBarHeight = Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0;
+            final int statusBarHeight = AndroidUtilities.statusBarHeight;
             final int height = MeasureSpec.getSize(heightMeasureSpec) - statusBarHeight;
             final int padding = (int) (height * 0.2f);
             final int keyboardHeight = measureKeyboardHeight();
@@ -213,7 +213,7 @@ public class TrendingStickersAlert extends BottomSheet {
 
             final float fraction = getFraction();
             final int offset = (int) (topOffset * (1f - fraction));
-            final int translationY = (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0) - topOffset;
+            final int translationY = AndroidUtilities.statusBarHeight - topOffset;
 
             canvas.save();
             canvas.translate(0, layout.getTranslationY() + translationY);
@@ -242,7 +242,7 @@ public class TrendingStickersAlert extends BottomSheet {
             final float fraction = getFraction();
 
             canvas.save();
-            canvas.translate(0, layout.getTranslationY() + (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0) - topOffset);
+            canvas.translate(0, layout.getTranslationY() + AndroidUtilities.statusBarHeight - topOffset);
 
             // top icon
             final int w = AndroidUtilities.dp(36);
@@ -257,7 +257,7 @@ public class TrendingStickersAlert extends BottomSheet {
             canvas.restore();
 
             // status bar
-            setStatusBarVisible(fraction == 0f && Build.VERSION.SDK_INT >= 21 && !isDismissed(), !gluedToTop);
+            setStatusBarVisible(fraction == 0f && !isDismissed(), !gluedToTop);
             if (statusBarAlpha > 0f) {
                 final int color = Theme.getColor(Theme.key_dialogBackground);
                 paint.setColor(Color.argb((int) (0xff * statusBarAlpha), (int) (Color.red(color) * 0.8f), (int) (Color.green(color) * 0.8f), (int) (Color.blue(color) * 0.8f)));

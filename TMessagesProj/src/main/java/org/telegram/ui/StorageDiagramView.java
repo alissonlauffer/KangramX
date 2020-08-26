@@ -115,12 +115,7 @@ public class StorageDiagramView extends View {
                 if (Math.abs(len) <= 1f) {
                     float x = rectF.centerX() + (float) (r * Math.cos(Math.toRadians(-90 - 360 * startFrom)));
                     float y = rectF.centerY() + (float) (r * Math.sin(Math.toRadians(-90 - 360 * startFrom)));
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        canvas.drawPoint(x,y,data[i].paint);
-                    } else {
-                        data[i].paint.setStyle(Paint.Style.FILL);
-                        canvas.drawCircle(x, y, data[i].paint.getStrokeWidth() / 2, data[i].paint);
-                    }
+                    canvas.drawPoint(x,y,data[i].paint);
                 } else {
                     data[i].paint.setStyle(Paint.Style.STROKE);
                     canvas.drawArc(rectF, -90 - 360 * startFrom, a, false, data[i].paint);
@@ -147,12 +142,7 @@ public class StorageDiagramView extends View {
                 if (Math.abs(len) <= 1f) {
                     float x = rectF.centerX() + (float) (r * Math.cos(Math.toRadians(-90 - 360 * startFrom)));
                     float y = rectF.centerY() + (float) (r * Math.sin(Math.toRadians(-90 - 360 * startFrom)));
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        canvas.drawPoint(x,y,data[i].paint);
-                    } else {
-                        data[i].paint.setStyle(Paint.Style.FILL);
-                        canvas.drawCircle(x, y, data[i].paint.getStrokeWidth() / 2, data[i].paint);
-                    }
+                    canvas.drawPoint(x,y,data[i].paint);
                 } else {
                     data[i].paint.setStyle(Paint.Style.STROKE);
                     canvas.drawArc(rectF, -90 - 360 * startFrom, a, false, data[i].paint);

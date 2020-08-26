@@ -137,18 +137,16 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             public void setSelected(boolean selected) {
                 super.setSelected(selected);
                 Drawable background = getBackground();
-                if (Build.VERSION.SDK_INT >= 21 && background != null) {
+                if (background != null) {
                     int color = Theme.getColor(selected ? Theme.key_chat_emojiPanelIconSelected : Theme.key_chat_emojiBottomPanelIcon);
                     Theme.setSelectorDrawableColor(background, Color.argb(30, Color.red(color), Color.green(color), Color.blue(color)), true);
                 }
             }
         };
         tab.setFocusable(true);
-        if (Build.VERSION.SDK_INT >= 21) {
-            RippleDrawable rippleDrawable = (RippleDrawable) Theme.createSelectorDrawable(Theme.getColor(Theme.key_chat_emojiBottomPanelIcon));
-            Theme.setRippleDrawableForceSoftware(rippleDrawable);
-            tab.setBackground(rippleDrawable);
-        }
+        RippleDrawable rippleDrawable = (RippleDrawable) Theme.createSelectorDrawable(Theme.getColor(Theme.key_chat_emojiBottomPanelIcon));
+        Theme.setRippleDrawableForceSoftware(rippleDrawable);
+        tab.setBackground(rippleDrawable);
         tab.setImageDrawable(drawable);
         tab.setScaleType(ImageView.ScaleType.CENTER);
         tab.setOnClickListener(v -> {

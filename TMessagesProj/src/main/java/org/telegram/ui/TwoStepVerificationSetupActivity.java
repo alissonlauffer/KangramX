@@ -770,9 +770,7 @@ public class TwoStepVerificationSetupActivity extends BaseFragment {
                 showPasswordButton = new ImageView(context);
                 showPasswordButton.setImageResource(R.drawable.msg_message);
                 showPasswordButton.setScaleType(ImageView.ScaleType.CENTER);
-                if (Build.VERSION.SDK_INT >= 21) {
-                    showPasswordButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
-                }
+                showPasswordButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector)));
                 showPasswordButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_messagePanelIcons), PorterDuff.Mode.MULTIPLY));
                 showPasswordButton.setVisibility(View.GONE);
                 frameLayout.addView(showPasswordButton, LayoutHelper.createFrame(36, 36, Gravity.RIGHT | Gravity.TOP, 0, -5, 0, 0));

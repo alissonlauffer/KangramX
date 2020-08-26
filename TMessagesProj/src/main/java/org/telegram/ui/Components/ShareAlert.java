@@ -318,7 +318,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
             @Override
             protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
                 int totalHeight = MeasureSpec.getSize(heightMeasureSpec);
-                if (Build.VERSION.SDK_INT >= 21 && !isFullscreen) {
+                if (!isFullscreen) {
                     ignoreLayout = true;
                     setPadding(backgroundPaddingLeft, AndroidUtilities.statusBarHeight, backgroundPaddingLeft, 0);
                     ignoreLayout = false;
@@ -491,7 +491,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
                 int height = getMeasuredHeight() + AndroidUtilities.dp(30) + backgroundPaddingTop;
                 int statusBarHeight = 0;
                 float radProgress = 1.0f;
-                if (!isFullscreen && Build.VERSION.SDK_INT >= 21) {
+                if (!isFullscreen) {
                     top += AndroidUtilities.statusBarHeight;
                     y += AndroidUtilities.statusBarHeight;
                     height -= AndroidUtilities.statusBarHeight;
@@ -544,7 +544,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
         gridView = new RecyclerListView(context) {
             @Override
             protected boolean allowSelectChildAtPosition(float x, float y) {
-                return y >= scrollOffsetY + AndroidUtilities.dp(48) + (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0);
+                return y >= scrollOffsetY + AndroidUtilities.dp(48) + AndroidUtilities.statusBarHeight;
             }
         };
         gridView.setTag(13);
@@ -742,28 +742,18 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
         containerView.addView(writeButtonContainer, LayoutHelper.createFrame(size, size, Gravity.RIGHT | Gravity.BOTTOM, 0, 0, offset, 10));
 
         ImageView writeButton = new ImageView(context);
-        Drawable drawable = Theme.createSimpleSelectorCircleDrawable(AndroidUtilities.dp(56), Theme.getColor(Theme.key_dialogFloatingButton), Theme.getColor(Build.VERSION.SDK_INT >= 21 ? Theme.key_dialogFloatingButtonPressed : Theme.key_dialogFloatingButton));
-        if (Build.VERSION.SDK_INT < 21) {
-            Drawable shadowDrawable = context.getResources().getDrawable(R.drawable.floating_shadow_profile).mutate();
-            shadowDrawable.setColorFilter(new PorterDuffColorFilter(0xff000000, PorterDuff.Mode.MULTIPLY));
-            CombinedDrawable combinedDrawable = new CombinedDrawable(shadowDrawable, drawable, 0, 0);
-            combinedDrawable.setIconSize(AndroidUtilities.dp(56), AndroidUtilities.dp(56));
-            drawable = combinedDrawable;
-        }
+        Drawable drawable = Theme.createSimpleSelectorCircleDrawable(AndroidUtilities.dp(56), Theme.getColor(Theme.key_dialogFloatingButton), Theme.getColor(Theme.key_dialogFloatingButtonPressed));
         writeButton.setBackgroundDrawable(drawable);
         writeButton.setImageResource(R.drawable.attach_send);
         writeButton.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
         writeButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_dialogFloatingIcon), PorterDuff.Mode.MULTIPLY));
         writeButton.setScaleType(ImageView.ScaleType.CENTER);
-        if (Build.VERSION.SDK_INT >= 21) {
-            writeButton.setOutlineProvider(new ViewOutlineProvider() {
-                @SuppressLint("NewApi")
-                @Override
-                public void getOutline(View view, Outline outline) {
-                    outline.setOval(0, 0, AndroidUtilities.dp(56), AndroidUtilities.dp(56));
-                }
-            });
-        }
+        writeButton.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                outline.setOval(0, 0, AndroidUtilities.dp(56), AndroidUtilities.dp(56));
+            }
+        });
         writeButtonContainer.addView(writeButton, LayoutHelper.createFrame(size, size, Gravity.LEFT | Gravity.TOP, 0, 0, 0, 0));
         writeButton.setOnClickListener(v -> {
             for (int a = 0; a < selectedDialogs.size(); a++) {
@@ -787,7 +777,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
             dismiss();
         });
 
-        writeButtonContainer.addView(createButton(R.drawable.attach_send, context), LayoutHelper.createFrame(Build.VERSION.SDK_INT >= 21 ? sizeButton : size, Build.VERSION.SDK_INT >= 21 ? sizeButton : size, Gravity.LEFT | Gravity.TOP, Build.VERSION.SDK_INT >= 21 ? 2 : 0, 0, 0, 0));
+        writeButtonContainer.addView(createButton(R.drawable.attach_send, context), LayoutHelper.createFrame(sizeButton, sizeButton, Gravity.LEFT | Gravity.TOP, 2, 0, 0, 0));
 
         // ANONYM FORWARD BUTTON.
         anonymButtonContainer = new FrameLayout(context);
@@ -817,7 +807,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
             dismiss();
         });
 
-        anonymButtonContainer.addView(createButton(R.drawable.anon_forward, context), LayoutHelper.createFrame(Build.VERSION.SDK_INT >= 21 ? sizeButton : size, Build.VERSION.SDK_INT >= 21 ? sizeButton : size, Gravity.LEFT | Gravity.TOP, Build.VERSION.SDK_INT >= 21 ? 2 : 0, 0, 0, 0));
+        anonymButtonContainer.addView(createButton(R.drawable.anon_forward, context), LayoutHelper.createFrame(sizeButton, sizeButton, Gravity.LEFT | Gravity.TOP, 2, 0, 0, 0));
         
         // ANONYM FORWARD WITHOUT TEXT BUTTON.
         nonTextButtonContainer = new FrameLayout(context);
@@ -854,7 +844,7 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
             dismiss();
         });
 
-        nonTextButtonContainer.addView(createButton(R.drawable.nontext_forward, context), LayoutHelper.createFrame(Build.VERSION.SDK_INT >= 21 ? sizeButton : size, Build.VERSION.SDK_INT >= 21 ? sizeButton : size, Gravity.LEFT | Gravity.TOP, Build.VERSION.SDK_INT >= 21 ? 2 : 0, 0, 0, 0));
+        nonTextButtonContainer.addView(createButton(R.drawable.nontext_forward, context), LayoutHelper.createFrame(sizeButton, sizeButton, Gravity.LEFT | Gravity.TOP, 2, 0, 0, 0));
 
         textPaint.setTextSize(AndroidUtilities.dp(12));
         textPaint.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
@@ -900,26 +890,16 @@ public class ShareAlert extends BottomSheet implements NotificationCenter.Notifi
     private ImageView createButton(int resId, Context context) {
         ImageView writeButton = new ImageView(context);
         Drawable drawable = Theme.createSimpleSelectorCircleDrawable(AndroidUtilities.dp(sizeButton), Theme.getColor(Theme.key_dialogFloatingButton), Theme.getColor(Theme.key_dialogFloatingButtonPressed));
-        if (Build.VERSION.SDK_INT < 21) {
-            Drawable shadowDrawable = context.getResources().getDrawable(R.drawable.floating_shadow_profile).mutate();
-            shadowDrawable.setColorFilter(new PorterDuffColorFilter(0xff000000, PorterDuff.Mode.MULTIPLY));
-            CombinedDrawable combinedDrawable = new CombinedDrawable(shadowDrawable, drawable, 0, 0);
-            combinedDrawable.setIconSize(AndroidUtilities.dp(sizeButton), AndroidUtilities.dp(sizeButton));
-            drawable = combinedDrawable;
-        }
         writeButton.setBackgroundDrawable(drawable);
         writeButton.setImageResource(resId);
         writeButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_dialogFloatingIcon), PorterDuff.Mode.MULTIPLY));
         writeButton.setScaleType(ImageView.ScaleType.CENTER);
-        if (Build.VERSION.SDK_INT >= 21) {
-            writeButton.setOutlineProvider(new ViewOutlineProvider() {
-                @SuppressLint("NewApi")
-                @Override
-                public void getOutline(View view, Outline outline) {
-                    outline.setOval(0, 0, AndroidUtilities.dp(sizeButton), AndroidUtilities.dp(sizeButton));
-                }
-            });
-        }
+        writeButton.setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                outline.setOval(0, 0, AndroidUtilities.dp(sizeButton), AndroidUtilities.dp(sizeButton));
+            }
+        });
         return writeButton;
     }
 

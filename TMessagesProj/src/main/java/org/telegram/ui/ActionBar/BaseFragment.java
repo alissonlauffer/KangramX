@@ -118,7 +118,7 @@ public class BaseFragment {
             if (inPreviewMode) {
                 actionBar.setOccupyStatusBar(false);
             } else {
-                actionBar.setOccupyStatusBar(Build.VERSION.SDK_INT >= 21);
+                actionBar.setOccupyStatusBar(true);
             }
         }
     }

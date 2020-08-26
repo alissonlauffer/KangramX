@@ -155,7 +155,7 @@ public class SnowflakesEffect {
         }
 
         if (Utilities.random.nextFloat() > 0.7f && particles.size() < 100) {
-            int statusBarHeight = (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0);
+            int statusBarHeight = AndroidUtilities.statusBarHeight;
             float cx = Utilities.random.nextFloat() * parent.getMeasuredWidth();
             float cy = statusBarHeight + Utilities.random.nextFloat() * (parent.getMeasuredHeight() - AndroidUtilities.dp(20) - statusBarHeight);
 

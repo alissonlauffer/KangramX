@@ -1017,14 +1017,10 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
                 webView.getSettings().setJavaScriptEnabled(true);
                 webView.getSettings().setDomStorageEnabled(true);
 
-                if (Build.VERSION.SDK_INT >= 21) {
-                    webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-                    CookieManager cookieManager = CookieManager.getInstance();
-                    cookieManager.setAcceptThirdPartyCookies(webView, true);
-                }
-                if (Build.VERSION.SDK_INT >= 17) {
-                    webView.addJavascriptInterface(new TelegramWebviewProxy(), "TelegramWebviewProxy");
-                }
+                webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+                CookieManager cookieManager = CookieManager.getInstance();
+                cookieManager.setAcceptThirdPartyCookies(webView, true);
+                webView.addJavascriptInterface(new TelegramWebviewProxy(), "TelegramWebviewProxy");
                 webView.setWebViewClient(new WebViewClient() {
                     @Override
                     public void onLoadResource(WebView view, String url) {
@@ -1817,11 +1813,9 @@ public class PaymentFormActivity extends BaseFragment implements NotificationCen
                 webView.getSettings().setJavaScriptEnabled(true);
                 webView.getSettings().setDomStorageEnabled(true);
 
-                if (Build.VERSION.SDK_INT >= 21) {
-                    webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-                    CookieManager cookieManager = CookieManager.getInstance();
-                    cookieManager.setAcceptThirdPartyCookies(webView, true);
-                }
+                webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+                CookieManager cookieManager = CookieManager.getInstance();
+                cookieManager.setAcceptThirdPartyCookies(webView, true);
 
                 webView.setWebViewClient(new WebViewClient() {
 

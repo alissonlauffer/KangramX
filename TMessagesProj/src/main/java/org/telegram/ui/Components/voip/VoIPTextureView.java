@@ -75,23 +75,17 @@ public class VoIPTextureView extends FrameLayout {
         }
         addView(imageView);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setOutlineProvider(new ViewOutlineProvider() {
-                @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-                @Override
-                public void getOutline(View view, Outline outline) {
-                    if (roundRadius < 1) {
-                        outline.setRect(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-                    } else {
-                        outline.setRoundRect(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight(), roundRadius);
-                    }
+        setOutlineProvider(new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                if (roundRadius < 1) {
+                    outline.setRect(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+                } else {
+                    outline.setRoundRect(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight(), roundRadius);
                 }
-            });
-            setClipToOutline(true);
-        } else {
-            xRefPaint.setColor(0xff000000);
-            xRefPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        }
+            }
+        });
+        setClipToOutline(true);
 
         if (isCamera) {
             if (cameraLastBitmap == null) {
@@ -113,7 +107,7 @@ public class VoIPTextureView extends FrameLayout {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        if (roundRadius > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (roundRadius > 0) {
             try {
                 super.dispatchDraw(canvas);
                 canvas.drawPath(path, xRefPaint);
@@ -138,11 +132,7 @@ public class VoIPTextureView extends FrameLayout {
 
     public void setRoundCorners(float radius) {
         roundRadius = radius;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            invalidateOutline();
-        } else {
-            invalidate();
-        }
+        invalidateOutline();
     }
 
     public void saveCameraLastBitmap() {

@@ -60,11 +60,11 @@ public class BlockingUpdateView extends FrameLayout implements NotificationCente
         super(context);
         setBackgroundColor(Theme.getColor(Theme.key_windowBackgroundWhite));
 
-        int top = Build.VERSION.SDK_INT >= 21 ? (int) (AndroidUtilities.statusBarHeight / AndroidUtilities.density) : 0;
+        int top = (int) (AndroidUtilities.statusBarHeight / AndroidUtilities.density);
 
         FrameLayout view = new FrameLayout(context);
         view.setBackgroundColor(0xff4fa9e6);
-        addView(view, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, AndroidUtilities.dp(176) + (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0)));
+        addView(view, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, AndroidUtilities.dp(176) + AndroidUtilities.statusBarHeight));
 
         ImageView imageView = new ImageView(context);
         imageView.setImageResource(R.drawable.intro_tg_plane);

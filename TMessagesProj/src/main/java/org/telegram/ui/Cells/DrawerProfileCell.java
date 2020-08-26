@@ -108,10 +108,8 @@ public class DrawerProfileCell extends FrameLayout {
         darkThemeView.setScaleType(ImageView.ScaleType.CENTER);
         darkThemeView.setImageResource(R.drawable.menu_night);
         darkThemeView.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_menuName), PorterDuff.Mode.MULTIPLY));
-        if (Build.VERSION.SDK_INT >= 21) {
-            darkThemeView.setBackgroundDrawable(Theme.createSelectorDrawable(darkThemeBackgroundColor = Theme.getColor(Theme.key_listSelector), 1, AndroidUtilities.dp(17)));
-            Theme.setRippleDrawableForceSoftware((RippleDrawable) darkThemeView.getBackground());
-        }
+        darkThemeView.setBackgroundDrawable(Theme.createSelectorDrawable(darkThemeBackgroundColor = Theme.getColor(Theme.key_listSelector), 1, AndroidUtilities.dp(17)));
+        Theme.setRippleDrawableForceSoftware((RippleDrawable) darkThemeView.getBackground());
         darkThemeView.setOnClickListener(v -> {
             SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("themeconfig", Activity.MODE_PRIVATE);
             String dayThemeName = preferences.getString("lastDayTheme", "Blue");
@@ -164,16 +162,7 @@ public class DrawerProfileCell extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            super.onMeasure(MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(AndroidUtilities.dp(148) + AndroidUtilities.statusBarHeight, MeasureSpec.EXACTLY));
-        } else {
-            try {
-                super.onMeasure(MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(AndroidUtilities.dp(148), MeasureSpec.EXACTLY));
-            } catch (Exception e) {
-                setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), AndroidUtilities.dp(148));
-                FileLog.e(e);
-            }
-        }
+        super.onMeasure(MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(AndroidUtilities.dp(148) + AndroidUtilities.statusBarHeight, MeasureSpec.EXACTLY));
     }
 
     @Override
@@ -244,9 +233,7 @@ public class DrawerProfileCell extends FrameLayout {
         if (darkBackColor != 0) {
             if (darkBackColor != darkThemeBackgroundColor) {
                 backPaint.setColor(darkThemeBackgroundColor = darkBackColor);
-                if (Build.VERSION.SDK_INT >= 21) {
-                    Theme.setSelectorDrawableColor(darkThemeView.getBackground(), darkThemeBackgroundColor = darkBackColor, true);
-                }
+                Theme.setSelectorDrawableColor(darkThemeView.getBackground(), darkThemeBackgroundColor = darkBackColor, true);
             }
             if (useImageBackground && backgroundDrawable instanceof BitmapDrawable) {
                 canvas.drawCircle(darkThemeView.getX() + darkThemeView.getMeasuredWidth() / 2, darkThemeView.getY() + darkThemeView.getMeasuredHeight() / 2, AndroidUtilities.dp(17), backPaint);

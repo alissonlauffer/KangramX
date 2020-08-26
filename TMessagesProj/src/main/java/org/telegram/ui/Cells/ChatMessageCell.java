@@ -1181,7 +1181,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     } else if (drawInstantView) {
                         instantPressed = true;
                         selectorDrawableMaskType = 0;
-                        if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                        if (selectorDrawable != null) {
                             if (selectorDrawable.getBounds().contains(x, y)) {
                                 selectorDrawable.setState(pressedState);
                                 selectorDrawable.setHotspot(x, y);
@@ -1206,7 +1206,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                         delegate.didPressInstantButton(this, drawInstantViewType);
                     }
                     playSoundEffect(SoundEffectConstants.CLICK);
-                    if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                    if (selectorDrawable != null) {
                         selectorDrawable.setState(StateSet.NOTHING);
                     }
                     instantPressed = instantButtonPressed = false;
@@ -1280,7 +1280,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     resetPressedLink(2);
                 }
             } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-                if (instantButtonPressed && Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                if (instantButtonPressed && selectorDrawable != null) {
                     selectorDrawable.setHotspot(x, y);
                 }
             }
@@ -1303,7 +1303,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 pollHintPressed = true;
                 result = true;
                 selectorDrawableMaskType = 3;
-                if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                if (selectorDrawable != null) {
                     selectorDrawable.setBounds(pollHintX - AndroidUtilities.dp(8), pollHintY - AndroidUtilities.dp(8), pollHintX + AndroidUtilities.dp(32), pollHintY + AndroidUtilities.dp(32));
                     selectorDrawable.setState(pressedState);
                     selectorDrawable.setHotspot(x, y);
@@ -1317,7 +1317,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                         pressedVoteButton = a;
                         if (!pollVoted && !pollClosed) {
                             selectorDrawableMaskType = 1;
-                            if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                            if (selectorDrawable != null) {
                                 selectorDrawable.setBounds(button.x - AndroidUtilities.dp(9), y2, button.x + backgroundWidth - AndroidUtilities.dp(22), y2 + button.height + AndroidUtilities.dp(26));
                                 selectorDrawable.setState(pressedState);
                                 selectorDrawable.setHotspot(x, y);
@@ -1335,12 +1335,12 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     playSoundEffect(SoundEffectConstants.CLICK);
                     delegate.didPressHint(this, 0);
                     pollHintPressed = false;
-                    if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                    if (selectorDrawable != null) {
                         selectorDrawable.setState(StateSet.NOTHING);
                     }
                 } else if (pressedVoteButton != -1) {
                     playSoundEffect(SoundEffectConstants.CLICK);
-                    if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                    if (selectorDrawable != null) {
                         selectorDrawable.setState(StateSet.NOTHING);
                     }
                     if (currentMessageObject.scheduled) {
@@ -1379,7 +1379,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     invalidate();
                 }
             } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-                if ((pressedVoteButton != -1 || pollHintPressed) && Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                if ((pressedVoteButton != -1 || pollHintPressed) && selectorDrawable != null) {
                     selectorDrawable.setHotspot(x, y);
                 }
             }
@@ -1398,7 +1398,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             if (drawInstantView && instantButtonRect.contains(x, y)) {
                 selectorDrawableMaskType = lastPoll != null ? 2 : 0;
                 instantPressed = true;
-                if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                if (selectorDrawable != null) {
                     if (instantButtonRect.contains(x, y)) {
                         selectorDrawable.setState(pressedState);
                         selectorDrawable.setHotspot(x, y);
@@ -1435,14 +1435,14 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     }
                 }
                 playSoundEffect(SoundEffectConstants.CLICK);
-                if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                if (selectorDrawable != null) {
                     selectorDrawable.setState(StateSet.NOTHING);
                 }
                 instantPressed = instantButtonPressed = false;
                 invalidate();
             }
         } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-            if (instantButtonPressed && Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+            if (instantButtonPressed && selectorDrawable != null) {
                 selectorDrawable.setHotspot(x, y);
             }
         }
@@ -1469,7 +1469,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     otherPressed = true;
                     result = true;
                     selectorDrawableMaskType = 4;
-                    if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                    if (selectorDrawable != null) {
                         int cx = otherX + AndroidUtilities.dp(idx == 0 ? 202 : 200) + Theme.chat_msgInCallDrawable[idx].getIntrinsicWidth() / 2;
                         int cy = otherY + Theme.chat_msgInCallDrawable[idx].getIntrinsicHeight() / 2;
                         selectorDrawable.setBounds(cx - AndroidUtilities.dp(20), cy - AndroidUtilities.dp(20), cx + AndroidUtilities.dp(20), cy + AndroidUtilities.dp(20));
@@ -1488,7 +1488,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
         } else {
             if (event.getAction() == MotionEvent.ACTION_UP) {
                 if (otherPressed) {
-                    if (currentMessageObject.type == 16 && Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                    if (currentMessageObject.type == 16 && selectorDrawable != null) {
                         selectorDrawable.setState(StateSet.NOTHING);
                     }
                     otherPressed = false;
@@ -1498,7 +1498,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     result = true;
                 }
             } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-                if (currentMessageObject.type == 16 && otherPressed && Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                if (currentMessageObject.type == 16 && otherPressed && selectorDrawable != null) {
                     selectorDrawable.setHotspot(x, y);
                 }
             }
@@ -1796,7 +1796,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             imagePressed = false;
             gamePreviewPressed = false;
             instantPressed = instantButtonPressed = false;
-            if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+            if (selectorDrawable != null) {
                 selectorDrawable.setState(StateSet.NOTHING);
             }
             result = false;
@@ -1823,7 +1823,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                         psaHintPressed = true;
                         createSelectorDrawable();
                         selectorDrawableMaskType = 3;
-                        if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                        if (selectorDrawable != null) {
                             selectorDrawable.setBounds(psaHelpX - AndroidUtilities.dp(8), psaHelpY - AndroidUtilities.dp(8), psaHelpX + AndroidUtilities.dp(32), psaHelpY + AndroidUtilities.dp(32));
                             selectorDrawable.setState(pressedState);
                             selectorDrawable.setHotspot(x, y);
@@ -1897,7 +1897,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                         playSoundEffect(SoundEffectConstants.CLICK);
                         delegate.didPressHint(this, 1);
                         psaHintPressed = false;
-                        if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+                        if (selectorDrawable != null) {
                             selectorDrawable.setState(StateSet.NOTHING);
                         }
                         invalidate();
@@ -2735,7 +2735,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             hasGamePreview = false;
             hasInvoicePreview = false;
             instantPressed = instantButtonPressed = false;
-            if (!pollChanged && Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+            if (!pollChanged && selectorDrawable != null) {
                 selectorDrawable.setVisible(false, false);
                 selectorDrawable.setState(StateSet.NOTHING);
             }
@@ -5441,7 +5441,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             pollHintPressed = false;
             psaHintPressed = false;
             otherPressed = false;
-            if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null) {
+            if (selectorDrawable != null) {
                 selectorDrawable.setState(StateSet.NOTHING);
             }
             invalidate();
@@ -5919,9 +5919,6 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
     }
 
     public void createSelectorDrawable() {
-        if (Build.VERSION.SDK_INT < 21) {
-            return;
-        }
         int color;
         if (psaHintPressed) {
             color = Theme.getColor(currentMessageObject.isOutOwner() ? Theme.key_chat_outViews : Theme.key_chat_inViews);
@@ -5997,7 +5994,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
     }
 
     private void createInstantViewButton() {
-        if (Build.VERSION.SDK_INT >= 21 && drawInstantView) {
+        if (drawInstantView) {
             createSelectorDrawable();
         }
         if (drawInstantView && instantViewLayout == null) {
@@ -6709,11 +6706,9 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     }
 
                     instantButtonRect.set(linkX, instantY, linkX + instantWidth, instantY + AndroidUtilities.dp(36));
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        selectorDrawableMaskType = 0;
-                        selectorDrawable.setBounds(linkX, instantY, linkX + instantWidth, instantY + AndroidUtilities.dp(36));
-                        selectorDrawable.draw(canvas);
-                    }
+                    selectorDrawableMaskType = 0;
+                    selectorDrawable.setBounds(linkX, instantY, linkX + instantWidth, instantY + AndroidUtilities.dp(36));
+                    selectorDrawable.draw(canvas);
                     canvas.drawRoundRect(instantButtonRect, AndroidUtilities.dp(6), AndroidUtilities.dp(6), backPaint);
                     if (drawInstantViewType == 0) {
                         setDrawableBounds(instantDrawable, instantTextLeftX + instantTextX + linkX - AndroidUtilities.dp(15), instantY + AndroidUtilities.dp(11.5f), AndroidUtilities.dp(9), AndroidUtilities.dp(13));
@@ -9726,7 +9721,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     drawable.setBounds(cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2);
                     drawable.draw(canvas);
 
-                    if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null && selectorDrawableMaskType == 3) {
+                    if (selectorDrawable != null && selectorDrawableMaskType == 3) {
                         canvas.save();
                         canvas.scale(psaButtonProgress, psaButtonProgress, selectorDrawable.getBounds().centerX(), selectorDrawable.getBounds().centerY());
                         selectorDrawable.draw(canvas);
@@ -10602,7 +10597,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             setDrawableBounds(icon, x - AndroidUtilities.dp(1), AndroidUtilities.dp(37) + namesOffset);
             icon.draw(canvas);
 
-            if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null && selectorDrawableMaskType == 4) {
+            if (selectorDrawable != null && selectorDrawableMaskType == 4) {
                 selectorDrawable.draw(canvas);
             }
 
@@ -10768,7 +10763,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 }
                 invalidate();
             }
-            if (Build.VERSION.SDK_INT >= 21 && selectorDrawable != null && (selectorDrawableMaskType == 1 || selectorDrawableMaskType == 3)) {
+            if (selectorDrawable != null && (selectorDrawableMaskType == 1 || selectorDrawableMaskType == 3)) {
                 if (selectorDrawableMaskType == 3) {
                     canvas.save();
                     canvas.scale(hintButtonProgress, hintButtonProgress, selectorDrawable.getBounds().centerX(), selectorDrawable.getBounds().centerY());
@@ -10957,11 +10952,9 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 }
 
                 instantButtonRect.set(textX, instantY, textX + instantWidth, instantY + AndroidUtilities.dp(36));
-                if (Build.VERSION.SDK_INT >= 21) {
-                    selectorDrawableMaskType = 0;
-                    selectorDrawable.setBounds(textX, instantY, textX + instantWidth, instantY + AndroidUtilities.dp(36));
-                    selectorDrawable.draw(canvas);
-                }
+                selectorDrawableMaskType = 0;
+                selectorDrawable.setBounds(textX, instantY, textX + instantWidth, instantY + AndroidUtilities.dp(36));
+                selectorDrawable.draw(canvas);
                 canvas.drawRoundRect(instantButtonRect, AndroidUtilities.dp(6), AndroidUtilities.dp(6), backPaint);
                 if (instantViewLayout != null) {
                     canvas.save();
@@ -11429,46 +11422,39 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 sb.append("\n");
                 info.setContentDescription(sb.toString());
                 info.setEnabled(true);
-                if (Build.VERSION.SDK_INT >= 19) {
-                    AccessibilityNodeInfo.CollectionItemInfo itemInfo = info.getCollectionItemInfo();
-                    if (itemInfo != null) {
-                        info.setCollectionItemInfo(AccessibilityNodeInfo.CollectionItemInfo.obtain(itemInfo.getRowIndex(), 1, 0, 1, false));
-                    }
+                AccessibilityNodeInfo.CollectionItemInfo itemInfo = info.getCollectionItemInfo();
+                if (itemInfo != null) {
+                    info.setCollectionItemInfo(AccessibilityNodeInfo.CollectionItemInfo.obtain(itemInfo.getRowIndex(), 1, 0, 1, false));
                 }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.acc_action_msg_options, LocaleController.getString("AccActionMessageOptions", R.string.AccActionMessageOptions)));
-                    int icon = getIconForCurrentState();
-                    CharSequence actionLabel = null;
-                    switch (icon) {
-                        case MediaActionDrawable.ICON_PLAY:
-                            actionLabel = LocaleController.getString("AccActionPlay", R.string.AccActionPlay);
-                            break;
-                        case MediaActionDrawable.ICON_PAUSE:
-                            actionLabel = LocaleController.getString("AccActionPause", R.string.AccActionPause);
-                            break;
-                        case MediaActionDrawable.ICON_FILE:
-                            actionLabel = LocaleController.getString("AccActionOpenFile", R.string.AccActionOpenFile);
-                            break;
-                        case MediaActionDrawable.ICON_DOWNLOAD:
-                            actionLabel = LocaleController.getString("AccActionDownload", R.string.AccActionDownload);
-                            break;
-                        case MediaActionDrawable.ICON_CANCEL:
-                            actionLabel = LocaleController.getString("AccActionCancelDownload", R.string.AccActionCancelDownload);
-                            break;
-                        default:
-                            if (currentMessageObject.type == 16) {
-                                actionLabel = LocaleController.getString("CallAgain", R.string.CallAgain);
-                            }
-                    }
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(AccessibilityNodeInfo.ACTION_CLICK, actionLabel));
-                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(AccessibilityNodeInfo.ACTION_LONG_CLICK, LocaleController.getString("AccActionEnterSelectionMode", R.string.AccActionEnterSelectionMode)));
-                    int smallIcon = getMiniIconForCurrentState();
-                    if (smallIcon == MediaActionDrawable.ICON_DOWNLOAD) {
-                        info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.acc_action_small_button, LocaleController.getString("AccActionDownload", R.string.AccActionDownload)));
-                    }
-                } else {
-                    info.addAction(AccessibilityNodeInfo.ACTION_CLICK);
-                    info.addAction(AccessibilityNodeInfo.ACTION_LONG_CLICK);
+                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.acc_action_msg_options, LocaleController.getString("AccActionMessageOptions", R.string.AccActionMessageOptions)));
+                int icon = getIconForCurrentState();
+                CharSequence actionLabel = null;
+                switch (icon) {
+                    case MediaActionDrawable.ICON_PLAY:
+                        actionLabel = LocaleController.getString("AccActionPlay", R.string.AccActionPlay);
+                        break;
+                    case MediaActionDrawable.ICON_PAUSE:
+                        actionLabel = LocaleController.getString("AccActionPause", R.string.AccActionPause);
+                        break;
+                    case MediaActionDrawable.ICON_FILE:
+                        actionLabel = LocaleController.getString("AccActionOpenFile", R.string.AccActionOpenFile);
+                        break;
+                    case MediaActionDrawable.ICON_DOWNLOAD:
+                        actionLabel = LocaleController.getString("AccActionDownload", R.string.AccActionDownload);
+                        break;
+                    case MediaActionDrawable.ICON_CANCEL:
+                        actionLabel = LocaleController.getString("AccActionCancelDownload", R.string.AccActionCancelDownload);
+                        break;
+                    default:
+                        if (currentMessageObject.type == 16) {
+                            actionLabel = LocaleController.getString("CallAgain", R.string.CallAgain);
+                        }
+                }
+                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(AccessibilityNodeInfo.ACTION_CLICK, actionLabel));
+                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(AccessibilityNodeInfo.ACTION_LONG_CLICK, LocaleController.getString("AccActionEnterSelectionMode", R.string.AccActionEnterSelectionMode)));
+                int smallIcon = getMiniIconForCurrentState();
+                if (smallIcon == MediaActionDrawable.ICON_DOWNLOAD) {
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.acc_action_small_button, LocaleController.getString("AccActionDownload", R.string.AccActionDownload)));
                 }
 
                 if (currentMessageObject.isVoice() || currentMessageObject.isMusic() && MediaController.getInstance().isPlayingMessage(currentMessageObject)) {

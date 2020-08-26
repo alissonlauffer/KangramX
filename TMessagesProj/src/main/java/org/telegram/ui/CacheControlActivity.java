@@ -159,23 +159,11 @@ public class CacheControlActivity extends BaseFragment {
 
             long blockSize;
             long blockSizeExternal;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                blockSize = stat.getBlockSizeLong();
-            } else {
-                blockSize = stat.getBlockSize();
-            }
+            blockSize = stat.getBlockSizeLong();
             long availableBlocks;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                availableBlocks = stat.getAvailableBlocksLong();
-            } else {
-                availableBlocks = stat.getAvailableBlocks();
-            }
+            availableBlocks = stat.getAvailableBlocksLong();
             long blocksTotal;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                blocksTotal = stat.getBlockCountLong();
-            } else {
-                blocksTotal = stat.getBlockCount();
-            }
+            blocksTotal = stat.getBlockCountLong();
 
             totalDeviceSize = blocksTotal * blockSize;
             totalDeviceFreeSize = availableBlocks * blockSize;
@@ -195,7 +183,7 @@ public class CacheControlActivity extends BaseFragment {
         if (view instanceof StroageUsageView) {
             StroageUsageView stroageUsageView = ((StroageUsageView) view);
             long currentTime =  System.currentTimeMillis();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && currentTime - fragmentCreateTime > 250) {
+            if (currentTime - fragmentCreateTime > 250) {
                 TransitionSet transition = new TransitionSet();
                 ChangeBounds changeBounds = new ChangeBounds();
                 changeBounds.setDuration(250);
@@ -315,23 +303,11 @@ public class CacheControlActivity extends BaseFragment {
             File path = Environment.getDataDirectory();
             StatFs stat = new StatFs(path.getPath());
             long blockSize;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                blockSize = stat.getBlockSizeLong();
-            } else {
-                blockSize = stat.getBlockSize();
-            }
+            blockSize = stat.getBlockSizeLong();
             long availableBlocks;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                availableBlocks = stat.getAvailableBlocksLong();
-            } else {
-                availableBlocks = stat.getAvailableBlocks();
-            }
+            availableBlocks = stat.getAvailableBlocksLong();
             long blocksTotal;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                blocksTotal = stat.getBlockCountLong();
-            } else {
-                blocksTotal = stat.getBlockCount();
-            }
+            blocksTotal = stat.getBlockCountLong();
 
             totalDeviceSize = blocksTotal * blockSize;
             totalDeviceFreeSize = availableBlocks * blockSize;

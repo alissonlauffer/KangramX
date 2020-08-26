@@ -213,7 +213,7 @@ public class SizeNotifierFrameLayout extends AdjustPanFrameLayout {
                     drawable.draw(canvas);
                     canvas.restore();
                 } else {
-                    int actionBarHeight = (isActionBarVisible() ? ActionBar.getCurrentActionBarHeight() : 0) + (Build.VERSION.SDK_INT >= 21 && occupyStatusBar ? AndroidUtilities.statusBarHeight : 0);
+                    int actionBarHeight = (isActionBarVisible() ? ActionBar.getCurrentActionBarHeight() : 0) + (occupyStatusBar ? AndroidUtilities.statusBarHeight : 0);
                     int viewHeight = getMeasuredHeight() - actionBarHeight;
                     float scaleX = (float) getMeasuredWidth() / (float) drawable.getIntrinsicWidth();
                     float scaleY = (float) (viewHeight + kbHeight) / (float) drawable.getIntrinsicHeight();

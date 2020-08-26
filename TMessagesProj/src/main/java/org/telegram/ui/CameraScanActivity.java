@@ -69,7 +69,6 @@ import org.telegram.ui.Components.LayoutHelper;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
-@TargetApi(18)
 public class CameraScanActivity extends BaseFragment implements Camera.PreviewCallback {
 
     private TextView titleTextView;

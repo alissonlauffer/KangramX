@@ -224,7 +224,7 @@ public class MediaActivity extends BaseFragment implements NotificationCenter.No
                     imageView.getLocationInWindow(coords);
                     PhotoViewer.PlaceProviderObject object = new PhotoViewer.PlaceProviderObject();
                     object.viewX = coords[0];
-                    object.viewY = coords[1] - (Build.VERSION.SDK_INT >= 21 ? 0 : AndroidUtilities.statusBarHeight);
+                    object.viewY = coords[1];
                     object.parentView = listView;
                     object.animatingImageView = mediaPages[0].animatingImageView;
                     object.imageReceiver = imageView.getImageReceiver();

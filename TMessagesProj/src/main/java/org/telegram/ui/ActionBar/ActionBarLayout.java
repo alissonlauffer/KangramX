@@ -456,7 +456,7 @@ public class ActionBarLayout extends FrameLayout {
                 previewBackgroundDrawable.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
                 previewBackgroundDrawable.draw(canvas);
                 int x = (getMeasuredWidth() - AndroidUtilities.dp(24)) / 2;
-                int y = (int) (view.getTop() + containerView.getTranslationY() - AndroidUtilities.dp(12 + (Build.VERSION.SDK_INT < 21 ? 20 : 0)));
+                int y = (int) (view.getTop() + containerView.getTranslationY() - AndroidUtilities.dp(12));
                 Theme.moveUpDrawable.setBounds(x, y, x + AndroidUtilities.dp(24), y + AndroidUtilities.dp(24));
                 Theme.moveUpDrawable.draw(canvas);
             }
@@ -945,17 +945,14 @@ public class ActionBarLayout extends FrameLayout {
         containerView.setTranslationY(0);
 
         if (preview) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                fragmentView.setOutlineProvider(new ViewOutlineProvider() {
-                    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-                    @Override
-                    public void getOutline(View view, Outline outline) {
-                        outline.setRoundRect(0, AndroidUtilities.statusBarHeight, view.getMeasuredWidth(), view.getMeasuredHeight(), AndroidUtilities.dp(6));
-                    }
-                });
-                fragmentView.setClipToOutline(true);
-                fragmentView.setElevation(AndroidUtilities.dp(4));
-            }
+            fragmentView.setOutlineProvider(new ViewOutlineProvider() {
+                @Override
+                public void getOutline(View view, Outline outline) {
+                    outline.setRoundRect(0, AndroidUtilities.statusBarHeight, view.getMeasuredWidth(), view.getMeasuredHeight(), AndroidUtilities.dp(6));
+                }
+            });
+            fragmentView.setClipToOutline(true);
+            fragmentView.setElevation(AndroidUtilities.dp(4));
             if (previewBackgroundDrawable == null) {
                 previewBackgroundDrawable = new ColorDrawable(0x2e000000);
             }
@@ -1177,10 +1174,8 @@ public class ActionBarLayout extends FrameLayout {
             BaseFragment prevFragment = fragmentsStack.get(fragmentsStack.size() - 2);
             BaseFragment fragment = fragmentsStack.get(fragmentsStack.size() - 1);
 
-            if (Build.VERSION.SDK_INT >= 21) {
-                fragment.fragmentView.setOutlineProvider(null);
-                fragment.fragmentView.setClipToOutline(false);
-            }
+            fragment.fragmentView.setOutlineProvider(null);
+            fragment.fragmentView.setClipToOutline(false);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) fragment.fragmentView.getLayoutParams();
             layoutParams.topMargin = layoutParams.bottomMargin = layoutParams.rightMargin = layoutParams.leftMargin = 0;
             fragment.fragmentView.setLayoutParams(layoutParams);

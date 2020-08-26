@@ -241,13 +241,11 @@ public class LocationActivityAdapter extends BaseLocationAdapter implements Loca
                     @Override
                     public ViewPropertyAnimator animate() {
                         ViewPropertyAnimator animator = super.animate();
-                        if (Build.VERSION.SDK_INT >= 19) {
-                            animator.setUpdateListener(animation -> {
-                                if (updateRunnable != null) {
-                                    updateRunnable.run();
-                                }
-                            });
-                        }
+                        animator.setUpdateListener(animation -> {
+                            if (updateRunnable != null) {
+                                updateRunnable.run();
+                            }
+                        });
                         return animator;
                     }
                 };

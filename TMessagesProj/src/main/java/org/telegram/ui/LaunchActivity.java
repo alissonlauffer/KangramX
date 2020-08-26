@@ -224,17 +224,15 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setTheme(R.style.Theme_TMessages);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            try {
-                setTaskDescription(new ActivityManager.TaskDescription(null, null, Theme.getColor(Theme.key_actionBarDefault) | 0xff000000));
-            } catch (Exception ignore) {
+        try {
+            setTaskDescription(new ActivityManager.TaskDescription(null, null, Theme.getColor(Theme.key_actionBarDefault) | 0xff000000));
+        } catch (Exception ignore) {
 
-            }
-            try {
-                getWindow().setNavigationBarColor(0xff000000);
-            } catch (Exception ignore) {
+        }
+        try {
+            getWindow().setNavigationBarColor(0xff000000);
+        } catch (Exception ignore) {
 
-            }
         }
 
         getWindow().setBackgroundDrawable(new ColorDrawable(0xffffffff) {
@@ -296,11 +294,9 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
 
         FrameLayout frameLayout = new FrameLayout(this);
         setContentView(frameLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        if (Build.VERSION.SDK_INT >= 21) {
-            themeSwitchImageView = new ImageView(this);
-            themeSwitchImageView.setVisibility(View.GONE);
-            frameLayout.addView(themeSwitchImageView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
-        }
+        themeSwitchImageView = new ImageView(this);
+        themeSwitchImageView.setVisibility(View.GONE);
+        frameLayout.addView(themeSwitchImageView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
 
         drawerLayoutContainer = new DrawerLayoutContainer(this);
         drawerLayoutContainer.setBehindKeyboardColor(Theme.getColor(Theme.key_windowBackgroundWhite));
@@ -679,9 +675,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                 view.getViewTreeObserver().addOnGlobalLayoutListener(onGlobalLayoutListener = () -> {
                     int height = view.getMeasuredHeight();
                     FileLog.d("height = " + height + " displayHeight = " + AndroidUtilities.displaySize.y);
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        height -= AndroidUtilities.statusBarHeight;
-                    }
+                    height -= AndroidUtilities.statusBarHeight;
                     if (height > AndroidUtilities.dp(100) && height < AndroidUtilities.displaySize.y && height + AndroidUtilities.dp(100) > AndroidUtilities.displaySize.y) {
                         AndroidUtilities.displaySize.y = height;
                         if (BuildVars.LOGS_ENABLED) {
@@ -3211,19 +3205,17 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                     sideMenu.setListSelectorColor(Theme.getColor(Theme.key_listSelector));
                     sideMenu.getAdapter().notifyDataSetChanged();
                 }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    try {
-                        setTaskDescription(new ActivityManager.TaskDescription(null, null, Theme.getColor(Theme.key_actionBarDefault) | 0xff000000));
-                    } catch (Exception ignore) {
+                try {
+                    setTaskDescription(new ActivityManager.TaskDescription(null, null, Theme.getColor(Theme.key_actionBarDefault) | 0xff000000));
+                } catch (Exception ignore) {
 
-                    }
                 }
             }
             drawerLayoutContainer.setBehindKeyboardColor(Theme.getColor(Theme.key_windowBackgroundWhite));
             checkSystemBarColors();
         } else if (id == NotificationCenter.needSetDayNightTheme) {
             boolean instant = false;
-            if (Build.VERSION.SDK_INT >= 21 && args[2] != null) {
+            if (args[2] != null) {
                 if (themeSwitchImageView.getVisibility() == View.VISIBLE) {
                     return;
                 }
@@ -3414,11 +3406,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                     }
                     long freeSpace;
                     StatFs statFs = new StatFs(path.getAbsolutePath());
-                    if (Build.VERSION.SDK_INT < 18) {
-                        freeSpace = Math.abs(statFs.getAvailableBlocks() * statFs.getBlockSize());
-                    } else {
-                        freeSpace = statFs.getAvailableBlocksLong() * statFs.getBlockSizeLong();
-                    }
+                    freeSpace = statFs.getAvailableBlocksLong() * statFs.getBlockSizeLong();
                     if (freeSpace < 1024 * 1024 * 100) {
                         preferences.edit().putLong("last_space_check", System.currentTimeMillis()).commit();
                         AndroidUtilities.runOnUIThread(() -> {

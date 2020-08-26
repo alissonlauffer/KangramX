@@ -583,7 +583,7 @@ public class PasscodeActivity extends BaseFragment implements NotificationCenter
         if (dropDownContainer != null) {
             if (!AndroidUtilities.isTablet()) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) dropDownContainer.getLayoutParams();
-                layoutParams.topMargin = (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0);
+                layoutParams.topMargin = AndroidUtilities.statusBarHeight;
                 dropDownContainer.setLayoutParams(layoutParams);
             }
             if (!AndroidUtilities.isTablet() && ApplicationLoader.applicationContext.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

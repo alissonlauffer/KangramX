@@ -140,9 +140,7 @@ public class AdminLogFilterAlert extends BottomSheet {
             @Override
             protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
                 int height = MeasureSpec.getSize(heightMeasureSpec);
-                if (Build.VERSION.SDK_INT >= 21) {
-                    height -= AndroidUtilities.statusBarHeight;
-                }
+                height -= AndroidUtilities.statusBarHeight;
                 int measuredWidth = getMeasuredWidth();
                 int contentSize = AndroidUtilities.dp(48) + (isMegagroup ? 9 : 7) * AndroidUtilities.dp(48) + backgroundPaddingTop;
                 if (currentAdmins != null) {

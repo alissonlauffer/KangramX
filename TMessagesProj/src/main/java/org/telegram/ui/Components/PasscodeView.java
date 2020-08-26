@@ -1121,7 +1121,7 @@ public class PasscodeView extends FrameLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = MeasureSpec.getSize(widthMeasureSpec);
-        int height = AndroidUtilities.displaySize.y - (Build.VERSION.SDK_INT >= 21 ? 0 : AndroidUtilities.statusBarHeight);
+        int height = AndroidUtilities.displaySize.y;
 
         LayoutParams layoutParams;
 
@@ -1224,7 +1224,7 @@ public class PasscodeView extends FrameLayout {
                 t = (Integer) passwordFrameLayout.getTag();
             }
             LayoutParams layoutParams = (LayoutParams) passwordFrameLayout.getLayoutParams();
-            layoutParams.topMargin = t + layoutParams.height - keyboardHeight / 2 - (Build.VERSION.SDK_INT >= 21 ? AndroidUtilities.statusBarHeight : 0);
+            layoutParams.topMargin = t + layoutParams.height - keyboardHeight / 2 - AndroidUtilities.statusBarHeight;
             passwordFrameLayout.setLayoutParams(layoutParams);
         }
 

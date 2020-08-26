@@ -148,11 +148,7 @@ public class ProfileNotificationsActivity extends BaseFragment implements Notifi
         } else {
             smartRow = -1;
         }
-        if (Build.VERSION.SDK_INT >= 21) {
-            priorityRow = rowCount++;
-        } else {
-            priorityRow = -1;
-        }
+        priorityRow = rowCount++;
         priorityInfoRow = rowCount++;
         boolean isChannel;
         int lower_id = (int) dialog_id;

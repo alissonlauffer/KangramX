@@ -105,11 +105,9 @@ public class HeaderCell extends FrameLayout {
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            AccessibilityNodeInfo.CollectionItemInfo collection = info.getCollectionItemInfo();
-            if (collection != null) {
-                info.setCollectionItemInfo(AccessibilityNodeInfo.CollectionItemInfo.obtain(collection.getRowIndex(), collection.getRowSpan(), collection.getColumnIndex(), collection.getColumnSpan(), true));
-            }
+        AccessibilityNodeInfo.CollectionItemInfo collection = info.getCollectionItemInfo();
+        if (collection != null) {
+            info.setCollectionItemInfo(AccessibilityNodeInfo.CollectionItemInfo.obtain(collection.getRowIndex(), collection.getRowSpan(), collection.getColumnIndex(), collection.getColumnSpan(), true));
         }
     }
 }

@@ -258,23 +258,15 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
 
         PowerManager pm = (PowerManager) activity.getSystemService(Context.POWER_SERVICE);
         boolean screenOn;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
-            screenOn = pm.isInteractive();
-        } else {
-            screenOn = pm.isScreenOn();
-        }
+        screenOn = pm.isInteractive();
         instance.screenWasWakeup = !screenOn;
         windowView.setLockOnScreen(instance.deviceIsLocked);
         fragment.windowView = windowView;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
-            windowView.setOnApplyWindowInsetsListener((view, windowInsets) -> {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    fragment.setInsets(windowInsets);
-                }
-                return windowInsets.consumeSystemWindowInsets();
-            });
-        }
+        windowView.setOnApplyWindowInsetsListener((view, windowInsets) -> {
+            fragment.setInsets(windowInsets);
+            return windowInsets.consumeSystemWindowInsets();
+        });
 
         WindowManager wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         WindowManager.LayoutParams layoutParams = windowView.createWindowLayoutParams();
@@ -330,12 +322,12 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
     public static void clearInstance() {
         if (VoIPService.getSharedInstance() != null) {
             int h = instance.windowView.getMeasuredHeight();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && instance.lastInsets != null) {
+            if (instance.lastInsets != null) {
                 h -= instance.lastInsets.getSystemWindowInsetBottom();
             }
             if (instance.canSwitchToPip) {
                 VoIPPiPView.show(instance.activity, instance.windowView.getMeasuredWidth(), h, VoIPPiPView.ANIMATION_ENTER_TYPE_SCALE);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && instance.lastInsets != null) {
+                if (instance.lastInsets != null) {
                     VoIPPiPView.topInset = instance.lastInsets.getSystemWindowInsetTop();
                     VoIPPiPView.bottomInset = instance.lastInsets.getSystemWindowInsetBottom();
                 }
@@ -356,7 +348,6 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setInsets(WindowInsets windowInsets) {
         lastInsets = windowInsets;
         ((FrameLayout.LayoutParams) buttonsLayout.getLayoutParams()).bottomMargin = lastInsets.getSystemWindowInsetBottom();
@@ -480,11 +471,11 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
             @Override
             protected void dispatchDraw(Canvas canvas) {
                 super.dispatchDraw(canvas);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && lastInsets != null) {
+                if (lastInsets != null) {
                     canvas.drawRect(0, 0, getMeasuredWidth(), lastInsets.getSystemWindowInsetTop(), overlayPaint);
                 }
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && lastInsets != null) {
+                if (lastInsets != null) {
                     canvas.drawRect(0, getMeasuredHeight() - lastInsets.getSystemWindowInsetBottom(), getMeasuredWidth(), getMeasuredHeight(), overlayBottomPaint);
                 }
             }
@@ -861,11 +852,11 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
         isFinished = true;
         if (VoIPService.getSharedInstance() != null) {
             int h = instance.windowView.getMeasuredHeight();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && instance.lastInsets != null) {
+            if (instance.lastInsets != null) {
                 h -= instance.lastInsets.getSystemWindowInsetBottom();
             }
             VoIPPiPView.show(instance.activity, instance.windowView.getMeasuredWidth(), h, VoIPPiPView.ANIMATION_ENTER_TYPE_TRANSITION);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && instance.lastInsets != null) {
+            if (instance.lastInsets != null) {
                 VoIPPiPView.topInset = instance.lastInsets.getSystemWindowInsetTop();
                 VoIPPiPView.bottomInset = instance.lastInsets.getSystemWindowInsetBottom();
             }
@@ -1723,7 +1714,7 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
         if (service == null) {
             return;
         }
-        if (animated && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (animated) {
             TransitionSet transitionSet = new TransitionSet();
             Visibility visibility = new Visibility() {
                 @Override
@@ -2032,21 +2023,17 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
         PowerManager pm = (PowerManager) activity.getSystemService(Context.POWER_SERVICE);
 
         boolean screenOn;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH) {
-            screenOn = pm.isInteractive();
-        } else {
-            screenOn = pm.isScreenOn();
-        }
+        screenOn = pm.isInteractive();
 
         boolean hasPermissionsToPip = AndroidUtilities.checkInlinePermissions(activity);
 
         if (canSwitchToPip && hasPermissionsToPip) {
             int h = instance.windowView.getMeasuredHeight();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && instance.lastInsets != null) {
+            if (instance.lastInsets != null) {
                 h -= instance.lastInsets.getSystemWindowInsetBottom();
             }
             VoIPPiPView.show(instance.activity, instance.windowView.getMeasuredWidth(), h, VoIPPiPView.ANIMATION_ENTER_TYPE_SCALE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && instance.lastInsets != null) {
+            if (instance.lastInsets != null) {
                 VoIPPiPView.topInset = instance.lastInsets.getSystemWindowInsetTop();
                 VoIPPiPView.bottomInset = instance.lastInsets.getSystemWindowInsetBottom();
             }
