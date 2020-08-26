@@ -20,7 +20,6 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
-import android.os.Build;
 import android.os.SystemClock;
 import android.text.Layout;
 import android.text.StaticLayout;

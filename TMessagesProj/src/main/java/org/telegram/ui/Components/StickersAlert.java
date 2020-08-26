@@ -18,7 +18,6 @@ import android.content.Context;
 import android.graphics.*;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.text.Selection;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;

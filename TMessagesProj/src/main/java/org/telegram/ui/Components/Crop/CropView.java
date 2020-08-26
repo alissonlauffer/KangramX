@@ -12,7 +12,6 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RectF;
-import android.os.Build;
 import android.view.MotionEvent;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;

@@ -17,8 +17,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.StateListDrawable;
-import android.os.Build;
 import android.text.SpannedString;
 import android.text.TextPaint;
 import android.view.View;

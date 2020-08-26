@@ -24,7 +24,6 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.net.Uri;
-import android.os.Build;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.TypedValue;

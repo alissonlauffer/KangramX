@@ -10,7 +10,6 @@ package org.telegram.ui.Components;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Build;
 import android.view.View;
 
 import org.telegram.messenger.AndroidUtilities;

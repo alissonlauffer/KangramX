@@ -16,7 +16,6 @@ import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.LongSparseArray;

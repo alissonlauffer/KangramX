@@ -13,7 +13,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;

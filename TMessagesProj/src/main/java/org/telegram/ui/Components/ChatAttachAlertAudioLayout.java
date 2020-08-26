@@ -16,7 +16,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
-import android.os.Build;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.LongSparseArray;

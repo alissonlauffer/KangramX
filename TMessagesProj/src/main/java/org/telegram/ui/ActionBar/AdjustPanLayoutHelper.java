@@ -1,6 +1,5 @@
 package org.telegram.ui.ActionBar;
 
-import android.os.Build;
 import android.view.View;
 
 import org.telegram.messenger.AndroidUtilities;

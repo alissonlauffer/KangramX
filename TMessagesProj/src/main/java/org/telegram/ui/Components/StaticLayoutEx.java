@@ -24,9 +24,6 @@ import java.lang.reflect.Constructor;
 
 public class StaticLayoutEx {
 
-    private static final String TEXT_DIR_CLASS = "android.text.TextDirectionHeuristic";
-    private static final String TEXT_DIRS_CLASS = "android.text.TextDirectionHeuristics";
-    private static final String TEXT_DIR_FIRSTSTRONG_LTR = "FIRSTSTRONG_LTR";
     private static boolean initialized;
 
     private static Constructor<StaticLayout> sConstructor;

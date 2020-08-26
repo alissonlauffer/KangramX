@@ -10,7 +10,6 @@ package org.telegram.ui.Components;
 
 import android.app.Activity;
 import android.app.Application;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 

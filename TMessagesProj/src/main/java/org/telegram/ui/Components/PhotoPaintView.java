@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.*;
 import android.graphics.Rect;
-import android.os.Build;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.SparseArray;

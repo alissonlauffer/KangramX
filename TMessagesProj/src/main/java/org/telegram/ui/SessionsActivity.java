@@ -12,7 +12,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
-import android.os.Build;
 import android.util.Base64;
 import android.util.TypedValue;
 import android.view.Gravity;

@@ -9,7 +9,6 @@
 package org.telegram.ui.Adapters;
 
 import android.location.Location;
-import android.os.Build;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.MessagesController;

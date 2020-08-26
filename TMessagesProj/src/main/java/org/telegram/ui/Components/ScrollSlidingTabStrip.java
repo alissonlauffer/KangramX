@@ -16,7 +16,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
 import android.os.SystemClock;
 import android.transition.AutoTransition;
 import android.transition.Transition;
