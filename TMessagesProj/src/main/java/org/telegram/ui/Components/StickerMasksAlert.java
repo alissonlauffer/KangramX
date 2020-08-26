@@ -649,7 +649,7 @@ public class StickerMasksAlert extends BottomSheet implements NotificationCenter
             };
             masksButton.setScaleType(ImageView.ScaleType.CENTER);
             masksButton.setImageDrawable(Theme.createEmojiIconSelectorDrawable(context, R.drawable.ic_masks_msk1, 0xffffffff, 0xff6ebaed));
-            RippleDrawable rippleDrawable = (RippleDrawable) Theme.createSelectorDrawable(0x1effffff);
+            rippleDrawable = (RippleDrawable) Theme.createSelectorDrawable(0x1effffff);
             Theme.setRippleDrawableForceSoftware(rippleDrawable);
             masksButton.setBackground(rippleDrawable);
             itemsLayout.addView(masksButton, LayoutHelper.createLinear(70, 48));
