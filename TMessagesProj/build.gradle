@@ -150,7 +150,7 @@ android {
             jniDebuggable false
             signingConfig signingConfigs.release
             minifyEnabled true
-            shrinkResources false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -257,7 +257,7 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
-        versionName "T7.0.1-K4.1"
+        versionName "T7.0.1-K4.2"
 
         vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
         // obtain your own keys at https://core.telegram.org/api/obtaining_api_id
