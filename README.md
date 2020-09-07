@@ -6,11 +6,11 @@
 
 [Telegram](https://telegram.org) is a messaging app with a focus on speed and security. It’s superfast, simple and free.
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d29c9dfb65a14e0faa2c925b9e1021e7)](https://www.codacy.com/manual/HitaloSama/KangramX?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HitaloSama/KangramX&amp;utm_campaign=Badge_Grade)
-[![Releases](https://img.shields.io/github/release/HitaloSama/KangramX.svg)](https://github.com/HitaloSama/KangramX/releases/latest)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d29c9dfb65a14e0faa2c925b9e1021e7)](https://www.codacy.com/manual/KangX-Dev/KangramX?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HitaloSama/KangramX&amp;utm_campaign=Badge_Grade)
+[![Releases](https://img.shields.io/github/release/KangX-Dev/KangramX.svg)](https://github.com/KangX-Dev/KangramX/releases/latest)
 [![Channel](https://img.shields.io/badge/Channel-Telegram-blue.svg)](https://t.me/KangramX)
 ![Build](https://github.com/Project-WKF/Kangram-Builds/workflows/Telegram%20CI/badge.svg)
-[![Github All Releases](https://img.shields.io/github/downloads/HitaloSama/KangramX/total.svg)](https://github.com/Kangram-Dev/Kangram/releases)
+[![Github All Releases](https://img.shields.io/github/downloads/KangX-Dev/KangramX/total.svg)](https://github.com/Kangram-Dev/Kangram/releases)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=KangX-Dev/KangramX)](https://dependabot.com)
 
 ## API, Protocol documentation
