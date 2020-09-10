@@ -253,9 +253,9 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
                 return super.dispatchKeyEvent(event);
             }
         };
-        instance.deviceIsLocked = ((KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE)).inKeyguardRestrictedInputMode();
+        instance.deviceIsLocked = ContextCompat.getSystemService(activity, KeyguardManager.class).inKeyguardRestrictedInputMode();
 
-        PowerManager pm = (PowerManager) activity.getSystemService(Context.POWER_SERVICE);
+        PowerManager pm = ContextCompat.getSystemService(activity, PowerManager.class);
         boolean screenOn;
         screenOn = pm.isInteractive();
         instance.screenWasWakeup = !screenOn;
@@ -267,7 +267,7 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
             return windowInsets.consumeSystemWindowInsets();
         });
 
-        WindowManager wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = ContextCompat.getSystemService(activity, WindowManager.class);
         WindowManager.LayoutParams layoutParams = windowView.createWindowLayoutParams();
         if (overlay) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -2019,7 +2019,7 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
     }
 
     public void onPauseInternal() {
-        PowerManager pm = (PowerManager) activity.getSystemService(Context.POWER_SERVICE);
+        PowerManager pm = ContextCompat.getSystemService(activity, PowerManager.class);
 
         boolean screenOn;
         screenOn = pm.isInteractive();
@@ -2060,7 +2060,7 @@ public class VoIPFragment implements VoIPBaseService.StateListener, Notification
             windowView.finish();
         }
 
-        deviceIsLocked = ((KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE)).inKeyguardRestrictedInputMode();
+        deviceIsLocked = ContextCompat.getSystemService(activity, KeyguardManager.class).inKeyguardRestrictedInputMode();
     }
 
     private void showErrorDialog(CharSequence message) {

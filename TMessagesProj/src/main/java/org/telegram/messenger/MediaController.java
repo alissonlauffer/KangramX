@@ -53,6 +53,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import androidx.core.content.ContextCompat;
+
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
@@ -819,7 +821,8 @@ public class MediaController implements AudioManager.OnAudioFocusChangeListener,
             try {
                 currentPlaybackSpeed = MessagesController.getGlobalMainSettings().getFloat("playbackSpeed", 1.0f);
                 currentMusicPlaybackSpeed = MessagesController.getGlobalMainSettings().getFloat("musicPlaybackSpeed", 1.0f);
-                sensorManager = (SensorManager) ApplicationLoader.applicationContext.getSystemService(Context.SENSOR_SERVICE);
+                sensorManager = ContextCompat.getSystemService(ApplicationLoader.applicationContext,
+                        SensorManager.class);
                 linearSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
                 gravitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
                 if (linearSensor == null || gravitySensor == null) {
@@ -831,7 +834,8 @@ public class MediaController implements AudioManager.OnAudioFocusChangeListener,
                     gravitySensor = null;
                 }
                 proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-                PowerManager powerManager = (PowerManager) ApplicationLoader.applicationContext.getSystemService(Context.POWER_SERVICE);
+                PowerManager powerManager = ContextCompat.getSystemService(ApplicationLoader.applicationContext,
+                        PowerManager.class);
                 proximityWakeLock = powerManager.newWakeLock(0x00000020, "proximity");
             } catch (Exception e) {
                 FileLog.e(e);
@@ -865,7 +869,8 @@ public class MediaController implements AudioManager.OnAudioFocusChangeListener,
                         });
                     }
                 };
-                TelephonyManager mgr = (TelephonyManager) ApplicationLoader.applicationContext.getSystemService(Context.TELEPHONY_SERVICE);
+                TelephonyManager mgr = ContextCompat.getSystemService(ApplicationLoader.applicationContext,
+                        TelephonyManager.class);
                 if (mgr != null) {
                     mgr.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
                 }
@@ -3323,7 +3328,8 @@ public class MediaController implements AudioManager.OnAudioFocusChangeListener,
 
                     if (result) {
                         if (type == 2) {
-                            DownloadManager downloadManager = (DownloadManager) ApplicationLoader.applicationContext.getSystemService(Context.DOWNLOAD_SERVICE);
+                            DownloadManager downloadManager = ContextCompat.getSystemService(ApplicationLoader.applicationContext,
+                                    DownloadManager.class);
                             downloadManager.addCompletedDownload(destFile.getName(), destFile.getName(), false, mime, destFile.getAbsolutePath(), destFile.length(), true);
                         } else {
                             AndroidUtilities.addMediaToGallery(Uri.fromFile(destFile));

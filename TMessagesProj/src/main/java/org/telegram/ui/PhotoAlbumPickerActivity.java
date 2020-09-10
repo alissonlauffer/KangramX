@@ -67,6 +67,7 @@ import org.telegram.ui.Components.SizeNotifierFrameLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -713,7 +714,7 @@ public class PhotoAlbumPickerActivity extends BaseFragment implements Notificati
             return;
         }
 
-        WindowManager manager = (WindowManager) ApplicationLoader.applicationContext.getSystemService(Activity.WINDOW_SERVICE);
+        WindowManager manager = ContextCompat.getSystemService(ApplicationLoader.applicationContext, WindowManager.class);
         int rotation = manager.getDefaultDisplay().getRotation();
         columnsCount = 2;
         if (!AndroidUtilities.isTablet() && (rotation == Surface.ROTATION_270 || rotation == Surface.ROTATION_90)) {

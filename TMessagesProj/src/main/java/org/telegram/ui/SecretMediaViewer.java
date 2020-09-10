@@ -26,6 +26,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import androidx.annotation.Keep;
+import androidx.core.content.ContextCompat;
+
 import android.util.SparseArray;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -784,14 +786,14 @@ public class SecretMediaViewer implements NotificationCenter.NotificationCenterD
         }
         try {
             if (windowView.getParent() != null) {
-                WindowManager wm = (WindowManager) parentActivity.getSystemService(Context.WINDOW_SERVICE);
+                WindowManager wm = ContextCompat.getSystemService(parentActivity, WindowManager.class);
                 wm.removeView(windowView);
             }
         } catch (Exception e) {
             FileLog.e(e);
         }
 
-        WindowManager wm = (WindowManager) parentActivity.getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = ContextCompat.getSystemService(parentActivity, WindowManager.class);
         wm.addView(windowView, windowLayoutParams);
         secretDeleteTimer.invalidate();
         isVisible = true;
@@ -891,7 +893,7 @@ public class SecretMediaViewer implements NotificationCenter.NotificationCenterD
         if (parentActivity != null && windowView != null) {
             try {
                 if (windowView.getParent() != null) {
-                    WindowManager wm = (WindowManager) parentActivity.getSystemService(Context.WINDOW_SERVICE);
+                    WindowManager wm = ContextCompat.getSystemService(parentActivity, WindowManager.class);
                     wm.removeViewImmediate(windowView);
                 }
                 windowView = null;
@@ -1252,7 +1254,7 @@ public class SecretMediaViewer implements NotificationCenter.NotificationCenterD
             centerImage.setImageBitmap((Bitmap) null);
             try {
                 if (windowView.getParent() != null) {
-                    WindowManager wm = (WindowManager) parentActivity.getSystemService(Context.WINDOW_SERVICE);
+                    WindowManager wm = ContextCompat.getSystemService(parentActivity, WindowManager.class);
                     wm.removeView(windowView);
                 }
             } catch (Exception e) {

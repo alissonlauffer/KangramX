@@ -37,6 +37,8 @@ import org.telegram.ui.Components.ForegroundDetector;
 
 import java.io.File;
 
+import androidx.core.content.ContextCompat;
+
 public class ApplicationLoader extends Application {
 
     @SuppressLint("StaticFieldLeak")
@@ -87,7 +89,7 @@ public class ApplicationLoader extends Application {
         }
 
         try {
-            connectivityManager = (ConnectivityManager) ApplicationLoader.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+            connectivityManager = ContextCompat.getSystemService(applicationContext, ConnectivityManager.class);
             BroadcastReceiver networkStateReceiver = new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
@@ -120,7 +122,7 @@ public class ApplicationLoader extends Application {
         }
 
         try {
-            PowerManager pm = (PowerManager) ApplicationLoader.applicationContext.getSystemService(Context.POWER_SERVICE);
+            PowerManager pm = ContextCompat.getSystemService(applicationContext, PowerManager.class);
             isScreenOn = pm.isScreenOn();
             if (BuildVars.LOGS_ENABLED) {
                 FileLog.d("screen state = " + isScreenOn);
@@ -214,7 +216,7 @@ public class ApplicationLoader extends Application {
             applicationContext.stopService(new Intent(applicationContext, NotificationsService.class));
 
             PendingIntent pintent = PendingIntent.getService(applicationContext, 0, new Intent(applicationContext, NotificationsService.class), 0);
-            AlarmManager alarm = (AlarmManager)applicationContext.getSystemService(Context.ALARM_SERVICE);
+            AlarmManager alarm = ContextCompat.getSystemService(applicationContext, AlarmManager.class);
             alarm.cancel(pintent);
         }
     }
@@ -285,7 +287,7 @@ public class ApplicationLoader extends Application {
         if (force || currentNetworkInfo == null) {
             try {
                 if (connectivityManager == null) {
-                    connectivityManager = (ConnectivityManager) ApplicationLoader.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+                    connectivityManager = ContextCompat.getSystemService(applicationContext, ConnectivityManager.class);
                 }
                 currentNetworkInfo = connectivityManager.getActiveNetworkInfo();
             } catch (Throwable ignore) {
@@ -410,7 +412,8 @@ public class ApplicationLoader extends Application {
 
     public static boolean isNetworkOnlineRealtime() {
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) ApplicationLoader.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager connectivityManager = ContextCompat.getSystemService(applicationContext,
+                    ConnectivityManager.class);
             NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
             if (netInfo != null && (netInfo.isConnectedOrConnecting() || netInfo.isAvailable())) {
                 return true;

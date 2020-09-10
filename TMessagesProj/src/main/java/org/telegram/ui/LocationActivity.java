@@ -112,6 +112,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -1478,7 +1479,8 @@ public class LocationActivity extends BaseFragment implements NotificationCenter
                 return;
             }
             try {
-                LocationManager lm = (LocationManager) ApplicationLoader.applicationContext.getSystemService(Context.LOCATION_SERVICE);
+                LocationManager lm = ContextCompat.getSystemService(ApplicationLoader.applicationContext,
+                        LocationManager.class);
                 if (!lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
                     builder.setTitle(LocaleController.getString("GpsDisabledAlertTitle", R.string.GpsDisabledAlertTitle));
@@ -1713,7 +1715,8 @@ public class LocationActivity extends BaseFragment implements NotificationCenter
     }
 
     private Location getLastLocation() {
-        LocationManager lm = (LocationManager) ApplicationLoader.applicationContext.getSystemService(Context.LOCATION_SERVICE);
+        LocationManager lm = ContextCompat.getSystemService(ApplicationLoader.applicationContext,
+                LocationManager.class);
         List<String> providers = lm.getProviders(true);
         Location l = null;
         for (int i = providers.size() - 1; i >= 0; i--) {
