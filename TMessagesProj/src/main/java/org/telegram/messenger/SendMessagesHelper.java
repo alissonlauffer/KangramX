@@ -88,11 +88,7 @@ public class SendMessagesHelper extends BaseController implements NotificationCe
 
     static {
         int cores;
-        if (Build.VERSION.SDK_INT >= 17) {
-            cores = Runtime.getRuntime().availableProcessors();
-        } else {
-            cores = 2;
-        }
+        cores = Runtime.getRuntime().availableProcessors();
         mediaSendThreadPool = new ThreadPoolExecutor(cores, cores, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
     }
 
@@ -5746,23 +5742,9 @@ public class SendMessagesHelper extends BaseController implements NotificationCe
                 opts.inJustDecodeBounds = false;
                 opts.inSampleSize = (int) scaleFactor;
                 opts.inPreferredConfig = Bitmap.Config.RGB_565;
-                if (Build.VERSION.SDK_INT >= 21) {
-                    is = new FileInputStream(file);
-                    bitmap[0] = BitmapFactory.decodeStream(is, null, opts);
-                    is.close();
-                } else {
-                    /*opts.inPurgeable = true;
-                    RandomAccessFile f = new RandomAccessFile(file, "r");
-                    int len = (int) f.length();
-                    int offset = 0;
-                    byte[] data = bytes != null && bytes.length >= len ? bytes : null;
-                    if (data == null) {
-                        bytes = data = new byte[len];
-                    }
-                    f.readFully(data, 0, len);
-                    f.close();
-                    bitmapFinal[0] = BitmapFactory.decodeByteArray(data, offset, len, opts);*/
-                }
+                is = new FileInputStream(file);
+                bitmap[0] = BitmapFactory.decodeStream(is, null, opts);
+                is.close();
             } catch (Throwable ignore) {
 
             }
@@ -6479,17 +6461,15 @@ public class SendMessagesHelper extends BaseController implements NotificationCe
             if (duration != null) {
                 attributeVideo.duration = (int) Math.ceil(Long.parseLong(duration) / 1000.0f);
             }
-            if (Build.VERSION.SDK_INT >= 17) {
-                String rotation = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);
-                if (rotation != null) {
-                    int val = Utilities.parseInt(rotation);
-                    if (videoEditedInfo != null) {
-                        videoEditedInfo.rotationValue = val;
-                    } else if (val == 90 || val == 270) {
-                        int temp = attributeVideo.w;
-                        attributeVideo.w = attributeVideo.h;
-                        attributeVideo.h = temp;
-                    }
+            String rotation = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION);
+            if (rotation != null) {
+                int val = Utilities.parseInt(rotation);
+                if (videoEditedInfo != null) {
+                    videoEditedInfo.rotationValue = val;
+                } else if (val == 90 || val == 270) {
+                    int temp = attributeVideo.w;
+                    attributeVideo.w = attributeVideo.h;
+                    attributeVideo.h = temp;
                 }
             }
             infoObtained = true;

@@ -251,79 +251,7 @@ public class Bitmaps {
     }
 
     public static Bitmap createBitmap(Bitmap source, int x, int y, int width, int height, Matrix m, boolean filter) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return Bitmap.createBitmap(source, x, y, width, height, m, filter);
-        }
-        checkXYSign(x, y);
-        checkWidthHeight(width, height);
-        if (x + width > source.getWidth()) {
-            throw new IllegalArgumentException("x + width must be <= bitmap.width()");
-        }
-        if (y + height > source.getHeight()) {
-            throw new IllegalArgumentException("y + height must be <= bitmap.height()");
-        }
-        if (!source.isMutable() && x == 0 && y == 0 && width == source.getWidth() && height == source.getHeight() && (m == null || m.isIdentity())) {
-            return source;
-        }
-
-        int neww = width;
-        int newh = height;
-        Canvas canvas = new Canvas();
-        Bitmap bitmap;
-        Paint paint;
-
-        Rect srcR = new Rect(x, y, x + width, y + height);
-        RectF dstR = new RectF(0, 0, width, height);
-
-        Bitmap.Config newConfig = Bitmap.Config.ARGB_8888;
-        final Bitmap.Config config = source.getConfig();
-        if (config != null) {
-            switch (config) {
-                case RGB_565:
-                    newConfig = Bitmap.Config.ARGB_8888;
-                    break;
-                case ALPHA_8:
-                    newConfig = Bitmap.Config.ALPHA_8;
-                    break;
-                case ARGB_4444:
-                case ARGB_8888:
-                default:
-                    newConfig = Bitmap.Config.ARGB_8888;
-                    break;
-            }
-        }
-
-        if (m == null || m.isIdentity()) {
-            bitmap = createBitmap(neww, newh, newConfig);
-            paint = null;
-        } else {
-            final boolean transformed = !m.rectStaysRect();
-            RectF deviceR = new RectF();
-            m.mapRect(deviceR, dstR);
-            neww = Math.round(deviceR.width());
-            newh = Math.round(deviceR.height());
-            bitmap = createBitmap(neww, newh, transformed ? Bitmap.Config.ARGB_8888 : newConfig);
-            canvas.translate(-deviceR.left, -deviceR.top);
-            canvas.concat(m);
-            paint = new Paint();
-            paint.setFilterBitmap(filter);
-            if (transformed) {
-                paint.setAntiAlias(true);
-            }
-        }
-        bitmap.setDensity(source.getDensity());
-        bitmap.setHasAlpha(source.hasAlpha());
-        if (Build.VERSION.SDK_INT >= 19) {
-            bitmap.setPremultiplied(source.isPremultiplied());
-        }
-        canvas.setBitmap(bitmap);
-        canvas.drawBitmap(source, srcR, dstR, paint);
-        try {
-            canvas.setBitmap(null);
-        } catch (Exception e) {
-            //don't promt, this will crash on 2.x
-        }
-        return bitmap;
+        return Bitmap.createBitmap(source, x, y, width, height, m, filter);
     }
 
     public static Bitmap createBitmap(Bitmap source, int x, int y, int width, int height) {
@@ -331,28 +259,6 @@ public class Bitmaps {
     }
 
     public static Bitmap createScaledBitmap(Bitmap src, int dstWidth, int dstHeight, boolean filter) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return Bitmap.createScaledBitmap(src, dstWidth, dstHeight, filter);
-        }
-        Matrix m;
-        synchronized (Bitmap.class) {
-            m = sScaleMatrix;
-            sScaleMatrix = null;
-        }
-        if (m == null) {
-            m = new Matrix();
-        }
-        final int width = src.getWidth();
-        final int height = src.getHeight();
-        final float sx = dstWidth / (float) width;
-        final float sy = dstHeight / (float) height;
-        m.setScale(sx, sy);
-        Bitmap b = createBitmap(src, 0, 0, width, height, m, filter);
-        synchronized (Bitmap.class) {
-            if (sScaleMatrix == null) {
-                sScaleMatrix = m;
-            }
-        }
-        return b;
+        return Bitmap.createScaledBitmap(src, dstWidth, dstHeight, filter);
     }
 }

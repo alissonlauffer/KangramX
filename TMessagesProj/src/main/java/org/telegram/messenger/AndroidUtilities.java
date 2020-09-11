@@ -1718,74 +1718,68 @@ public class AndroidUtilities {
     }
 
     public static void setViewPagerEdgeEffectColor(ViewPager viewPager, int color) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            try {
-                Field field = ViewPager.class.getDeclaredField("mLeftEdge");
-                field.setAccessible(true);
-                EdgeEffect mLeftEdge = (EdgeEffect) field.get(viewPager);
-                if (mLeftEdge != null) {
-                    mLeftEdge.setColor(color);
-                }
-
-                field = ViewPager.class.getDeclaredField("mRightEdge");
-                field.setAccessible(true);
-                EdgeEffect mRightEdge = (EdgeEffect) field.get(viewPager);
-                if (mRightEdge != null) {
-                    mRightEdge.setColor(color);
-                }
-            } catch (Exception ignore) {
-
+        try {
+            Field field = ViewPager.class.getDeclaredField("mLeftEdge");
+            field.setAccessible(true);
+            EdgeEffect mLeftEdge = (EdgeEffect) field.get(viewPager);
+            if (mLeftEdge != null) {
+                mLeftEdge.setColor(color);
             }
+
+            field = ViewPager.class.getDeclaredField("mRightEdge");
+            field.setAccessible(true);
+            EdgeEffect mRightEdge = (EdgeEffect) field.get(viewPager);
+            if (mRightEdge != null) {
+                mRightEdge.setColor(color);
+            }
+        } catch (Exception ignore) {
+
         }
     }
 
     public static void setScrollViewEdgeEffectColor(HorizontalScrollView scrollView, int color) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            try {
-                Field field = HorizontalScrollView.class.getDeclaredField("mEdgeGlowLeft");
-                field.setAccessible(true);
-                EdgeEffect mEdgeGlowTop = (EdgeEffect) field.get(scrollView);
-                if (mEdgeGlowTop != null) {
-                    mEdgeGlowTop.setColor(color);
-                }
-
-                field = HorizontalScrollView.class.getDeclaredField("mEdgeGlowRight");
-                field.setAccessible(true);
-                EdgeEffect mEdgeGlowBottom = (EdgeEffect) field.get(scrollView);
-                if (mEdgeGlowBottom != null) {
-                    mEdgeGlowBottom.setColor(color);
-                }
-            } catch (Exception e) {
-                FileLog.e(e);
+        try {
+            Field field = HorizontalScrollView.class.getDeclaredField("mEdgeGlowLeft");
+            field.setAccessible(true);
+            EdgeEffect mEdgeGlowTop = (EdgeEffect) field.get(scrollView);
+            if (mEdgeGlowTop != null) {
+                mEdgeGlowTop.setColor(color);
             }
+
+            field = HorizontalScrollView.class.getDeclaredField("mEdgeGlowRight");
+            field.setAccessible(true);
+            EdgeEffect mEdgeGlowBottom = (EdgeEffect) field.get(scrollView);
+            if (mEdgeGlowBottom != null) {
+                mEdgeGlowBottom.setColor(color);
+            }
+        } catch (Exception e) {
+            FileLog.e(e);
         }
     }
 
     public static void setScrollViewEdgeEffectColor(ScrollView scrollView, int color) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            try {
-                Field field = ScrollView.class.getDeclaredField("mEdgeGlowTop");
-                field.setAccessible(true);
-                EdgeEffect mEdgeGlowTop = (EdgeEffect) field.get(scrollView);
-                if (mEdgeGlowTop != null) {
-                    mEdgeGlowTop.setColor(color);
-                }
-
-                field = ScrollView.class.getDeclaredField("mEdgeGlowBottom");
-                field.setAccessible(true);
-                EdgeEffect mEdgeGlowBottom = (EdgeEffect) field.get(scrollView);
-                if (mEdgeGlowBottom != null) {
-                    mEdgeGlowBottom.setColor(color);
-                }
-            } catch (Exception e) {
-                FileLog.e(e);
+        try {
+            Field field = ScrollView.class.getDeclaredField("mEdgeGlowTop");
+            field.setAccessible(true);
+            EdgeEffect mEdgeGlowTop = (EdgeEffect) field.get(scrollView);
+            if (mEdgeGlowTop != null) {
+                mEdgeGlowTop.setColor(color);
             }
+
+            field = ScrollView.class.getDeclaredField("mEdgeGlowBottom");
+            field.setAccessible(true);
+            EdgeEffect mEdgeGlowBottom = (EdgeEffect) field.get(scrollView);
+            if (mEdgeGlowBottom != null) {
+                mEdgeGlowBottom.setColor(color);
+            }
+        } catch (Exception e) {
+            FileLog.e(e);
         }
     }
 
     @SuppressLint("NewApi")
     public static void clearDrawableAnimation(View view) {
-        if (Build.VERSION.SDK_INT < 21 || view == null) {
+        if (view == null) {
             return;
         }
         Drawable drawable;

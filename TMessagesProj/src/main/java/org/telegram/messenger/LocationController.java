@@ -282,38 +282,34 @@ public class LocationController extends BaseController implements NotificationCe
     public void onConnected(Bundle bundle) {
         wasConnectedToPlayServices = true;
         try {
-            if (Build.VERSION.SDK_INT >= 21) {
-                LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);
-                PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());
-                result.setResultCallback(locationSettingsResult -> {
-                    final Status status = locationSettingsResult.getStatus();
-                    switch (status.getStatusCode()) {
-                        case LocationSettingsStatusCodes.SUCCESS:
-                            startFusedLocationRequest(true);
-                            break;
-                        case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-                            Utilities.stageQueue.postRunnable(() -> {
-                                if (lookingForPeopleNearby || !sharingLocations.isEmpty()) {
-                                    AndroidUtilities.runOnUIThread(() -> getNotificationCenter().postNotificationName(NotificationCenter.needShowPlayServicesAlert, status));
-                                }
-                            });
-                            break;
-                        case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-                            Utilities.stageQueue.postRunnable(() -> {
-                                playServicesAvailable = false;
-                                try {
-                                    googleApiClient.disconnect();
-                                    start();
-                                } catch (Throwable ignore) {
+            LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(locationRequest);
+            PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, builder.build());
+            result.setResultCallback(locationSettingsResult -> {
+                final Status status = locationSettingsResult.getStatus();
+                switch (status.getStatusCode()) {
+                    case LocationSettingsStatusCodes.SUCCESS:
+                        startFusedLocationRequest(true);
+                        break;
+                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+                        Utilities.stageQueue.postRunnable(() -> {
+                            if (lookingForPeopleNearby || !sharingLocations.isEmpty()) {
+                                AndroidUtilities.runOnUIThread(() -> getNotificationCenter().postNotificationName(NotificationCenter.needShowPlayServicesAlert, status));
+                            }
+                        });
+                        break;
+                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+                        Utilities.stageQueue.postRunnable(() -> {
+                            playServicesAvailable = false;
+                            try {
+                                googleApiClient.disconnect();
+                                start();
+                            } catch (Throwable ignore) {
 
-                                }
-                            });
-                            break;
-                    }
-                });
-            } else {
-                startFusedLocationRequest(true);
-            }
+                            }
+                        });
+                        break;
+                }
+            });
         } catch (Throwable e) {
             FileLog.e(e);
         }

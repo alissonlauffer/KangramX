@@ -607,19 +607,7 @@ public class TextureRenderer {
                             entity.ptr = RLottieDrawable.create(entity.text, 512, 512, entity.metadata, false, null, false);
                             entity.framesPerDraw = entity.metadata[1] / videoFps;
                         } else {
-                            if (Build.VERSION.SDK_INT >= 19) {
-                                entity.bitmap = BitmapFactory.decodeFile(entity.text);
-                            } else {
-                                File path = new File(entity.text);
-                                RandomAccessFile file = new RandomAccessFile(path, "r");
-                                ByteBuffer buffer = file.getChannel().map(FileChannel.MapMode.READ_ONLY, 0, path.length());
-                                BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-                                bmOptions.inJustDecodeBounds = true;
-                                Utilities.loadWebpImage(null, buffer, buffer.limit(), bmOptions, true);
-                                entity.bitmap = Bitmaps.createBitmap(bmOptions.outWidth, bmOptions.outHeight, Bitmap.Config.ARGB_8888);
-                                Utilities.loadWebpImage(entity.bitmap, buffer, buffer.limit(), null, true);
-                                file.close();
-                            }
+                            entity.bitmap = BitmapFactory.decodeFile(entity.text);
                             if (entity.bitmap != null) {
                                 float aspect = entity.bitmap.getWidth() / (float) entity.bitmap.getHeight();
                                 if (aspect > 1) {

@@ -452,7 +452,7 @@ public class VoIPService extends VoIPBaseService {
 			stopSelf();
 			return;
 		}
-		if (Build.VERSION.SDK_INT >= 19 && XiaomiUtilities.isMIUI() && !XiaomiUtilities.isCustomPermissionGranted(XiaomiUtilities.OP_SHOW_WHEN_LOCKED)) {
+		if (XiaomiUtilities.isMIUI() && !XiaomiUtilities.isCustomPermissionGranted(XiaomiUtilities.OP_SHOW_WHEN_LOCKED)) {
 			if (ContextCompat.getSystemService(this, KeyguardManager.class).inKeyguardRestrictedInputMode()) {
 				if (BuildVars.LOGS_ENABLED) {
 					FileLog.e("MIUI: no permission to show when locked but the screen is locked. ¯\\_(ツ)_/¯");
