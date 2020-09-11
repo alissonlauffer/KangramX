@@ -5805,11 +5805,11 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     out = new ZipOutputStream(new BufferedOutputStream(dest));
                     byte[] data = new byte[1024 * 64];
 
-                    for (int i = 0; i < files.length; i++) {
-                        FileInputStream fi = new FileInputStream(files[i]);
+                    for (File file : files) {
+                        FileInputStream fi = new FileInputStream(file);
                         origin = new BufferedInputStream(fi, data.length);
 
-                        ZipEntry entry = new ZipEntry(files[i].getName());
+                        ZipEntry entry = new ZipEntry(file.getName());
                         out.putNextEntry(entry);
                         int count;
                         while ((count = origin.read(data, 0, data.length)) != -1) {

@@ -1285,8 +1285,7 @@ public class FilterUsersActivity extends BaseFragment implements NotificationCen
 
                             int found = 0;
                             for (String q : search) {
-                                for (int i = 0; i < names.length; i++) {
-                                    final String name = names[i];
+                                for (final String name : names) {
                                     if (name != null && (name.startsWith(q) || name.contains(" " + q))) {
                                         found = 1;
                                         break;
