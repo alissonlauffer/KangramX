@@ -1,0 +1,8 @@
+kind: pipeline
+name: KangX Build
+
+steps:
+- name: Build
+  image: runmymind/docker-android-sdk:ubuntu-standalone
+  commands:
+  - USE_SPLITBUILD=1 ./gradlew assembleRelease
