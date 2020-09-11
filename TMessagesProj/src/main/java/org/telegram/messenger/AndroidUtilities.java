@@ -23,11 +23,14 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.content.res.Configuration;
+import android.content.res.XmlResourceParser;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -117,6 +120,8 @@ import org.telegram.ui.Components.ShareAlert;
 import org.telegram.ui.Components.TypefaceSpan;
 import org.telegram.ui.ThemePreviewActivity;
 import org.telegram.ui.WallpapersListActivity;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -131,6 +136,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
@@ -330,6 +336,45 @@ public class AndroidUtilities {
             text.setSpan(new URLSpan(link.url), link.start, link.end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         return true;
+    }
+
+
+    /**
+     * Get the apk path of this application.
+     * @param context any context (e.g. an Activity or a Service)
+     * @return full apk file path
+     */
+    public static String getApkName(Context context) throws PackageManager.NameNotFoundException {
+        String packageName = context.getPackageName();
+        PackageManager pm = context.getPackageManager();
+        ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
+        return ai.publicSourceDir;
+    }
+
+    /**
+     * Used in Android Marshmallow and earlier to determine minSdkVersion (In Android 7.0+ this code is not used).
+     * Adapted from https://stackoverflow.com/a/43603448/9728342
+     * @param context any context (e.g. an Activity or a Service)
+     * @return int containing SDK version
+     */
+    public static int getMinSdkVersion(Context context) throws ClassNotFoundException, IllegalAccessException, InstantiationException,
+            NoSuchMethodException, InvocationTargetException, IOException, XmlPullParserException, PackageManager.NameNotFoundException {
+        File apkFile = new File(getApkName(context));
+        final Class assetManagerClass = Class.forName("android.content.res.AssetManager");
+        final AssetManager assetManager = (AssetManager) assetManagerClass.newInstance();
+        final Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
+        final int cookie = (Integer) addAssetPath.invoke(assetManager, apkFile.getAbsolutePath());
+        final XmlResourceParser parser = assetManager.openXmlResourceParser(cookie, "AndroidManifest.xml");
+        while (parser.next() != XmlPullParser.END_DOCUMENT) {
+            if (parser.getEventType() == XmlPullParser.START_TAG && parser.getName().equals("uses-sdk")) {
+                for (int i = 0; i < parser.getAttributeCount(); ++i) {
+                    if (parser.getAttributeNameResource(i) == android.R.attr.minSdkVersion) {
+                        return parser.getAttributeIntValue(i, -1);
+                    }
+                }
+            }
+        }
+        return -1;
     }
 
     private static void pruneOverlaps(ArrayList<LinkSpec> links) {

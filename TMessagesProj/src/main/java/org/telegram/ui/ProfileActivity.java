@@ -6020,7 +6020,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                                 abi = "universal " + TextUtils.join(" ", Build.SUPPORTED_ABIS);
                                 break;
                         }
-                        cell.setText(String.format("%1$s %2$s", LocaleController.getString("Kangram X", R.string.AppName), String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi)));
+                        int minAPI = Build.VERSION.SDK_INT >= 24 ? pInfo.applicationInfo.minSdkVersion : AndroidUtilities.getMinSdkVersion(mContext);
+                        cell.setText(String.format("%1$s %2$s", LocaleController.getString("Kangram X", R.string.AppName), String.format(Locale.US, "v%s (%d) %s minAPI %s", pInfo.versionName, code, abi, minAPI)));
                     } catch (Exception e) {
                         FileLog.e(e);
                     }
