@@ -975,6 +975,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
     private final static int star = 22;
     private final static int edit = 23;
     private final static int add_shortcut = 24;
+    private final static int go_to_begining = 25;
 
     private final static int bot_help = 30;
     private final static int bot_settings = 31;
@@ -1679,6 +1680,8 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                     } catch (Exception e) {
                         FileLog.e(e);
                     }
+                } else if (id == go_to_begining) {
+                    jumpToDate(1);
                 } else if (id == report) {
                     AlertsCreator.createReportAlert(getParentActivity(), dialog_id, 0, ChatActivity.this);
                 } else if (id == star) {
@@ -1970,6 +1973,9 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
             }
             if (currentUser == null || !currentUser.self) {
                 muteItem = headerItem.addSubItem(mute, R.drawable.msg_mute, null);
+            }
+            if (currentChat != null) {
+                headerItem.addSubItem(go_to_begining, R.drawable.msg_go_up, LocaleController.getString("GoToBegining", R.string.GoToBegining));
             }
             if (ChatObject.isChannel(currentChat) && !currentChat.creator) {
                 if (!ChatObject.isNotInChat(currentChat)) {

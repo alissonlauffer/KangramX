@@ -3704,4 +3704,5 @@
     <string name="FormatWithSeconds">Mostrar segundos nas mensagens</string>
     <string name="DisableThumbsInDialogList">Desativar miniaturas na lista de conversas</string>
     <string name="ExperimentalSettings">Experimental</string>
+    <string name="GoToBegining">Ir para o início</string>
 </resources>
