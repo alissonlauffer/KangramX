@@ -53,6 +53,7 @@ import androidx.collection.ArrayMap;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.dynamicanimation.animation.DynamicAnimation;
 import androidx.dynamicanimation.animation.SpringAnimation;
@@ -346,7 +347,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
 
     private boolean pipAvailable;
 
-    private Object lastInsets;
+    private WindowInsetsCompat lastInsets;
     private boolean padImageForHorizontalInsets;
 
     private boolean doneButtonPressed;
@@ -2922,7 +2923,6 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
                 int widthSize = MeasureSpec.getSize(widthMeasureSpec);
                 int heightSize = MeasureSpec.getSize(heightMeasureSpec);
                 if (lastInsets != null) {
-                    WindowInsets insets = (WindowInsets) lastInsets;
                     if (!inBubbleMode) {
                         if (AndroidUtilities.incorrectDisplaySizeFix) {
                             if (heightSize > AndroidUtilities.displaySize.y) {
@@ -2930,16 +2930,16 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
                             }
                             heightSize += AndroidUtilities.statusBarHeight;
                         } else {
-                            int insetBottom = insets.getStableInsetBottom();
+                            int insetBottom = lastInsets.getStableInsetBottom();
                             if (insetBottom >= 0 && AndroidUtilities.statusBarHeight >= 0) {
-                                int newSize = heightSize - AndroidUtilities.statusBarHeight - insets.getStableInsetBottom();
+                                int newSize = heightSize - AndroidUtilities.statusBarHeight - lastInsets.getStableInsetBottom();
                                 if (newSize > 0 && newSize < 4096) {
                                     AndroidUtilities.displaySize.y = newSize;
                                 }
                             }
                         }
                     }
-                    heightSize -= insets.getSystemWindowInsetBottom();
+                    heightSize -= lastInsets.getSystemWindowInsetBottom();
                 } else {
                     if (heightSize > AndroidUtilities.displaySize.y) {
                         heightSize = AndroidUtilities.displaySize.y;
@@ -3015,7 +3015,6 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
             @Override
             protected void onDraw(Canvas canvas) {
                 if (isVisible && lastInsets != null) {
-                    WindowInsets insets = (WindowInsets) lastInsets;
                     if (animationInProgress == 1) {
                         blackPaint.setAlpha((int) (255 * animatingImageView.getAnimationProgress()));
                     } else if (animationInProgress == 3) {
@@ -3023,7 +3022,8 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
                     } else {
                         blackPaint.setAlpha(255);
                     }
-                    canvas.drawRect(0, getMeasuredHeight(), getMeasuredWidth(), getMeasuredHeight() + insets.getSystemWindowInsetBottom(), blackPaint);
+                    canvas.drawRect(0, getMeasuredHeight(), getMeasuredWidth(),
+                            getMeasuredHeight() + lastInsets.getSystemWindowInsetBottom(), blackPaint);
                 }
             }
         };
@@ -3038,16 +3038,15 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
         containerView = new FrameLayoutDrawer(activity);
         containerView.setFocusable(false);
         windowView.addView(containerView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, Gravity.TOP | Gravity.LEFT));
-        containerView.setFitsSystemWindows(true);
-        containerView.setOnApplyWindowInsetsListener((v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(containerView, (v, insets) -> {
             int newTopInset = insets.getSystemWindowInsetTop();
             if (parentActivity instanceof LaunchActivity && (newTopInset != 0 || AndroidUtilities.isInMultiwindow) && !inBubbleMode && AndroidUtilities.statusBarHeight != newTopInset) {
                 AndroidUtilities.statusBarHeight = newTopInset;
                 ((LaunchActivity) parentActivity).drawerLayoutContainer.requestLayout();
             }
-            WindowInsets oldInsets = (WindowInsets) lastInsets;
+            WindowInsetsCompat oldInsets = lastInsets;
             lastInsets = insets;
-            if (oldInsets == null || !oldInsets.toString().equals(insets.toString())) {
+            if (oldInsets == null || !oldInsets.equals(insets)) {
                 if (animationInProgress == 1 || animationInProgress == 3) {
                     animatingImageView.setTranslationX(animatingImageView.getTranslationX() - getLeftInset());
                     animationValues[0][2] = animatingImageView.getTranslationX();
@@ -3065,6 +3064,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
             }
             return insets.consumeSystemWindowInsets();
         });
+        containerView.setFitsSystemWindows(true);
         containerView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
 
         windowLayoutParams = new WindowManager.LayoutParams();
@@ -5119,14 +5119,14 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
 
     private int getLeftInset() {
         if (lastInsets != null) {
-            return ((WindowInsets) lastInsets).getSystemWindowInsetLeft();
+            return lastInsets.getSystemWindowInsetLeft();
         }
         return 0;
     }
 
 	private int getRightInset() {
 		if (lastInsets != null) {
-			return ((WindowInsets) lastInsets).getSystemWindowInsetRight();
+			return lastInsets.getSystemWindowInsetRight();
 		}
 		return 0;
 	}
