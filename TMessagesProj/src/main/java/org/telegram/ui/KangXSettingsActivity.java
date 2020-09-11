@@ -217,7 +217,9 @@ public class KangXSettingsActivity extends BaseFragment {
         emptyRows.add(rowCount++);
         sectionRows.add(rowCount++);
         smoothKeyboard = rowCount++;
-        chatBubbles = rowCount++;
+        if (Build.VERSION.SDK_INT >= 29) {
+            chatBubbles = rowCount++;
+        }
 
         return true;
     }
