@@ -6017,7 +6017,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                                 break;
                             case 0:
                             case 9:
-                                abi = "universal " + Build.CPU_ABI + " " + Build.CPU_ABI2;
+                                abi = "universal " + TextUtils.join(" ", Build.SUPPORTED_ABIS);
                                 break;
                         }
                         cell.setText(String.format("%1$s %2$s", LocaleController.getString("Kangram X", R.string.AppName), String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi)));
