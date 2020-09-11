@@ -193,7 +193,7 @@ public class GroupStickersActivity extends BaseFragment implements NotificationC
         editText.setLines(1);
         editText.setEnabled(false);
         editText.setFocusable(false);
-        editText.setBackgroundDrawable(null);
+        editText.setBackground(null);
         editText.setPadding(0, 0, 0, 0);
         editText.setGravity(Gravity.CENTER_VERTICAL);
         editText.setSingleLine(true);
@@ -210,7 +210,7 @@ public class GroupStickersActivity extends BaseFragment implements NotificationC
         usernameTextView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         usernameTextView.setMaxLines(1);
         usernameTextView.setLines(1);
-        usernameTextView.setBackgroundDrawable(null);
+        usernameTextView.setBackground(null);
         usernameTextView.setPadding(0, 0, 0, 0);
         usernameTextView.setSingleLine(true);
         usernameTextView.setGravity(Gravity.CENTER_VERTICAL);
@@ -705,14 +705,14 @@ public class GroupStickersActivity extends BaseFragment implements NotificationC
                     break;
                 case 1:
                     view = new TextInfoPrivacyCell(mContext);
-                    view.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+                    view.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
                     break;
                 case 2:
                     view = nameContainer;
                     break;
                 case 3:
                     view = new ShadowSectionCell(mContext);
-                    view.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+                    view.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
                     break;
                 case 4:
                     view = new HeaderCell(mContext);

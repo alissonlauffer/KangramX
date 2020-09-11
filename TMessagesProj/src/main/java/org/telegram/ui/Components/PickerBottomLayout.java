@@ -42,7 +42,7 @@ public class PickerBottomLayout extends FrameLayout {
         cancelButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         cancelButton.setTextColor(Theme.getColor(Theme.key_picker_enabledButton));
         cancelButton.setGravity(Gravity.CENTER);
-        cancelButton.setBackgroundDrawable(Theme.createSelectorDrawable(0x0f000000, 0));
+        cancelButton.setBackground(Theme.createSelectorDrawable(0x0f000000, 0));
         cancelButton.setPadding(AndroidUtilities.dp(33), 0, AndroidUtilities.dp(33), 0);
         cancelButton.setText(LocaleController.getString("Cancel", R.string.Cancel).toUpperCase());
         cancelButton.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
@@ -50,7 +50,7 @@ public class PickerBottomLayout extends FrameLayout {
 
         doneButton = new LinearLayout(context);
         doneButton.setOrientation(LinearLayout.HORIZONTAL);
-        doneButton.setBackgroundDrawable(Theme.createSelectorDrawable(0x0f000000, 0));
+        doneButton.setBackground(Theme.createSelectorDrawable(0x0f000000, 0));
         doneButton.setPadding(AndroidUtilities.dp(33), 0, AndroidUtilities.dp(33), 0);
         addView(doneButton, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, LayoutHelper.MATCH_PARENT, Gravity.TOP | Gravity.RIGHT));
 
@@ -60,7 +60,7 @@ public class PickerBottomLayout extends FrameLayout {
         doneButtonBadgeTextView.setTextColor(Theme.getColor(Theme.key_picker_badgeText));
         doneButtonBadgeTextView.setGravity(Gravity.CENTER);
         Drawable drawable = Theme.createRoundRectDrawable(AndroidUtilities.dp(11), Theme.getColor(Theme.key_picker_badge));
-        doneButtonBadgeTextView.setBackgroundDrawable(drawable);
+        doneButtonBadgeTextView.setBackground(drawable);
         doneButtonBadgeTextView.setMinWidth(AndroidUtilities.dp(23));
         doneButtonBadgeTextView.setPadding(AndroidUtilities.dp(8), 0, AndroidUtilities.dp(8), AndroidUtilities.dp(1));
         doneButton.addView(doneButtonBadgeTextView, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, 23, Gravity.CENTER_VERTICAL, 0, 0, 10, 0));

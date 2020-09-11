@@ -274,7 +274,7 @@ public class PhotoPaintView extends FrameLayout implements EntityView.EntityView
         cancelTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         cancelTextView.setTextColor(0xffffffff);
         cancelTextView.setGravity(Gravity.CENTER);
-        cancelTextView.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_PICKER_SELECTOR_COLOR, 0));
+        cancelTextView.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_PICKER_SELECTOR_COLOR, 0));
         cancelTextView.setPadding(AndroidUtilities.dp(20), 0, AndroidUtilities.dp(20), 0);
         cancelTextView.setText(LocaleController.getString("Cancel", R.string.Cancel).toUpperCase());
         cancelTextView.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
@@ -284,7 +284,7 @@ public class PhotoPaintView extends FrameLayout implements EntityView.EntityView
         doneTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         doneTextView.setTextColor(Theme.getColor(Theme.key_dialogFloatingButton));
         doneTextView.setGravity(Gravity.CENTER);
-        doneTextView.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_PICKER_SELECTOR_COLOR, 0));
+        doneTextView.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_PICKER_SELECTOR_COLOR, 0));
         doneTextView.setPadding(AndroidUtilities.dp(20), 0, AndroidUtilities.dp(20), 0);
         doneTextView.setText(LocaleController.getString("Done", R.string.Done).toUpperCase());
         doneTextView.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
@@ -293,21 +293,21 @@ public class PhotoPaintView extends FrameLayout implements EntityView.EntityView
         paintButton = new ImageView(context);
         paintButton.setScaleType(ImageView.ScaleType.CENTER);
         paintButton.setImageResource(R.drawable.photo_paint);
-        paintButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
+        paintButton.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         toolsView.addView(paintButton, LayoutHelper.createFrame(54, LayoutHelper.MATCH_PARENT, Gravity.CENTER, 0, 0, 56, 0));
         paintButton.setOnClickListener(v -> selectEntity(null));
 
         ImageView stickerButton = new ImageView(context);
         stickerButton.setScaleType(ImageView.ScaleType.CENTER);
         stickerButton.setImageResource(R.drawable.photo_sticker);
-        stickerButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
+        stickerButton.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         toolsView.addView(stickerButton, LayoutHelper.createFrame(54, LayoutHelper.MATCH_PARENT, Gravity.CENTER));
         stickerButton.setOnClickListener(v -> openStickersView());
 
         ImageView textButton = new ImageView(context);
         textButton.setScaleType(ImageView.ScaleType.CENTER);
         textButton.setImageResource(R.drawable.photo_paint_text);
-        textButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
+        textButton.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         toolsView.addView(textButton, LayoutHelper.createFrame(54, LayoutHelper.MATCH_PARENT, Gravity.CENTER, 56, 0, 0, 0));
         textButton.setOnClickListener(v -> createText(true));
 
@@ -1225,7 +1225,7 @@ public class PhotoPaintView extends FrameLayout implements EntityView.EntityView
 
             TextView deleteView = new TextView(getContext());
             deleteView.setTextColor(Theme.getColor(Theme.key_actionBarDefaultSubmenuItem));
-            deleteView.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            deleteView.setBackground(Theme.getSelectorDrawable(false));
             deleteView.setGravity(Gravity.CENTER_VERTICAL);
             deleteView.setPadding(AndroidUtilities.dp(16), 0, AndroidUtilities.dp(14), 0);
             deleteView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
@@ -1243,7 +1243,7 @@ public class PhotoPaintView extends FrameLayout implements EntityView.EntityView
             if (entityView instanceof TextPaintView) {
                 TextView editView = new TextView(getContext());
                 editView.setTextColor(Theme.getColor(Theme.key_actionBarDefaultSubmenuItem));
-                editView.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                editView.setBackground(Theme.getSelectorDrawable(false));
                 editView.setGravity(Gravity.CENTER_VERTICAL);
                 editView.setPadding(AndroidUtilities.dp(16), 0, AndroidUtilities.dp(16), 0);
                 editView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
@@ -1261,7 +1261,7 @@ public class PhotoPaintView extends FrameLayout implements EntityView.EntityView
 
             TextView duplicateView = new TextView(getContext());
             duplicateView.setTextColor(Theme.getColor(Theme.key_actionBarDefaultSubmenuItem));
-            duplicateView.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            duplicateView.setBackground(Theme.getSelectorDrawable(false));
             duplicateView.setGravity(Gravity.CENTER_VERTICAL);
             duplicateView.setPadding(AndroidUtilities.dp(14), 0, AndroidUtilities.dp(16), 0);
             duplicateView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
@@ -1293,7 +1293,7 @@ public class PhotoPaintView extends FrameLayout implements EntityView.EntityView
             }
         };
         button.setOrientation(LinearLayout.HORIZONTAL);
-        button.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+        button.setBackground(Theme.getSelectorDrawable(false));
         button.setOnClickListener(v -> {
             setBrush(brush);
 
@@ -1350,7 +1350,7 @@ public class PhotoPaintView extends FrameLayout implements EntityView.EntityView
             }
         };
         button.setOrientation(LinearLayout.HORIZONTAL);
-        button.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+        button.setBackground(Theme.getSelectorDrawable(false));
         button.setOnClickListener(v -> {
             setType(type);
 

@@ -76,7 +76,7 @@ public class PhotoPickerAlbumsCell extends FrameLayout {
             linearLayout.addView(countTextView, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.MATCH_PARENT, 4, 0, 7, 5));
 
             selector = new View(context);
-            selector.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            selector.setBackground(Theme.getSelectorDrawable(false));
             addView(selector, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
         }
 

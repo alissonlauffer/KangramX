@@ -582,7 +582,7 @@ public class SecretMediaViewer implements NotificationCenter.NotificationCenterD
                 }
             }
         };
-        windowView.setBackgroundDrawable(photoBackgroundDrawable);
+        windowView.setBackground(photoBackgroundDrawable);
         windowView.setFocusable(true);
         windowView.setFocusableInTouchMode(true);
 

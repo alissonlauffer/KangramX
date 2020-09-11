@@ -140,7 +140,7 @@ public class EditTextCaption extends EditTextBoldCursor {
         editText.setTransformHintToHeader(true);
         editText.setLineColors(Theme.getColor(Theme.key_windowBackgroundWhiteInputField), Theme.getColor(Theme.key_windowBackgroundWhiteInputFieldActivated), Theme.getColor(Theme.key_windowBackgroundWhiteRedText3));
         editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        editText.setBackgroundDrawable(null);
+        editText.setBackground(null);
         editText.requestFocus();
         editText.setPadding(0, 0, 0, 0);
         builder.setView(editText);

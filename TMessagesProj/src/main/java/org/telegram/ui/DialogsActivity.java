@@ -1364,7 +1364,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
             } else if (animationType == ItemTouchHelper.ANIMATION_TYPE_DRAG) {
                 if (movingView != null) {
                     View view = movingView;
-                    AndroidUtilities.runOnUIThread(() -> view.setBackgroundDrawable(null), parentPage.dialogsItemAnimator.getMoveDuration());
+                    AndroidUtilities.runOnUIThread(() -> view.setBackground(null), parentPage.dialogsItemAnimator.getMoveDuration());
                     movingView = null;
                 }
             }
@@ -1875,7 +1875,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                     Rect backgroundPaddings = new Rect();
                     Drawable shadowDrawable = getParentActivity().getResources().getDrawable(R.drawable.popup_fixed_alert).mutate();
                     shadowDrawable.getPadding(backgroundPaddings);
-                    popupLayout.setBackgroundDrawable(shadowDrawable);
+                    popupLayout.setBackground(shadowDrawable);
                     popupLayout.setBackgroundColor(Theme.getColor(Theme.key_actionBarDefaultSubmenuBackground));
 
                     LinearLayout linearLayout = new LinearLayout(getParentActivity());
@@ -2733,7 +2733,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
         floatingButton = new ImageView(context);
         floatingButton.setScaleType(ImageView.ScaleType.CENTER);
         Drawable drawable = Theme.createSimpleSelectorCircleDrawable(AndroidUtilities.dp(56), Theme.getColor(Theme.key_chats_actionBackground), Theme.getColor(Theme.key_chats_actionPressedBackground));
-        floatingButton.setBackgroundDrawable(drawable);
+        floatingButton.setBackground(drawable);
         floatingButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_actionIcon), PorterDuff.Mode.MULTIPLY));
         floatingButton.setImageResource(R.drawable.floating_pencil);
         StateListAnimator animator = new StateListAnimator();

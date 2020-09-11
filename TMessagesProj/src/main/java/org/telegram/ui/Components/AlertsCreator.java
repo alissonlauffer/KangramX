@@ -501,7 +501,7 @@ public class AlertsCreator {
                     continue;
                 }
                 cells[a] = new CheckBoxCell(fragment.getParentActivity(), 1);
-                cells[a].setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                cells[a].setBackground(Theme.getSelectorDrawable(false));
                 cells[a].setTag(a);
                 if (a == 0) {
                     cells[a].setText(LocaleController.getString("DeleteReportSpam", R.string.DeleteReportSpam), "", true, false);
@@ -617,7 +617,7 @@ public class AlertsCreator {
             textView.setMaxLines(1);
             textView.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
             textView.setTag(a);
-            textView.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            textView.setBackground(Theme.getSelectorDrawable(false));
             textView.setPadding(AndroidUtilities.dp(24), 0, AndroidUtilities.dp(24), 0);
             textView.setSingleLine(true);
             textView.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
@@ -1067,7 +1067,7 @@ public class AlertsCreator {
 
         if (!second && canDeleteInbox) {
             cell[0] = new CheckBoxCell(context, 1);
-            cell[0].setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            cell[0].setBackground(Theme.getSelectorDrawable(false));
             if (clear) {
                 cell[0].setText(LocaleController.formatString("ClearHistoryOptionAlso", R.string.ClearHistoryOptionAlso, UserObject.getFirstName(user)), "", false, false);
             } else {
@@ -1265,7 +1265,7 @@ public class AlertsCreator {
             }
             int num = a;
             cell[a] = new CheckBoxCell(context, 1);
-            cell[a].setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            cell[a].setBackground(Theme.getSelectorDrawable(false));
             if (a == 0) {
                 cell[a].setText(LocaleController.getString("ReportSpamTitle", R.string.ReportSpamTitle), "", true, false);
             } else {
@@ -1518,7 +1518,7 @@ public class AlertsCreator {
                 optionsButton.setLongClickEnabled(false);
                 optionsButton.setSubMenuOpenSide(2);
                 optionsButton.setIcon(R.drawable.ic_ab_other);
-                optionsButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_player_actionBarSelector), 1));
+                optionsButton.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_player_actionBarSelector), 1));
                 titleLayout.addView(optionsButton, LayoutHelper.createFrame(40, 40, Gravity.TOP | Gravity.RIGHT, 0, 8, 5, 0));
                 optionsButton.addSubItem(1, LocaleController.formatString("ScheduleWhenOnline", R.string.ScheduleWhenOnline, name));
                 optionsButton.setOnClickListener(v -> optionsButton.toggleSubMenu());
@@ -1607,7 +1607,7 @@ public class AlertsCreator {
         buttonTextView.setTextColor(Theme.getColor(Theme.key_featuredStickers_buttonText));
         buttonTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         buttonTextView.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
-        buttonTextView.setBackgroundDrawable(Theme.createSimpleSelectorRoundRectDrawable(AndroidUtilities.dp(4), Theme.getColor(Theme.key_featuredStickers_addButton), Theme.getColor(Theme.key_featuredStickers_addButtonPressed)));
+        buttonTextView.setBackground(Theme.createSimpleSelectorRoundRectDrawable(AndroidUtilities.dp(4), Theme.getColor(Theme.key_featuredStickers_addButton), Theme.getColor(Theme.key_featuredStickers_addButtonPressed)));
         container.addView(buttonTextView, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 48, Gravity.LEFT | Gravity.BOTTOM, 16, 15, 16, 16));
         buttonTextView.setOnClickListener(v -> {
             canceled[0] = false;
@@ -2497,7 +2497,7 @@ public class AlertsCreator {
                 AccountSelectCell cell = new AccountSelectCell(parentActivity);
                 cell.setAccount(a, false);
                 cell.setPadding(AndroidUtilities.dp(14), 0, AndroidUtilities.dp(14), 0);
-                cell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                cell.setBackground(Theme.getSelectorDrawable(false));
                 linearLayout.addView(cell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 50));
                 cell.setOnClickListener(v -> {
                     if (alertDialog[0] != null) {
@@ -2701,7 +2701,7 @@ public class AlertsCreator {
                         continue;
                     }
                     CheckBoxCell cell = new CheckBoxCell(activity, 1);
-                    cell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                    cell.setBackground(Theme.getSelectorDrawable(false));
                     cell.setTag(a);
                     if (a == 0) {
                         cell.setText(LocaleController.getString("DeleteBanUser", R.string.DeleteBanUser), "", false, false);
@@ -2728,7 +2728,7 @@ public class AlertsCreator {
                 hasDeleteForAllCheck = true;
                 FrameLayout frameLayout = new FrameLayout(activity);
                 CheckBoxCell cell = new CheckBoxCell(activity, 1);
-                cell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                cell.setBackground(Theme.getSelectorDrawable(false));
                 if (chat != null && hasNotOut) {
                     cell.setText(LocaleController.getString("DeleteForAll", R.string.DeleteForAll), "", false, false);
                 } else {
@@ -2779,7 +2779,7 @@ public class AlertsCreator {
                 hasDeleteForAllCheck = true;
                 FrameLayout frameLayout = new FrameLayout(activity);
                 CheckBoxCell cell = new CheckBoxCell(activity, 1);
-                cell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                cell.setBackground(Theme.getSelectorDrawable(false));
                 if (canDeleteInbox) {
                     cell.setText(LocaleController.formatString("DeleteMessagesOptionAlso", R.string.DeleteMessagesOptionAlso, UserObject.getFirstName(user)), "", false, false);
                 } else if (chat != null && (hasNotOut || myMessagesCount == count)) {
@@ -2925,7 +2925,7 @@ public class AlertsCreator {
         }
         Context context = fragment.getParentActivity();
         final EditTextBoldCursor editText = new EditTextBoldCursor(context);
-        editText.setBackgroundDrawable(Theme.createEditTextDrawable(context, true));
+        editText.setBackground(Theme.createEditTextDrawable(context, true));
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(LocaleController.getString("NewTheme", R.string.NewTheme));

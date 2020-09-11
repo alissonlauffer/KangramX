@@ -41,7 +41,7 @@ public class SearchField extends FrameLayout {
         FrameLayout.LayoutParams lp;
 
         searchBackground = new View(context);
-        searchBackground.setBackgroundDrawable(Theme.createRoundRectDrawable(AndroidUtilities.dp(18), Theme.getColor(Theme.key_dialogSearchBackground)));
+        searchBackground.setBackground(Theme.createRoundRectDrawable(AndroidUtilities.dp(18), Theme.getColor(Theme.key_dialogSearchBackground)));
         if (supportRtl) {
             lp = LayoutHelper.createFrameRelatively(LayoutHelper.MATCH_PARENT, 36, Gravity.START | Gravity.TOP, 14, 11, 14, 0);
         } else {
@@ -100,7 +100,7 @@ public class SearchField extends FrameLayout {
         searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
         searchEditText.setHintTextColor(Theme.getColor(Theme.key_dialogSearchHint));
         searchEditText.setTextColor(Theme.getColor(Theme.key_dialogSearchText));
-        searchEditText.setBackgroundDrawable(null);
+        searchEditText.setBackground(null);
         searchEditText.setPadding(0, 0, 0, 0);
         searchEditText.setMaxLines(1);
         searchEditText.setLines(1);

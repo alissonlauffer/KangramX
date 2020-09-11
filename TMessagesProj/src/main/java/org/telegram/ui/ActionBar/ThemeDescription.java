@@ -456,9 +456,9 @@ public class ThemeDescription {
             }
         } else if (viewToInvalidate != null && (listClasses == null || listClasses.length == 0)) {
             if ((changeFlags & FLAG_SELECTOR) != 0) {
-                viewToInvalidate.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                viewToInvalidate.setBackground(Theme.getSelectorDrawable(false));
             } else if ((changeFlags & FLAG_SELECTORWHITE) != 0) {
-                viewToInvalidate.setBackgroundDrawable(Theme.getSelectorDrawable(true));
+                viewToInvalidate.setBackground(Theme.getSelectorDrawable(true));
             }
         }
         if (listClasses != null) {
@@ -534,9 +534,9 @@ public class ThemeDescription {
                             background.setColorFilter(Theme.colorFilter);
                         }
                     } else if ((changeFlags & FLAG_SELECTOR) != 0) {
-                        child.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                        child.setBackground(Theme.getSelectorDrawable(false));
                     } else if ((changeFlags & FLAG_SELECTORWHITE) != 0) {
-                        child.setBackgroundDrawable(Theme.getSelectorDrawable(true));
+                        child.setBackground(Theme.getSelectorDrawable(true));
                     }
                 } else {
                     passedCheck = false;

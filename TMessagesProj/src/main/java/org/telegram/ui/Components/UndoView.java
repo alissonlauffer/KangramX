@@ -209,7 +209,7 @@ public class UndoView extends FrameLayout {
         textPaint.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
         textPaint.setColor(Theme.getColor(Theme.key_undo_infoColor));
 
-        setBackgroundDrawable(Theme.createRoundRectDrawable(AndroidUtilities.dp(6), Theme.getColor(Theme.key_undo_background)));
+        setBackground(Theme.createRoundRectDrawable(AndroidUtilities.dp(6), Theme.getColor(Theme.key_undo_background)));
 
         setOnTouchListener((v, event) -> true);
 

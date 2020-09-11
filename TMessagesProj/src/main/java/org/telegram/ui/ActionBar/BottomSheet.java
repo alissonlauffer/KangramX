@@ -580,7 +580,7 @@ public class BottomSheet extends Dialog {
             super(context);
 
             currentType = type;
-            setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            setBackground(Theme.getSelectorDrawable(false));
             //setPadding(AndroidUtilities.dp(16), 0, AndroidUtilities.dp(16), 0);
 
             imageView = new ImageView(context);
@@ -706,7 +706,7 @@ public class BottomSheet extends Dialog {
                 return true;
             }
         };
-        container.setBackgroundDrawable(backDrawable);
+        container.setBackground(backDrawable);
         focusable = needFocus;
         container.setFitsSystemWindows(true);
         container.setOnApplyWindowInsetsListener((v, insets) -> {
@@ -749,7 +749,7 @@ public class BottomSheet extends Dialog {
                     onContainerTranslationYChanged(translationY);
                 }
             };
-            containerView.setBackgroundDrawable(shadowDrawable);
+            containerView.setBackground(shadowDrawable);
             containerView.setPadding(backgroundPaddingLeft, (applyTopPadding ? AndroidUtilities.dp(8) : 0) + backgroundPaddingTop - 1, backgroundPaddingLeft, (applyBottomPadding ? AndroidUtilities.dp(8) : 0));
         }
         containerView.setVisibility(View.INVISIBLE);
@@ -895,7 +895,7 @@ public class BottomSheet extends Dialog {
     public void setAllowDrawContent(boolean value) {
         if (allowDrawContent != value) {
             allowDrawContent = value;
-            container.setBackgroundDrawable(allowDrawContent ? backDrawable : null);
+            container.setBackground(allowDrawContent ? backDrawable : null);
             container.invalidate();
         }
     }

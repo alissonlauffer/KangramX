@@ -210,7 +210,7 @@ public class ThemeSetUrlActivity extends BaseFragment implements NotificationCen
         nameField.setMaxLines(1);
         nameField.setLines(1);
         nameField.setGravity((LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT) | Gravity.CENTER_VERTICAL);
-        nameField.setBackgroundDrawable(null);
+        nameField.setBackground(null);
         nameField.setPadding(0, 0, 0, 0);
         nameField.setSingleLine(true);
         InputFilter[] inputFilters = new InputFilter[1];
@@ -251,7 +251,7 @@ public class ThemeSetUrlActivity extends BaseFragment implements NotificationCen
         editText.setMaxLines(1);
         editText.setLines(1);
         editText.setEnabled(false);
-        editText.setBackgroundDrawable(null);
+        editText.setBackground(null);
         editText.setPadding(0, 0, 0, 0);
         editText.setSingleLine(true);
         editText.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT);
@@ -264,7 +264,7 @@ public class ThemeSetUrlActivity extends BaseFragment implements NotificationCen
         linkField.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         linkField.setMaxLines(1);
         linkField.setLines(1);
-        linkField.setBackgroundDrawable(null);
+        linkField.setBackground(null);
         linkField.setPadding(0, 0, 0, 0);
         linkField.setSingleLine(true);
         linkField.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS | InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT);
@@ -325,7 +325,7 @@ public class ThemeSetUrlActivity extends BaseFragment implements NotificationCen
         }
 
         checkInfoCell = new TextInfoPrivacyCell(context);
-        checkInfoCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+        checkInfoCell.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
         checkInfoCell.setVisibility(View.GONE);
         checkInfoCell.setBottomPadding(0);
         linearLayout.addView(checkInfoCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
@@ -341,12 +341,12 @@ public class ThemeSetUrlActivity extends BaseFragment implements NotificationCen
         linearLayout.addView(helpInfoCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
         if (creatingNewTheme) {
-            helpInfoCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
+            helpInfoCell.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
             messagesCell = new ThemePreviewMessagesCell(context, parentLayout, 1);
             linearLayout.addView(messagesCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
             createCell = new TextSettingsCell(context);
-            createCell.setBackgroundDrawable(Theme.getSelectorDrawable(true));
+            createCell.setBackground(Theme.getSelectorDrawable(true));
             createCell.setText(LocaleController.getString("UseDifferentTheme", R.string.UseDifferentTheme), false);
             linearLayout.addView(createCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
             createCell.setOnClickListener(v -> {
@@ -389,10 +389,10 @@ public class ThemeSetUrlActivity extends BaseFragment implements NotificationCen
 
             createInfoCell = new TextInfoPrivacyCell(context);
             createInfoCell.setText(AndroidUtilities.replaceTags(LocaleController.getString("UseDifferentThemeInfo", R.string.UseDifferentThemeInfo)));
-            createInfoCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+            createInfoCell.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
             linearLayout.addView(createInfoCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
         } else {
-            helpInfoCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+            helpInfoCell.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
         }
 
         if (info != null) {
@@ -537,9 +537,9 @@ public class ThemeSetUrlActivity extends BaseFragment implements NotificationCen
         if (TextUtils.isEmpty(text)) {
             checkInfoCell.setVisibility(View.GONE);
             if (creatingNewTheme) {
-                helpInfoCell.setBackgroundDrawable(Theme.getThemedDrawable(getParentActivity(), R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
+                helpInfoCell.setBackground(Theme.getThemedDrawable(getParentActivity(), R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
             } else {
-                helpInfoCell.setBackgroundDrawable(Theme.getThemedDrawable(getParentActivity(), R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+                helpInfoCell.setBackground(Theme.getThemedDrawable(getParentActivity(), R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
             }
         } else {
             checkInfoCell.setVisibility(View.VISIBLE);
@@ -547,9 +547,9 @@ public class ThemeSetUrlActivity extends BaseFragment implements NotificationCen
             checkInfoCell.setTag(colorKey);
             checkInfoCell.setTextColor(colorKey);
             if (creatingNewTheme) {
-                helpInfoCell.setBackgroundDrawable(Theme.getThemedDrawable(getParentActivity(), R.drawable.greydivider_top, Theme.key_windowBackgroundGrayShadow));
+                helpInfoCell.setBackground(Theme.getThemedDrawable(getParentActivity(), R.drawable.greydivider_top, Theme.key_windowBackgroundGrayShadow));
             } else {
-                helpInfoCell.setBackgroundDrawable(null);
+                helpInfoCell.setBackground(null);
             }
         }
     }

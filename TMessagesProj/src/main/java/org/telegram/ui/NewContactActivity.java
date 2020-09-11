@@ -215,7 +215,7 @@ public class NewContactActivity extends BaseFragment implements AdapterView.OnIt
         firstNameField.setMaxLines(1);
         firstNameField.setLines(1);
         firstNameField.setSingleLine(true);
-        firstNameField.setBackgroundDrawable(Theme.createEditTextDrawable(context, false));
+        firstNameField.setBackground(Theme.createEditTextDrawable(context, false));
         firstNameField.setGravity(Gravity.LEFT);
         firstNameField.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT);
         firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT);
@@ -254,7 +254,7 @@ public class NewContactActivity extends BaseFragment implements AdapterView.OnIt
         lastNameField.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
         lastNameField.setHintTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteHintText));
         lastNameField.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
-        lastNameField.setBackgroundDrawable(Theme.createEditTextDrawable(context, false));
+        lastNameField.setBackground(Theme.createEditTextDrawable(context, false));
         lastNameField.setMaxLines(1);
         lastNameField.setLines(1);
         lastNameField.setSingleLine(true);
@@ -331,7 +331,7 @@ public class NewContactActivity extends BaseFragment implements AdapterView.OnIt
         codeField = new EditTextBoldCursor(context);
         codeField.setInputType(InputType.TYPE_CLASS_PHONE);
         codeField.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
-        codeField.setBackgroundDrawable(Theme.createEditTextDrawable(context, false));
+        codeField.setBackground(Theme.createEditTextDrawable(context, false));
         codeField.setCursorColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         codeField.setCursorSize(AndroidUtilities.dp(20));
         codeField.setCursorWidth(1.5f);
@@ -432,7 +432,7 @@ public class NewContactActivity extends BaseFragment implements AdapterView.OnIt
         phoneField.setInputType(InputType.TYPE_CLASS_PHONE);
         phoneField.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         phoneField.setHintTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteHintText));
-        phoneField.setBackgroundDrawable(Theme.createEditTextDrawable(context, false));
+        phoneField.setBackground(Theme.createEditTextDrawable(context, false));
         phoneField.setPadding(0, 0, 0, 0);
         phoneField.setCursorColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         phoneField.setCursorSize(AndroidUtilities.dp(20));

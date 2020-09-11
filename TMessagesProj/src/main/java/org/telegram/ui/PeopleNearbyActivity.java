@@ -218,7 +218,7 @@ public class PeopleNearbyActivity extends BaseFragment implements NotificationCe
     @Override
     public View createView(Context context) {
         actionBar.setBackButtonImage(R.drawable.ic_ab_back);
-        actionBar.setBackgroundDrawable(null);
+        actionBar.setBackground(null);
         actionBar.setTitleColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         actionBar.setItemsColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText), false);
         actionBar.setItemsBackgroundColor(Theme.getColor(Theme.key_listSelector), false);
@@ -771,7 +771,7 @@ public class PeopleNearbyActivity extends BaseFragment implements NotificationCe
             int top = (int) ((ActionBar.getCurrentActionBarHeight() + (actionBar.getOccupyStatusBar() ? AndroidUtilities.statusBarHeight : 0)) / AndroidUtilities.density) - 44;
 
             imageView = new ImageView(context);
-            imageView.setBackgroundDrawable(Theme.createCircleDrawable(AndroidUtilities.dp(74), Theme.getColor(Theme.key_chats_archiveBackground)));
+            imageView.setBackground(Theme.createCircleDrawable(AndroidUtilities.dp(74), Theme.getColor(Theme.key_chats_archiveBackground)));
             imageView.setImageDrawable(new ShareLocationDrawable(context, 2));
             imageView.setScaleType(ImageView.ScaleType.CENTER);
             addView(imageView, LayoutHelper.createFrame(74, 74, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, top + 27, 0, 0));
@@ -901,11 +901,11 @@ public class PeopleNearbyActivity extends BaseFragment implements NotificationCe
                 case 1:
                     ShadowSectionCell privacyCell = (ShadowSectionCell) holder.itemView;
                     if (position == usersSectionRow) {
-                        privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
+                        privacyCell.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == chatsSectionRow) {
-                        privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+                        privacyCell.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == helpSectionRow) {
-                        privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
+                        privacyCell.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     }
                     break;
                 case 2:

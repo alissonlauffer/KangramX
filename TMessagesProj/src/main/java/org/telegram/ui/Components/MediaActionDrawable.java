@@ -236,7 +236,7 @@ public class MediaActionDrawable extends Drawable {
         return animatingTransition ? transitionProgress : 1.0f;
     }
 
-    public void setBackgroundDrawable(Theme.MessageDrawable drawable) {
+    public void setBackground(Theme.MessageDrawable drawable) {
         messageDrawable = drawable;
     }
 

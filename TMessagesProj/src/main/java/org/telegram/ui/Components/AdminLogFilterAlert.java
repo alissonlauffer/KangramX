@@ -323,7 +323,7 @@ public class AdminLogFilterAlert extends BottomSheet {
         containerView.addView(shadow, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 3, Gravity.BOTTOM | Gravity.LEFT, 0, 0, 0, 48));
 
         saveButton = new BottomSheet.BottomSheetCell(context, 1);
-        saveButton.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+        saveButton.setBackground(Theme.getSelectorDrawable(false));
         saveButton.setTextAndIcon(LocaleController.getString("Save", R.string.Save).toUpperCase(), 0);
         saveButton.setTextColor(Theme.getColor(Theme.key_dialogTextBlue2));
         saveButton.setOnClickListener(v -> {

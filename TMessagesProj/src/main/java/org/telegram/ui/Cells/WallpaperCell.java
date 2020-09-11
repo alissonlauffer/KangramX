@@ -84,7 +84,7 @@ public class WallpaperCell extends FrameLayout {
             addView(imageView2, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, Gravity.LEFT | Gravity.TOP));
 
             selector = new View(context);
-            selector.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            selector.setBackground(Theme.getSelectorDrawable(false));
             addView(selector, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
 
             checkBox = new CheckBox(context, R.drawable.round_check2);
@@ -103,7 +103,7 @@ public class WallpaperCell extends FrameLayout {
             currentWallpaper = object;
             imageView.setVisibility(VISIBLE);
             imageView2.setVisibility(INVISIBLE);
-            imageView.setBackgroundDrawable(null);
+            imageView.setBackground(null);
             imageView.getImageReceiver().setColorFilter(null);
             imageView.getImageReceiver().setAlpha(1.0f);
             if (object instanceof TLRPC.TL_wallPaper) {

@@ -301,7 +301,7 @@ public class VoIPHelper {
 		commentBox.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
 		commentBox.setTextColor(Theme.getColor(Theme.key_dialogTextBlack));
 		commentBox.setHintTextColor(Theme.getColor(Theme.key_dialogTextHint));
-		commentBox.setBackgroundDrawable(Theme.createEditTextDrawable(context, true));
+		commentBox.setBackground(Theme.createEditTextDrawable(context, true));
 		commentBox.setPadding(0, AndroidUtilities.dp(4), 0, AndroidUtilities.dp(4));
 		commentBox.setTextSize(18);
 		commentBox.setVisibility(View.GONE);

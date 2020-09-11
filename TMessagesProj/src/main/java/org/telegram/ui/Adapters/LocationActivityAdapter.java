@@ -284,7 +284,7 @@ public class LocationActivityAdapter extends BaseLocationAdapter implements Loca
                 Drawable drawable = Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow);
                 CombinedDrawable combinedDrawable = new CombinedDrawable(new ColorDrawable(Theme.getColor(Theme.key_windowBackgroundGray)), drawable);
                 combinedDrawable.setFullsize(true);
-                view.setBackgroundDrawable(combinedDrawable);
+                view.setBackground(combinedDrawable);
                 break;
             }
             case 10:

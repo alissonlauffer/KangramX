@@ -580,7 +580,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
         public FontCell(Context context) {
             super(context);
 
-            setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 2));
+            setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 2));
 
             radioButton = new RadioButton(context);
             radioButton.setSize(AndroidUtilities.dp(20));
@@ -992,7 +992,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
                             @Override
                             public void onAnimationEnd(Animator animator) {
                                 if (movingPage) {
-                                    listView[0].setBackgroundDrawable(null);
+                                    listView[0].setBackground(null);
                                     if (!backAnimation) {
                                         WebpageAdapter adapterToUpdate = adapter[1];
                                         adapter[1] = adapter[0];
@@ -1284,7 +1284,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
             popupRect = new android.graphics.Rect();
             popupLayout = new ActionBarPopupWindow.ActionBarPopupWindowLayout(parentActivity);
             popupLayout.setPadding(AndroidUtilities.dp(1), AndroidUtilities.dp(1), AndroidUtilities.dp(1), AndroidUtilities.dp(1));
-            popupLayout.setBackgroundDrawable(parentActivity.getResources().getDrawable(R.drawable.menu_copy));
+            popupLayout.setBackground(parentActivity.getResources().getDrawable(R.drawable.menu_copy));
             popupLayout.setAnimationEnabled(false);
             popupLayout.setOnTouchListener((v, event) -> {
                 if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
@@ -1305,7 +1305,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
             popupLayout.setShowedFromBotton(false);
 
             deleteView = new TextView(parentActivity);
-            deleteView.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 2));
+            deleteView.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 2));
             deleteView.setGravity(Gravity.CENTER_VERTICAL);
             deleteView.setPadding(AndroidUtilities.dp(20), 0, AndroidUtilities.dp(20), 0);
             deleteView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
@@ -1594,7 +1594,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
                     listView[1].setVisibility(View.GONE);
                     textSelectionHelper.setParentView(listView[0]);
                     textSelectionHelper.layoutManager = layoutManager[0];
-                    listView[index].setBackgroundDrawable(null);
+                    listView[index].setBackground(null);
                     listView[index].setLayerType(View.LAYER_TYPE_NONE, null);
                     pageSwitchAnimation = null;
                 }
@@ -3125,7 +3125,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
 
         photoContainerBackground = new View(activity);
         photoContainerBackground.setVisibility(View.INVISIBLE);
-        photoContainerBackground.setBackgroundDrawable(photoBackgroundDrawable);
+        photoContainerBackground.setBackground(photoBackgroundDrawable);
         windowView.addView(photoContainerBackground, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, Gravity.TOP | Gravity.LEFT));
 
         animatingImageView = new ClippingImageView(activity);
@@ -3583,7 +3583,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
         backDrawable.setRotatedColor(0xffb3b3b3);
         backDrawable.setRotation(1.0f, false);
         backButton.setImageDrawable(backDrawable);
-        backButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
+        backButton.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         headerView.addView(backButton, LayoutHelper.createFrame(54, 56));
         backButton.setOnClickListener(v -> {
             /*if (collapsed) {
@@ -3615,7 +3615,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
         menuButton.addSubItem(share_item, R.drawable.msg_share, LocaleController.getString("ShareFile", R.string.ShareFile));
         menuButton.addSubItem(open_item, R.drawable.msg_openin, LocaleController.getString("OpenInExternalApp", R.string.OpenInExternalApp));
         menuButton.addSubItem(settings_item, R.drawable.menu_settings, LocaleController.getString("Settings", R.string.Settings));
-        menuButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
+        menuButton.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         menuButton.setContentDescription(LocaleController.getString("AccDescrMoreOptions", R.string.AccDescrMoreOptions));
         menuContainer.addView(menuButton, LayoutHelper.createFrame(48, 56));
         progressView = new ContextProgressView(activity, 2);
@@ -3710,7 +3710,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
         searchUpButton.setScaleType(ImageView.ScaleType.CENTER);
         searchUpButton.setImageResource(R.drawable.msg_go_up);
         searchUpButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText), PorterDuff.Mode.MULTIPLY));
-        searchUpButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
+        searchUpButton.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
         searchPanel.addView(searchUpButton, LayoutHelper.createFrame(48, 48, Gravity.RIGHT | Gravity.TOP, 0, 0, 48, 0));
         searchUpButton.setOnClickListener(view -> scrollToSearchIndex(currentSearchIndex - 1));
         searchUpButton.setContentDescription(LocaleController.getString("AccDescrSearchNext", R.string.AccDescrSearchNext));
@@ -3719,7 +3719,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
         searchDownButton.setScaleType(ImageView.ScaleType.CENTER);
         searchDownButton.setImageResource(R.drawable.msg_go_down);
         searchDownButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText), PorterDuff.Mode.MULTIPLY));
-        searchDownButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
+        searchDownButton.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
         searchPanel.addView(searchDownButton, LayoutHelper.createFrame(48, 48, Gravity.RIGHT | Gravity.TOP, 0, 0, 0, 0));
         searchDownButton.setOnClickListener(view -> scrollToSearchIndex(currentSearchIndex + 1));
         searchDownButton.setContentDescription(LocaleController.getString("AccDescrSearchPrev", R.string.AccDescrSearchPrev));
@@ -4798,7 +4798,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
 
     private void refreshThemeColors() {
         if (deleteView != null) {
-            deleteView.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 2));
+            deleteView.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 2));
             deleteView.setTextColor(Theme.getColor(Theme.key_actionBarDefaultSubmenuItem));
         }
         if (popupLayout != null) {
@@ -4814,11 +4814,11 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
         }
         if (searchUpButton != null) {
             searchUpButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText), PorterDuff.Mode.MULTIPLY));
-            searchUpButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
+            searchUpButton.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
         }
         if (searchDownButton != null) {
             searchDownButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText), PorterDuff.Mode.MULTIPLY));
-            searchDownButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
+            searchDownButton.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_actionBarActionModeDefaultSelector), 1));
         }
         if (searchCountText != null) {
             searchCountText.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
@@ -9455,7 +9455,7 @@ public class ArticleViewer implements NotificationCenter.NotificationCenterDeleg
             Drawable drawable = Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, 0xff000000);
             shadowDrawable = new CombinedDrawable(new ColorDrawable(Theme.getColor(Theme.key_windowBackgroundGray)), drawable);
             shadowDrawable.setFullsize(true);
-            setBackgroundDrawable(shadowDrawable);
+            setBackground(shadowDrawable);
         }
 
         @Override

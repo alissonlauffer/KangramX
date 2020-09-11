@@ -159,7 +159,7 @@ public class CallLogActivity extends BaseFragment implements NotificationCenter.
 			imageView = new ImageView(context);
 			imageView.setAlpha(214);
 			imageView.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_featuredStickers_addButton), PorterDuff.Mode.MULTIPLY));
-			imageView.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 1));
+			imageView.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 1));
 			imageView.setScaleType(ImageView.ScaleType.CENTER);
 			imageView.setOnClickListener(callBtnClickListener);
 			imageView.setContentDescription(LocaleController.getString("Call", R.string.Call));
@@ -322,7 +322,7 @@ public class CallLogActivity extends BaseFragment implements NotificationCenter.
 		floatingButton.setScaleType(ImageView.ScaleType.CENTER);
 
 		Drawable drawable = Theme.createSimpleSelectorCircleDrawable(AndroidUtilities.dp(56), Theme.getColor(Theme.key_chats_actionBackground), Theme.getColor(Theme.key_chats_actionPressedBackground));
-		floatingButton.setBackgroundDrawable(drawable);
+		floatingButton.setBackground(drawable);
 		floatingButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_actionIcon), PorterDuff.Mode.MULTIPLY));
 		floatingButton.setImageResource(R.drawable.ic_call);
 		floatingButton.setContentDescription(LocaleController.getString("Call", R.string.Call));
@@ -519,7 +519,7 @@ public class CallLogActivity extends BaseFragment implements NotificationCenter.
 				case 2:
 				default:
 					view = new TextInfoPrivacyCell(mContext);
-					view.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+					view.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
 					break;
 			}
 			return new RecyclerListView.Holder(view);

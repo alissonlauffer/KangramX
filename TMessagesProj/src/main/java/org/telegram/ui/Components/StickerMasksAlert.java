@@ -165,7 +165,7 @@ public class StickerMasksAlert extends BottomSheet implements NotificationCenter
             addView(backgroundView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, searchFieldHeight));
 
             View searchBackground = new View(context);
-            searchBackground.setBackgroundDrawable(Theme.createRoundRectDrawable(AndroidUtilities.dp(18), 0xff363636));
+            searchBackground.setBackground(Theme.createRoundRectDrawable(AndroidUtilities.dp(18), 0xff363636));
             addView(searchBackground, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 36, Gravity.LEFT | Gravity.TOP, 14, 14, 14, 0));
 
             ImageView searchIconImageView = new ImageView(context);
@@ -201,7 +201,7 @@ public class StickerMasksAlert extends BottomSheet implements NotificationCenter
             searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
             searchEditText.setHintTextColor(0xff777777);
             searchEditText.setTextColor(0xffffffff);
-            searchEditText.setBackgroundDrawable(null);
+            searchEditText.setBackground(null);
             searchEditText.setPadding(0, 0, 0, 0);
             searchEditText.setMaxLines(1);
             searchEditText.setLines(1);
@@ -583,7 +583,7 @@ public class StickerMasksAlert extends BottomSheet implements NotificationCenter
         });
 
         View topShadow = new View(context);
-        topShadow.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, 0xffe2e5e7));
+        topShadow.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, 0xffe2e5e7));
         containerView.addView(topShadow, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 6));
 
         if (!isVideo) {

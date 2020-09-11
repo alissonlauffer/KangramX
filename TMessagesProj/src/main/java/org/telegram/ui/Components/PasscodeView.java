@@ -508,7 +508,7 @@ public class PasscodeView extends FrameLayout {
         passwordEditText.setSingleLine(true);
         passwordEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         passwordEditText.setTypeface(Typeface.DEFAULT);
-        passwordEditText.setBackgroundDrawable(null);
+        passwordEditText.setBackground(null);
         passwordEditText.setCursorColor(0xffffffff);
         passwordEditText.setCursorSize(AndroidUtilities.dp(32));
         passwordFrameLayout.addView(passwordEditText);

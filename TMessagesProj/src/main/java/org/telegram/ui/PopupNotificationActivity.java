@@ -817,7 +817,7 @@ public class PopupNotificationActivity extends Activity implements NotificationC
                         textView.setText(button.text.toUpperCase());
                         textView.setTag(button);
                         textView.setGravity(Gravity.CENTER);
-                        textView.setBackgroundDrawable(Theme.getSelectorDrawable(true));
+                        textView.setBackground(Theme.getSelectorDrawable(true));
                         view.addView(textView, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, 100.0f / buttonsCount));
                         textView.setOnClickListener(v -> {
                             TLRPC.KeyboardButton button1 = (TLRPC.KeyboardButton) v.getTag();
@@ -870,7 +870,7 @@ public class PopupNotificationActivity extends Activity implements NotificationC
 
                 FrameLayout frameLayout = new FrameLayout(this);
                 frameLayout.setPadding(AndroidUtilities.dp(10), AndroidUtilities.dp(10), AndroidUtilities.dp(10), AndroidUtilities.dp(10));
-                frameLayout.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                frameLayout.setBackground(Theme.getSelectorDrawable(false));
                 view.addView(frameLayout, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
 
                 BackupImageView backupImageView = new BackupImageView(this);
@@ -952,7 +952,7 @@ public class PopupNotificationActivity extends Activity implements NotificationC
 
                 FrameLayout frameLayout = new FrameLayout(this);
                 frameLayout.setPadding(AndroidUtilities.dp(10), AndroidUtilities.dp(10), AndroidUtilities.dp(10), AndroidUtilities.dp(10));
-                frameLayout.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                frameLayout.setBackground(Theme.getSelectorDrawable(false));
                 view.addView(frameLayout, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
 
                 FrameLayout frameLayout1 = new FrameLayout(this);
@@ -983,7 +983,7 @@ public class PopupNotificationActivity extends Activity implements NotificationC
 
                 LinearLayout linearLayout = new LinearLayout(this);
                 linearLayout.setOrientation(LinearLayout.HORIZONTAL);
-                linearLayout.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                linearLayout.setBackground(Theme.getSelectorDrawable(false));
                 scrollView.addView(linearLayout, LayoutHelper.createScroll(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL));
                 linearLayout.setPadding(AndroidUtilities.dp(10), AndroidUtilities.dp(10), AndroidUtilities.dp(10), AndroidUtilities.dp(10));
                 linearLayout.setOnClickListener(v -> openCurrentMessage());

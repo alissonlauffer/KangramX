@@ -496,7 +496,7 @@ public class ChatAttachAlertLocationLayout extends ChatAttachAlert.AttachAlertLa
         mapViewClip.setWillNotDraw(false);
 
         loadingMapView = new View(context);
-        loadingMapView.setBackgroundDrawable(new MapPlaceholderDrawable());
+        loadingMapView.setBackground(new MapPlaceholderDrawable());
 
         searchAreaButton = new SearchButton(context);
         searchAreaButton.setTranslationX(-AndroidUtilities.dp(80));
@@ -512,7 +512,7 @@ public class ChatAttachAlertLocationLayout extends ChatAttachAlert.AttachAlertLa
                 outline.setRoundRect(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight(), view.getMeasuredHeight() / 2);
             }
         });
-        searchAreaButton.setBackgroundDrawable(drawable);
+        searchAreaButton.setBackground(drawable);
         searchAreaButton.setTextColor(Theme.getColor(Theme.key_location_actionActiveIcon));
         searchAreaButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         searchAreaButton.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
@@ -547,7 +547,7 @@ public class ChatAttachAlertLocationLayout extends ChatAttachAlert.AttachAlertLa
                 outline.setOval(0, 0, AndroidUtilities.dp(40), AndroidUtilities.dp(40));
             }
         });
-        mapTypeButton.setBackgroundDrawable(drawable);
+        mapTypeButton.setBackground(drawable);
         mapTypeButton.setIcon(R.drawable.location_type);
         mapViewClip.addView(mapTypeButton, LayoutHelper.createFrame(40, 40, Gravity.RIGHT | Gravity.TOP, 0, 12, 12, 0));
         mapTypeButton.setOnClickListener(v -> mapTypeButton.toggleSubMenu());
@@ -576,7 +576,7 @@ public class ChatAttachAlertLocationLayout extends ChatAttachAlert.AttachAlertLa
                 outline.setOval(0, 0, AndroidUtilities.dp(40), AndroidUtilities.dp(40));
             }
         });
-        locationButton.setBackgroundDrawable(drawable);
+        locationButton.setBackground(drawable);
         locationButton.setImageResource(R.drawable.location_current);
         locationButton.setScaleType(ImageView.ScaleType.CENTER);
         locationButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_location_actionActiveIcon), PorterDuff.Mode.MULTIPLY));

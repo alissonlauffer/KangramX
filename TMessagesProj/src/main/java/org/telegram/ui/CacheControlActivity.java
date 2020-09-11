@@ -418,7 +418,7 @@ public class CacheControlActivity extends BaseFragment {
                         CheckBoxCell checkBoxCell = new CheckBoxCell(getParentActivity(), 4, 21);
                         lastCreatedCheckbox = checkBoxCell;
                         checkBoxCell.setTag(a);
-                        checkBoxCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                        checkBoxCell.setBackground(Theme.getSelectorDrawable(false));
                         linearLayout.addView(checkBoxCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 50));
                         checkBoxCell.setText(name, AndroidUtilities.formatFileSize(size), true, true);
                         checkBoxCell.setTextColor(Theme.getColor(Theme.key_dialogTextBlack));
@@ -679,13 +679,13 @@ public class CacheControlActivity extends BaseFragment {
                     TextInfoPrivacyCell privacyCell = (TextInfoPrivacyCell) holder.itemView;
                     if (position == databaseInfoRow) {
                         privacyCell.setText(LocaleController.getString("LocalDatabaseInfo", R.string.LocalDatabaseInfo));
-                        privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+                        privacyCell.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == cacheInfoRow) {
                         privacyCell.setText("");
-                        privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
+                        privacyCell.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     } else if (position == keepMediaInfoRow) {
                         privacyCell.setText(AndroidUtilities.replaceTags(LocaleController.getString("KeepMediaInfo", R.string.KeepMediaInfo)));
-                        privacyCell.setBackgroundDrawable(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
+                        privacyCell.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
                     }
                     break;
                 case 2:

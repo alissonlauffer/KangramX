@@ -987,13 +987,13 @@ public final class FloatingToolbar {
             int color;
             if (currentStyle == STYLE_DIALOG) {
                 color = Theme.getColor(Theme.key_dialogTextBlack);
-                overflowButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 1));
+                overflowButton.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 1));
             } else if (currentStyle == STYLE_BLACK) {
                 color = 0xfffafafa;
-                overflowButton.setBackgroundDrawable(Theme.createSelectorDrawable(0x40ffffff, 1));
+                overflowButton.setBackground(Theme.createSelectorDrawable(0x40ffffff, 1));
             } else {
                 color = Theme.getColor(Theme.key_windowBackgroundWhiteBlackText);
-                overflowButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 1));
+                overflowButton.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 1));
             }
             mOverflow.setTint(color);
             mArrow.setTint(color);
@@ -1199,13 +1199,13 @@ public final class FloatingToolbar {
         textView.setFocusableInTouchMode(false);
         if (currentStyle == STYLE_DIALOG) {
             textView.setTextColor(Theme.getColor(Theme.key_dialogTextBlack));
-            menuItemButton.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            menuItemButton.setBackground(Theme.getSelectorDrawable(false));
         } else if (currentStyle == STYLE_BLACK) {
             textView.setTextColor(0xfffafafa);
-            menuItemButton.setBackgroundDrawable(Theme.getSelectorDrawable(0x40ffffff, false));
+            menuItemButton.setBackground(Theme.getSelectorDrawable(0x40ffffff, false));
         } else if (currentStyle == STYLE_THEME) {
             textView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
-            menuItemButton.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            menuItemButton.setBackground(Theme.getSelectorDrawable(false));
         }
         textView.setPaddingRelative(AndroidUtilities.dp(11), 0, 0, 0);
         menuItemButton.addView(textView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, AndroidUtilities.dp(48)));
@@ -1253,7 +1253,7 @@ public final class FloatingToolbar {
         } else if (currentStyle == STYLE_THEME) {
             shape.setColor(Theme.getColor(Theme.key_windowBackgroundWhite));
         }
-        contentContainer.setBackgroundDrawable(shape);
+        contentContainer.setBackground(shape);
         contentContainer.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         contentContainer.setClipToOutline(true);
         return contentContainer;

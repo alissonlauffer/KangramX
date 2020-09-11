@@ -446,7 +446,7 @@ public abstract class TextSelectionHelper<Cell extends TextSelectionHelper.Selec
                         popupRect = new android.graphics.Rect();
                         popupLayout = new ActionBarPopupWindow.ActionBarPopupWindowLayout(textSelectionOverlay.getContext());
                         popupLayout.setPadding(AndroidUtilities.dp(1), AndroidUtilities.dp(1), AndroidUtilities.dp(1), AndroidUtilities.dp(1));
-                        popupLayout.setBackgroundDrawable(textSelectionOverlay.getContext().getResources().getDrawable(R.drawable.menu_copy));
+                        popupLayout.setBackground(textSelectionOverlay.getContext().getResources().getDrawable(R.drawable.menu_copy));
                         popupLayout.setAnimationEnabled(false);
                         popupLayout.setOnTouchListener((v, event) -> {
                             if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
@@ -459,7 +459,7 @@ public abstract class TextSelectionHelper<Cell extends TextSelectionHelper.Selec
                         popupLayout.setShowedFromBotton(false);
 
                         deleteView = new TextView(textSelectionOverlay.getContext());
-                        deleteView.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 2));
+                        deleteView.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 2));
                         deleteView.setGravity(Gravity.CENTER_VERTICAL);
                         deleteView.setPadding(AndroidUtilities.dp(20), 0, AndroidUtilities.dp(20), 0);
                         deleteView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);

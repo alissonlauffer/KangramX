@@ -107,7 +107,7 @@ public class DrawerProfileCell extends FrameLayout {
         darkThemeView.setScaleType(ImageView.ScaleType.CENTER);
         darkThemeView.setImageResource(R.drawable.menu_night);
         darkThemeView.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_menuName), PorterDuff.Mode.MULTIPLY));
-        darkThemeView.setBackgroundDrawable(Theme.createSelectorDrawable(darkThemeBackgroundColor = Theme.getColor(Theme.key_listSelector), 1, AndroidUtilities.dp(17)));
+        darkThemeView.setBackground(Theme.createSelectorDrawable(darkThemeBackgroundColor = Theme.getColor(Theme.key_listSelector), 1, AndroidUtilities.dp(17)));
         Theme.setRippleDrawableForceSoftware((RippleDrawable) darkThemeView.getBackground());
         darkThemeView.setOnClickListener(v -> {
             SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("themeconfig", Activity.MODE_PRIVATE);

@@ -568,7 +568,7 @@ public class ActionIntroActivity extends BaseFragment implements LocationControl
                 break;
             }
             case ACTION_TYPE_NEARBY_LOCATION_ACCESS: {
-                imageView.setBackgroundDrawable(Theme.createCircleDrawable(AndroidUtilities.dp(100), Theme.getColor(Theme.key_chats_archiveBackground)));
+                imageView.setBackground(Theme.createCircleDrawable(AndroidUtilities.dp(100), Theme.getColor(Theme.key_chats_archiveBackground)));
                 imageView.setImageDrawable(new ShareLocationDrawable(context, 3));
                 imageView.setScaleType(ImageView.ScaleType.CENTER);
                 titleTextView.setText(LocaleController.getString("PeopleNearby", R.string.PeopleNearby));
@@ -577,7 +577,7 @@ public class ActionIntroActivity extends BaseFragment implements LocationControl
                 break;
             }
             case ACTION_TYPE_NEARBY_LOCATION_ENABLED: {
-                imageView.setBackgroundDrawable(Theme.createCircleDrawable(AndroidUtilities.dp(100), Theme.getColor(Theme.key_chats_archiveBackground)));
+                imageView.setBackground(Theme.createCircleDrawable(AndroidUtilities.dp(100), Theme.getColor(Theme.key_chats_archiveBackground)));
                 imageView.setImageDrawable(new ShareLocationDrawable(context, 3));
                 imageView.setScaleType(ImageView.ScaleType.CENTER);
                 titleTextView.setText(LocaleController.getString("PeopleNearby", R.string.PeopleNearby));

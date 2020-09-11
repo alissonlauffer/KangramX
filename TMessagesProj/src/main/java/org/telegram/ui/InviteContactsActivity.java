@@ -420,7 +420,7 @@ public class InviteContactsActivity extends BaseFragment implements Notification
         editText.setCursorWidth(1.5f);
         editText.setInputType(InputType.TYPE_TEXT_VARIATION_FILTER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         editText.setSingleLine(true);
-        editText.setBackgroundDrawable(null);
+        editText.setBackground(null);
         editText.setVerticalScrollBarEnabled(false);
         editText.setHorizontalScrollBarEnabled(false);
         editText.setTextIsSelectable(false);
@@ -610,7 +610,7 @@ public class InviteContactsActivity extends BaseFragment implements Notification
         counterTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         counterTextView.setTextColor(Theme.getColor(Theme.key_contacts_inviteBackground));
         counterTextView.setGravity(Gravity.CENTER);
-        counterTextView.setBackgroundDrawable(Theme.createRoundRectDrawable(AndroidUtilities.dp(10), Theme.getColor(Theme.key_contacts_inviteText)));
+        counterTextView.setBackground(Theme.createRoundRectDrawable(AndroidUtilities.dp(10), Theme.getColor(Theme.key_contacts_inviteText)));
         counterTextView.setMinWidth(AndroidUtilities.dp(20));
         counterTextView.setPadding(AndroidUtilities.dp(6), 0, AndroidUtilities.dp(6), AndroidUtilities.dp(1));
         linearLayout.addView(counterTextView, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, 20, Gravity.CENTER_VERTICAL, 0, 0, 10, 0));

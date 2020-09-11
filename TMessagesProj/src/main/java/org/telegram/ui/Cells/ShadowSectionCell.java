@@ -28,7 +28,7 @@ public class ShadowSectionCell extends View {
 
     public ShadowSectionCell(Context context, int s) {
         super(context);
-        setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
+        setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
         size = s;
     }
 
@@ -38,7 +38,7 @@ public class ShadowSectionCell extends View {
         Drawable background = new ColorDrawable(backgroundColor);
         CombinedDrawable combinedDrawable = new CombinedDrawable(background, shadowDrawable, 0, 0);
         combinedDrawable.setFullsize(true);
-        setBackgroundDrawable(combinedDrawable);
+        setBackground(combinedDrawable);
         size = s;
     }
 

@@ -421,7 +421,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             addView(backgroundView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, searchFieldHeight));
 
             searchBackground = new View(context);
-            searchBackground.setBackgroundDrawable(Theme.createRoundRectDrawable(AndroidUtilities.dp(18), Theme.getColor(Theme.key_chat_emojiSearchBackground)));
+            searchBackground.setBackground(Theme.createRoundRectDrawable(AndroidUtilities.dp(18), Theme.getColor(Theme.key_chat_emojiSearchBackground)));
             addView(searchBackground, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 36, Gravity.LEFT | Gravity.TOP, 14, 14, 14, 0));
 
             searchIconImageView = new ImageView(context);
@@ -464,7 +464,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
             searchEditText.setHintTextColor(Theme.getColor(Theme.key_chat_emojiSearchIcon));
             searchEditText.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
-            searchEditText.setBackgroundDrawable(null);
+            searchEditText.setBackground(null);
             searchEditText.setPadding(0, 0, 0, 0);
             searchEditText.setMaxLines(1);
             searchEditText.setLines(1);
@@ -1755,7 +1755,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
         pager.setAdapter(new EmojiPagesAdapter());
 
         topShadow = new View(context);
-        topShadow.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, 0xffe2e5e7));
+        topShadow.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, 0xffe2e5e7));
         addView(topShadow, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 6));
 
         backspaceButton = new ImageView(context) {
@@ -1954,7 +1954,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
         addView(pager, 0, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, Gravity.LEFT | Gravity.TOP));
 
         mediaBanTooltip = new CorrectlyMeasuringTextView(context);
-        mediaBanTooltip.setBackgroundDrawable(Theme.createRoundRectDrawable(AndroidUtilities.dp(3), Theme.getColor(Theme.key_chat_gifSaveHintBackground)));
+        mediaBanTooltip.setBackground(Theme.createRoundRectDrawable(AndroidUtilities.dp(3), Theme.getColor(Theme.key_chat_gifSaveHintBackground)));
         mediaBanTooltip.setTextColor(Theme.getColor(Theme.key_chat_gifSaveHintText));
         mediaBanTooltip.setPadding(AndroidUtilities.dp(8), AndroidUtilities.dp(7), AndroidUtilities.dp(8), AndroidUtilities.dp(7));
         mediaBanTooltip.setGravity(Gravity.CENTER_VERTICAL);
@@ -3171,7 +3171,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                 setBackgroundResource(R.drawable.smiles_popup);
                 getBackground().setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chat_emojiPanelBackground), PorterDuff.Mode.MULTIPLY));
                 if (needEmojiSearch) {
-                    bottomTabContainerBackground.setBackgroundDrawable(null);
+                    bottomTabContainerBackground.setBackground(null);
                 }
                 currentBackgroundType = 1;
             }

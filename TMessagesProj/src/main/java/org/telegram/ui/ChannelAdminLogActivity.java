@@ -702,7 +702,7 @@ public class ChannelAdminLogActivity extends BaseFragment implements Notificatio
         emptyView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         emptyView.setGravity(Gravity.CENTER);
         emptyView.setTextColor(Theme.getColor(Theme.key_chat_serviceText));
-        emptyView.setBackgroundDrawable(Theme.createRoundRectDrawable(AndroidUtilities.dp(10), Theme.getServiceMessageColor()));
+        emptyView.setBackground(Theme.createRoundRectDrawable(AndroidUtilities.dp(10), Theme.getServiceMessageColor()));
         emptyView.setPadding(AndroidUtilities.dp(16), AndroidUtilities.dp(16), AndroidUtilities.dp(16), AndroidUtilities.dp(16));
         emptyViewContainer.addView(emptyView, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER, 16, 0, 16, 0));
 
@@ -2234,7 +2234,7 @@ public class ChannelAdminLogActivity extends BaseFragment implements Notificatio
 
                 boolean selected = false;
                 boolean disableSelection = false;
-                messageCell.setBackgroundDrawable(null);
+                messageCell.setBackground(null);
                 messageCell.setCheckPressed(!disableSelection, disableSelection && selected);
 
                 messageCell.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {

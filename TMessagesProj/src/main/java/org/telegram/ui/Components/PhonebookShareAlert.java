@@ -455,7 +455,7 @@ public class PhonebookShareAlert extends BottomSheet {
             final int position = a;
             linearLayout.addView(view, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
             if (position >= phoneStartRow && position < phoneEndRow || position >= vcardStartRow && position < vcardEndRow) {
-                view.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                view.setBackground(Theme.getSelectorDrawable(false));
                 view.setOnClickListener(v -> {
                     final AndroidUtilities.VcardItem item;
                     if (position >= phoneStartRow && position < phoneEndRow) {

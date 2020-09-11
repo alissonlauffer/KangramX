@@ -260,7 +260,7 @@ public class SimpleTextView extends View implements Drawable.Callback {
     }
 
     @Override
-    public void setBackgroundDrawable(Drawable background) {
+    public void setBackground(Drawable background) {
         wrapBackgroundDrawable = background;
     }
 

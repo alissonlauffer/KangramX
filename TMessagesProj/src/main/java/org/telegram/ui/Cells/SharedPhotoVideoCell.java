@@ -111,7 +111,7 @@ public class SharedPhotoVideoCell extends FrameLayout {
             videoInfoContainer.addView(videoTextView, LayoutHelper.createFrame(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.LEFT | Gravity.CENTER_VERTICAL, 13, -0.7f, 0, 0));
 
             selector = new View(context);
-            selector.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            selector.setBackground(Theme.getSelectorDrawable(false));
             addView(selector, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT));
 
             checkBox = new CheckBox2(context, 21);

@@ -169,7 +169,7 @@ public class PhotoViewerCaptionEnterView extends FrameLayout implements Notifica
         messageEditText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
         messageEditText.setGravity(Gravity.BOTTOM);
         messageEditText.setPadding(0, AndroidUtilities.dp(11), 0, AndroidUtilities.dp(12));
-        messageEditText.setBackgroundDrawable(null);
+        messageEditText.setBackground(null);
         messageEditText.setCursorColor(0xffffffff);
         messageEditText.setCursorSize(AndroidUtilities.dp(20));
         messageEditText.setTextColor(0xffffffff);

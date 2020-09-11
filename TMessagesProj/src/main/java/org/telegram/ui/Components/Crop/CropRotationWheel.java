@@ -67,7 +67,7 @@ public class CropRotationWheel extends FrameLayout {
 
         mirrorButton = new ImageView(context);
         mirrorButton.setImageResource(R.drawable.photo_flip);
-        mirrorButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
+        mirrorButton.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         mirrorButton.setScaleType(ImageView.ScaleType.CENTER);
         mirrorButton.setOnClickListener(v -> {
             if (rotationListener != null) {
@@ -83,7 +83,7 @@ public class CropRotationWheel extends FrameLayout {
 
         aspectRatioButton = new ImageView(context);
         aspectRatioButton.setImageResource(R.drawable.tool_cropfix);
-        aspectRatioButton.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
+        aspectRatioButton.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         aspectRatioButton.setScaleType(ImageView.ScaleType.CENTER);
         aspectRatioButton.setOnClickListener(v -> {
             if (rotationListener != null) {
@@ -96,7 +96,7 @@ public class CropRotationWheel extends FrameLayout {
 
         rotation90Button = new ImageView(context);
         rotation90Button.setImageResource(R.drawable.tool_rotate);
-        rotation90Button.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
+        rotation90Button.setBackground(Theme.createSelectorDrawable(Theme.ACTION_BAR_WHITE_SELECTOR_COLOR));
         rotation90Button.setScaleType(ImageView.ScaleType.CENTER);
         rotation90Button.setOnClickListener(v -> {
             if (rotationListener != null) {

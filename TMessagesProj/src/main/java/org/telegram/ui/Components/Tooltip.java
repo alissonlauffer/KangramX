@@ -32,7 +32,7 @@ public class Tooltip extends TextView {
     public Tooltip(Context context, ViewGroup parentView, int backgroundColor, int textColor) {
         super(context);
 
-        setBackgroundDrawable(Theme.createRoundRectDrawable(AndroidUtilities.dp(3), backgroundColor));
+        setBackground(Theme.createRoundRectDrawable(AndroidUtilities.dp(3), backgroundColor));
         setTextColor(textColor);
         setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         setPadding(AndroidUtilities.dp(8), AndroidUtilities.dp(7), AndroidUtilities.dp(8), AndroidUtilities.dp(7));

@@ -189,7 +189,7 @@ public class ActionBarPopupWindow extends PopupWindow {
             invalidate();
         }
 
-        public void setBackgroundDrawable(Drawable drawable) {
+        public void setBackground(Drawable drawable) {
             backgroundColor = Color.WHITE;
             backgroundDrawable = drawable;
         }

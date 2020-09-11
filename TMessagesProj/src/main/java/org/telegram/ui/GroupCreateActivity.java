@@ -532,7 +532,7 @@ public class GroupCreateActivity extends BaseFragment implements NotificationCen
         editText.setCursorWidth(1.5f);
         editText.setInputType(InputType.TYPE_TEXT_VARIATION_FILTER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
         editText.setSingleLine(true);
-        editText.setBackgroundDrawable(null);
+        editText.setBackground(null);
         editText.setVerticalScrollBarEnabled(false);
         editText.setHorizontalScrollBarEnabled(false);
         editText.setTextIsSelectable(false);
@@ -746,7 +746,7 @@ public class GroupCreateActivity extends BaseFragment implements NotificationCen
         floatingButton.setScaleType(ImageView.ScaleType.CENTER);
 
         Drawable drawable = Theme.createSimpleSelectorCircleDrawable(AndroidUtilities.dp(56), Theme.getColor(Theme.key_chats_actionBackground), Theme.getColor(Theme.key_chats_actionPressedBackground));
-        floatingButton.setBackgroundDrawable(drawable);
+        floatingButton.setBackground(drawable);
         floatingButton.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_chats_actionIcon), PorterDuff.Mode.MULTIPLY));
         if (isNeverShare || isAlwaysShare || addToGroup) {
             floatingButton.setImageResource(R.drawable.floating_check);
@@ -919,7 +919,7 @@ public class GroupCreateActivity extends BaseFragment implements NotificationCen
                 LinearLayout linearLayout = new LinearLayout(getParentActivity());
                 linearLayout.setOrientation(LinearLayout.VERTICAL);
                 cells[0] = new CheckBoxCell(getParentActivity(), 1);
-                cells[0].setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                cells[0].setBackground(Theme.getSelectorDrawable(false));
                 cells[0].setMultiline(true);
                 if (selectedContacts.size() == 1) {
                     TLRPC.User user = getMessagesController().getUser(selectedContacts.keyAt(0));

@@ -61,7 +61,7 @@ public class SendLocationCell extends FrameLayout {
             drawable.setColorFilter(new PorterDuffColorFilter(Theme.getColor(Theme.key_location_sendLiveLocationIcon), PorterDuff.Mode.MULTIPLY));
             CombinedDrawable combinedDrawable = new CombinedDrawable(circle, drawable);
             combinedDrawable.setCustomSize(AndroidUtilities.dp(42), AndroidUtilities.dp(42));
-            imageView.setBackgroundDrawable(combinedDrawable);
+            imageView.setBackground(combinedDrawable);
             AndroidUtilities.runOnUIThread(invalidateRunnable, 1000);
             setWillNotDraw(false);
         } else {
@@ -70,7 +70,7 @@ public class SendLocationCell extends FrameLayout {
             CombinedDrawable combinedDrawable = new CombinedDrawable(circle, drawable);
             combinedDrawable.setCustomSize(AndroidUtilities.dp(42), AndroidUtilities.dp(42));
             combinedDrawable.setIconSize(AndroidUtilities.dp(24), AndroidUtilities.dp(24));
-            imageView.setBackgroundDrawable(combinedDrawable);
+            imageView.setBackground(combinedDrawable);
         }
         addView(imageView, LayoutHelper.createFrame(42, 42, Gravity.TOP | (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT), LocaleController.isRTL ? 0 : 15, 12, LocaleController.isRTL ? 15 : 0, 0));
 

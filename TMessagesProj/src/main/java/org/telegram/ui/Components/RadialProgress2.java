@@ -95,9 +95,9 @@ public class RadialProgress2 {
         invalidateParent();
     }
 
-    public void setBackgroundDrawable(Theme.MessageDrawable drawable) {
-        mediaActionDrawable.setBackgroundDrawable(drawable);
-        miniMediaActionDrawable.setBackgroundDrawable(drawable);
+    public void setBackground(Theme.MessageDrawable drawable) {
+        mediaActionDrawable.setBackground(drawable);
+        miniMediaActionDrawable.setBackground(drawable);
     }
 
     public void setImageOverlay(TLRPC.PhotoSize image, TLRPC.Document document, Object parentObject) {

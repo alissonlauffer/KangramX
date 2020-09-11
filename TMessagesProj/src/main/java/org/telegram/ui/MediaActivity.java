@@ -638,7 +638,7 @@ public class MediaActivity extends BaseFragment implements NotificationCenter.No
         hasOwnBackground = true;
 
         final ActionBarMenu actionMode = actionBar.createActionMode(false);
-        actionMode.setBackgroundDrawable(null);
+        actionMode.setBackground(null);
         actionBar.setItemsColor(Theme.getColor(Theme.key_actionBarDefaultIcon), true);
         actionBar.setItemsBackgroundColor(Theme.getColor(Theme.key_actionBarDefaultSelector), true);
 

@@ -552,7 +552,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
                     canvas.drawLine(LocaleController.isRTL ? 0 : AndroidUtilities.dp(20), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? AndroidUtilities.dp(20) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
                 }
             };
-            setAvatarCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            setAvatarCell.setBackground(Theme.getSelectorDrawable(false));
             setAvatarCell.setColors(Theme.key_windowBackgroundWhiteBlueIcon, Theme.key_windowBackgroundWhiteBlueButton);
             setAvatarCell.setOnClickListener(v -> imageUpdater.openMenu(avatar != null, () -> {
                 avatar = null;
@@ -568,7 +568,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
         descriptionTextView.setHintTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteHintText));
         descriptionTextView.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         descriptionTextView.setPadding(0, 0, 0, AndroidUtilities.dp(6));
-        descriptionTextView.setBackgroundDrawable(null);
+        descriptionTextView.setBackground(null);
         descriptionTextView.setGravity(LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT);
         descriptionTextView.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT);
         descriptionTextView.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -620,7 +620,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
 
         if (currentChat.megagroup && (info == null || info.can_set_location)) {
             locationCell = new TextDetailCell(context);
-            locationCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            locationCell.setBackground(Theme.getSelectorDrawable(false));
             typeEditContainer.addView(locationCell, LayoutHelper.createLinear(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             locationCell.setOnClickListener(v -> {
                 if (!AndroidUtilities.isGoogleMapsInstalled(ChatEditActivity.this)) {
@@ -647,7 +647,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
 
         if (currentChat.creator && (info == null || info.can_set_username)) {
             typeCell = new TextDetailCell(context);
-            typeCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            typeCell.setBackground(Theme.getSelectorDrawable(false));
             typeEditContainer.addView(typeCell, LayoutHelper.createLinear(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             typeCell.setOnClickListener(v -> {
                 ChatEditTypeActivity fragment = new ChatEditTypeActivity(chatId, locationCell != null && locationCell.getVisibility() == View.VISIBLE);
@@ -658,7 +658,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
 
         if (ChatObject.isChannel(currentChat) && (isChannel && ChatObject.canUserDoAdminAction(currentChat, ChatObject.ACTION_CHANGE_INFO) || !isChannel && ChatObject.canUserDoAdminAction(currentChat, ChatObject.ACTION_PIN))) {
             linkedCell = new TextDetailCell(context);
-            linkedCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            linkedCell.setBackground(Theme.getSelectorDrawable(false));
             typeEditContainer.addView(linkedCell, LayoutHelper.createLinear(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             linkedCell.setOnClickListener(v -> {
                 ChatLinkActivity fragment = new ChatLinkActivity(chatId);
@@ -669,7 +669,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
 
         if (!isChannel && ChatObject.canBlockUsers(currentChat) && (ChatObject.isChannel(currentChat) || currentChat.creator)) {
             historyCell = new TextDetailCell(context);
-            historyCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            historyCell.setBackground(Theme.getSelectorDrawable(false));
             typeEditContainer.addView(historyCell, LayoutHelper.createLinear(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             historyCell.setOnClickListener(v -> {
                 BottomSheet.Builder builder = new BottomSheet.Builder(context);
@@ -692,7 +692,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
                 for (int a = 0; a < 2; a++) {
                     buttons[a] = new RadioButtonCell(context, true);
                     buttons[a].setTag(a);
-                    buttons[a].setBackgroundDrawable(Theme.getSelectorDrawable(false));
+                    buttons[a].setBackground(Theme.getSelectorDrawable(false));
                     if (a == 0) {
                         buttons[a].setTextAndValue(LocaleController.getString("ChatHistoryVisible", R.string.ChatHistoryVisible), LocaleController.getString("ChatHistoryVisibleInfo", R.string.ChatHistoryVisibleInfo), true, !historyHidden);
                     } else {
@@ -720,7 +720,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
 
         if (isChannel) {
             signCell = new TextCheckCell(context);
-            signCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            signCell.setBackground(Theme.getSelectorDrawable(false));
             signCell.setTextAndValueAndCheck(LocaleController.getString("ChannelSignMessages", R.string.ChannelSignMessages), LocaleController.getString("ChannelSignMessagesInfo", R.string.ChannelSignMessagesInfo), signMessages, true, false);
             typeEditContainer.addView(signCell, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
             signCell.setOnClickListener(v -> {
@@ -746,7 +746,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
         linearLayout1.addView(infoContainer, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
         blockCell = new TextCell(context);
-        blockCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+        blockCell.setBackground(Theme.getSelectorDrawable(false));
         blockCell.setVisibility(ChatObject.isChannel(currentChat) || currentChat.creator ? View.VISIBLE : View.GONE);
         blockCell.setOnClickListener(v -> {
             Bundle args = new Bundle();
@@ -758,7 +758,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
         });
 
         adminCell = new TextCell(context);
-        adminCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+        adminCell.setBackground(Theme.getSelectorDrawable(false));
         adminCell.setOnClickListener(v -> {
             Bundle args = new Bundle();
             args.putInt("chat_id", chatId);
@@ -769,7 +769,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
         });
 
         membersCell = new TextCell(context);
-        membersCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+        membersCell.setBackground(Theme.getSelectorDrawable(false));
         membersCell.setOnClickListener(v -> {
             Bundle args = new Bundle();
             args.putInt("chat_id", chatId);
@@ -782,7 +782,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
         if (ChatObject.isChannel(currentChat)) {
             logCell = new TextCell(context);
             logCell.setTextAndIcon(LocaleController.getString("EventLog", R.string.EventLog), R.drawable.group_log, false);
-            logCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            logCell.setBackground(Theme.getSelectorDrawable(false));
             logCell.setOnClickListener(v -> presentFragment(new ChannelAdminLogActivity(currentChat)));
         }
 
@@ -813,7 +813,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
 
             stickersCell = new TextSettingsCell(context);
             stickersCell.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
-            stickersCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            stickersCell.setBackground(Theme.getSelectorDrawable(false));
             stickersContainer.addView(stickersCell, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
             stickersCell.setOnClickListener(v -> {
                 GroupStickersActivity groupStickersActivity = new GroupStickersActivity(currentChat.id);
@@ -833,7 +833,7 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
 
             deleteCell = new TextSettingsCell(context);
             deleteCell.setTextColor(Theme.getColor(Theme.key_windowBackgroundWhiteRedText5));
-            deleteCell.setBackgroundDrawable(Theme.getSelectorDrawable(false));
+            deleteCell.setBackground(Theme.getSelectorDrawable(false));
             if (isChannel) {
                 deleteCell.setText(LocaleController.getString("ChannelDelete", R.string.ChannelDelete), false);
             } else if (currentChat.megagroup) {
@@ -853,21 +853,21 @@ public class ChatEditActivity extends BaseFragment implements ImageUpdater.Image
             }));
 
             deleteInfoCell = new ShadowSectionCell(context);
-            deleteInfoCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+            deleteInfoCell.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
             linearLayout1.addView(deleteInfoCell, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
         } else {
             if (!isChannel) {
                 if (stickersInfoCell3 == null) {
-                    infoSectionCell.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+                    infoSectionCell.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
                 }
             }
         }
 
         if (stickersInfoCell3 != null) {
             if (deleteInfoCell == null) {
-                stickersInfoCell3.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
+                stickersInfoCell3.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
             } else {
-                stickersInfoCell3.setBackgroundDrawable(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
+                stickersInfoCell3.setBackground(Theme.getThemedDrawable(context, R.drawable.greydivider, Theme.key_windowBackgroundGrayShadow));
             }
         }
 

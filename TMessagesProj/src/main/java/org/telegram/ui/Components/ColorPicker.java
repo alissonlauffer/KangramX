@@ -146,7 +146,7 @@ public class ColorPicker extends FrameLayout {
                         canvas.drawCircle(AndroidUtilities.dp(10), AndroidUtilities.dp(21), AndroidUtilities.dp(10), editTextCirclePaint);
                     }
                 };
-                colorEditText[a].setBackgroundDrawable(null);
+                colorEditText[a].setBackground(null);
                 colorEditText[a].setPadding(AndroidUtilities.dp(28), AndroidUtilities.dp(5), 0, AndroidUtilities.dp(18));
                 colorEditText[a].setText("#");
                 colorEditText[a].setEnabled(false);
@@ -181,7 +181,7 @@ public class ColorPicker extends FrameLayout {
                         colorEditText[num - 1].invalidate();
                     }
                 };
-                colorEditText[a].setBackgroundDrawable(null);
+                colorEditText[a].setBackground(null);
                 colorEditText[a].setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
                 colorEditText[a].setPadding(0, AndroidUtilities.dp(5), 0, AndroidUtilities.dp(18));
                 colorEditText[a].setHint("8BC6ED");
@@ -357,7 +357,7 @@ public class ColorPicker extends FrameLayout {
             });
             menuItem.setAdditionalYOffset(AndroidUtilities.dp(72));
             menuItem.setTranslationX(AndroidUtilities.dp(6));
-            menuItem.setBackgroundDrawable(Theme.createSelectorDrawable(Theme.getColor(Theme.key_dialogButtonSelector), 1));
+            menuItem.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_dialogButtonSelector), 1));
             addView(menuItem, LayoutHelper.createFrame(48, 48, Gravity.TOP | Gravity.RIGHT, 0, -3, 7, 0));
             menuItem.setOnClickListener(v -> menuItem.toggleSubMenu());
         }

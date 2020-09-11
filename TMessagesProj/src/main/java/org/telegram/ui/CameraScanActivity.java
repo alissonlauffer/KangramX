@@ -341,7 +341,7 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
             actionBar.setBackgroundColor(Theme.getColor(Theme.key_windowBackgroundWhite));
             fragmentView.setBackgroundColor(Theme.getColor(Theme.key_windowBackgroundWhite));
         } else {
-            actionBar.setBackgroundDrawable(null);
+            actionBar.setBackground(null);
             actionBar.setAddToContainer(false);
             actionBar.setItemsColor(0xffffffff, false);
             actionBar.setItemsBackgroundColor(0x22ffffff, false);
@@ -391,7 +391,7 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
                 galleryButton = new ImageView(context);
                 galleryButton.setScaleType(ImageView.ScaleType.CENTER);
                 galleryButton.setImageResource(R.drawable.qr_gallery);
-                galleryButton.setBackgroundDrawable(Theme.createSelectorDrawableFromDrawables(Theme.createCircleDrawable(AndroidUtilities.dp(60), 0x22ffffff), Theme.createCircleDrawable(AndroidUtilities.dp(60), 0x44ffffff)));
+                galleryButton.setBackground(Theme.createSelectorDrawableFromDrawables(Theme.createCircleDrawable(AndroidUtilities.dp(60), 0x22ffffff), Theme.createCircleDrawable(AndroidUtilities.dp(60), 0x44ffffff)));
                 viewGroup.addView(galleryButton);
                 galleryButton.setOnClickListener(currentImage -> {
                     if (getParentActivity() == null) {
@@ -447,7 +447,7 @@ public class CameraScanActivity extends BaseFragment implements Camera.PreviewCa
             flashButton = new ImageView(context);
             flashButton.setScaleType(ImageView.ScaleType.CENTER);
             flashButton.setImageResource(R.drawable.qr_flashlight);
-            flashButton.setBackgroundDrawable(Theme.createCircleDrawable(AndroidUtilities.dp(60), 0x22ffffff));
+            flashButton.setBackground(Theme.createCircleDrawable(AndroidUtilities.dp(60), 0x22ffffff));
             viewGroup.addView(flashButton);
             flashButton.setOnClickListener(currentImage -> {
                 CameraSession session = cameraView.getCameraSession();
