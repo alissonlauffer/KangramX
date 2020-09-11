@@ -6,6 +6,7 @@ obj/
 local.properties
 API_KEYS
 *.hprof
+TMessagesProj/.cxx/
 TMessagesProj/.externalNativeBuild/
 TMessagesProj/jni/ffmpeg/android/
 TMessagesProj/jni/ffmpeg/build/
