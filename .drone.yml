@@ -11,7 +11,7 @@ steps:
   image: runmymind/docker-android-sdk:ubuntu-standalone
   commands:
   - apt update
-  - apt install -y go ninja-build python3-pip
+  - apt install -y golang ninja-build python3-pip
 
 - name: Patch and build ffmpeg
   image: runmymind/docker-android-sdk:ubuntu-standalone
