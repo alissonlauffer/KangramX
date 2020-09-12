@@ -2,19 +2,16 @@ kind: pipeline
 name: KangX Build
 
 steps:
-- name: Install runtime dependencies
-  image: archlinux:latest
-  commands:
-  - pacman -Sy --noconfirm go ninja python-pip jdk11-openjdk wget unzip git
-
 - name: Checkout build submodules
   image: archlinux:latest
   commands:
+  - pacman -Sy --noconfirm git
   - git submodule update --init --recursive --depth 1
 
 - name: Download and extract Android tools
   image: archlinux:latest
   commands:
+  - pacman -Sy --noconfirm unzip wget
   - mkdir ~/Android
   - cd ~/Android
   - wget https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip -O commandlinetools.zip
@@ -23,30 +20,27 @@ steps:
 - name: Install Android NDK and accept licenses
   image: archlinux:latest
   commands:
+  - pacman -Sy --noconfirm jdk11-openjdk
   - export ANDROID_HOME=~/Android
   - export PATH=$ANDROID_HOME/tools/bin:$PATH
   - sdkmanager 'ndk;21.3.6528147'
   - yes | sdkmanager --licenses
 
-- name: Patch and build ffmpeg
+- name: Patch and build ffmpeg and boringssl
   image: archlinux:latest
   commands:
+  - pacman -Sy --noconfirm unzip wget jdk11-openjdk go ninja python
   - export NDK=$ANDROID_HOME/ndk/21.3.6528147
   - cd TMessagesProj/jni
   - ./build_ffmpeg_clang.sh
   - ./patch_ffmpeg.sh
-
-- name: Patch and build boringssl
-  image: archlinux:latest
-  commands:
-  - export NDK=$ANDROID_HOME/ndk/21.3.6528147
-  - cd TMessagesProj/jni
   - ./patch_boringssl.sh
   - ./build_boringssl.sh
 
 - name: Build
   image: archlinux:latest
   commands:
+  - pacman -Sy --noconfirm jdk11-openjdk
   - USE_SPLITBUILD=1 ./gradlew assembleRelease
   environment:
     APP_ID:
