@@ -18,6 +18,7 @@ steps:
   - yes | sdkmanager --licenses
   - export NDK=$ANDROID_HOME/ndk/21.3.6528147
   - cd /drone/src/TMessagesProj/jni
+  - export NINJA_PATH=/usr/bin/ninja
   - ./build_ffmpeg_clang.sh
   - ./patch_ffmpeg.sh
   - ./patch_boringssl.sh
