@@ -5,7 +5,7 @@ steps:
 - name: Checkout build submodules
   image: archlinux:latest
   commands:
-  - pacman -Sy --noconfirm git unzip wget jdk11-openjdk go ninja python 
+  - pacman -Sy --noconfirm git unzip wget jdk8-openjdk go ninja python 
   - git submodule update --init --recursive --depth 1
   - mkdir ~/Android
   - cd ~/Android
