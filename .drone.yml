@@ -14,7 +14,7 @@ steps:
   - cd
   - export ANDROID_HOME=~/Android
   - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin:$PATH
-  - sdkmanager 'ndk;21.3.6528147'
+  - yes | sdkmanager 'ndk;21.3.6528147'
   - yes | sdkmanager --licenses
   - export NDK=$ANDROID_HOME/ndk/21.3.6528147
   - cd TMessagesProj/jni
