@@ -17,11 +17,12 @@ steps:
   - yes | sdkmanager 'ndk;21.3.6528147'
   - yes | sdkmanager --licenses
   - export NDK=$ANDROID_HOME/ndk/21.3.6528147
-  - cd TMessagesProj/jni
+  - cd /drone/src/TMessagesProj/jni
   - ./build_ffmpeg_clang.sh
   - ./patch_ffmpeg.sh
   - ./patch_boringssl.sh
   - ./build_boringssl.sh
+  - cd ../..
   - USE_SPLITBUILD=1 ./gradlew assembleRelease
   environment:
     APP_ID:
