@@ -3,18 +3,17 @@ name: KangX Build
 
 steps:
 - name: Install runtime dependencies
-  image: ubuntu:latest
+  image: archlinux:latest
   commands:
-  - apt update
-  - apt install -y golang ninja-build python3-pip openjdk-11-jdk-headless wget unzip build-essential git
+  - pacman -Sy --noconfirm go ninja python-pip jdk11-openjdk wget unzip git
 
 - name: Checkout build submodules
-  image: ubuntu:latest
+  image: archlinux:latest
   commands:
   - git submodule update --init --recursive --depth 1
 
 - name: Download and extract Android tools
-  image: ubuntu:latest
+  image: archlinux:latest
   commands:
   - mkdir ~/Android
   - cd ~/Android
@@ -22,7 +21,7 @@ steps:
   - unzip commandlinetools.zip
 
 - name: Install Android NDK and accept licenses
-  image: ubuntu:latest
+  image: archlinux:latest
   commands:
   - export ANDROID_HOME=~/Android
   - export PATH=$ANDROID_HOME/tools/bin:$PATH
@@ -30,7 +29,7 @@ steps:
   - yes | sdkmanager --licenses
 
 - name: Patch and build ffmpeg
-  image: ubuntu:latest
+  image: archlinux:latest
   commands:
   - export NDK=$ANDROID_HOME/ndk/21.3.6528147
   - cd TMessagesProj/jni
@@ -38,7 +37,7 @@ steps:
   - ./patch_ffmpeg.sh
 
 - name: Patch and build boringssl
-  image: ubuntu:latest
+  image: archlinux:latest
   commands:
   - export NDK=$ANDROID_HOME/ndk/21.3.6528147
   - cd TMessagesProj/jni
@@ -46,7 +45,7 @@ steps:
   - ./build_boringssl.sh
 
 - name: Build
-  image: ubuntu:latest
+  image: archlinux:latest
   commands:
   - USE_SPLITBUILD=1 ./gradlew assembleRelease
   environment:
