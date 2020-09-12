@@ -10,7 +10,7 @@ steps:
 - name: Install runtime dependencies
   image: runmymind/docker-android-sdk:ubuntu-standalone
   commands:
-  - sudo apt install go ninja
+  - apt install go ninja
 
 - name: Patch and build ffmpeg
   image: runmymind/docker-android-sdk:ubuntu-standalone
