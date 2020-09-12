@@ -5,7 +5,7 @@ steps:
 - name: Checkout build submodules
   image: archlinux:latest
   commands:
-  - pacman -Sy --noconfirm git unzip wget jdk8-openjdk go ninja python make diffutils patch
+  - pacman -Sy --noconfirm git unzip wget jdk8-openjdk go ninja python make diffutils patch cmake
   - git submodule update --init --recursive --depth 1
   - mkdir -p ~/Android/cmdline-tools
   - cd ~/Android/cmdline-tools
@@ -18,7 +18,6 @@ steps:
   - yes | sdkmanager --licenses
   - export NDK=$ANDROID_HOME/ndk/21.3.6528147
   - cd /drone/src/TMessagesProj/jni
-  - export PATH=`echo $ANDROID_HOME/cmake/*/bin`:$PATH
   - export NINJA_PATH=/usr/bin/ninja
   - ./build_ffmpeg_clang.sh
   - ./patch_ffmpeg.sh
