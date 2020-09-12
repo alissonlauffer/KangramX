@@ -11,7 +11,7 @@ steps:
   - cd ~/Android/cmdline-tools
   - wget https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip -O commandlinetools.zip
   - unzip commandlinetools.zip
-  - cd
+  - cd ../..
   - export ANDROID_HOME=~/Android
   - export PATH=$ANDROID_HOME/cmdline-tools/tools/bin:$PATH
   - yes | sdkmanager 'ndk;21.3.6528147'
