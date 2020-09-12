@@ -2,16 +2,16 @@ kind: pipeline
 name: KangX Build
 
 steps:
+- name: Install runtime dependencies
+  image: ubuntu:latest
+  commands:
+  - apt update
+  - apt install -y golang ninja-build python3-pip openjdk-11-jdk-headless wget unzip build-essential git
+
 - name: Checkout build submodules
   image: ubuntu:latest
   commands:
   - git submodule update --init --recursive --depth 1
-
-- name: Install runtime dependencies
-  image: ubuntu:latest 
-  commands:
-  - apt update
-  - apt install -y golang ninja-build python3-pip openjdk-11-jdk-headless wget unzip build-essential
 
 - name: Download and extract Android tools
   image: ubuntu:latest
