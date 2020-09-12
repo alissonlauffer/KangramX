@@ -16,6 +16,8 @@ steps:
 - name: Install Android NDK
   image: runmymind/docker-android-sdk:ubuntu-standalone
   commands:
+  - cd /opt
+  - find
   - export PATH=ANDROID_HOME/tools/bin:$PATH
   - sdkmanager 'ndk;21.3.6528147'
   - yes | sdkmanager --licenses
