@@ -10,9 +10,14 @@ steps:
 - name: Install runtime dependencies
   image: runmymind/docker-android-sdk:ubuntu-standalone
   commands:
-  - ls $ANDROID_HOME/ndk/
   - apt update
   - apt install -y golang ninja-build python3-pip
+
+- name: Install Android NDK
+  image: runmymind/docker-android-sdk:ubuntu-standalone
+  commands:
+  - sdkmanager 'ndk;21.3.6528147'
+  - yes | sdkmanager --licenses
 
 - name: Patch and build ffmpeg
   image: runmymind/docker-android-sdk:ubuntu-standalone
