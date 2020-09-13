@@ -10,4 +10,17 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Build and patch ffmpeg
+          command: |
+            cd TMessagesProj/jni
+            ./build_ffmpeg_clang.sh
+            ./patch_ffmpeg.sh
+      - run:
+          name: Patch and build boringssl
+          command: |
+            cd TMessagesProj/jni
+            ./patch_boringssl.sh
+            ./build_boringssl.sh
+      - run:
+          name: Build the app
           command: USE_SPLITBUILD=1 ./gradlew assembleRelease
