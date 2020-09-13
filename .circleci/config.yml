@@ -11,8 +11,10 @@ jobs:
       - checkout
       - run:
           name: Checkout git submodules
-          command: |
-            git submodule update --init --recursive --depth 1
+          command:  git submodule update --init --recursive --depth 1
+      - run:
+          name: Install Android NDK
+          command: sdkmanager 'ndk;21.3.6528147'
       - run:
           name: Build and patch ffmpeg
           command: |
