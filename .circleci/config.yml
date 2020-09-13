@@ -10,6 +10,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Checkout git submodules
+          command: |
+            git submodule update --init --recursive --depth 1
+      - run:
           name: Build and patch ffmpeg
           command: |
             cd TMessagesProj/jni
