@@ -18,12 +18,14 @@ jobs:
       - run:
           name: Build and patch ffmpeg
           command: |
+            export NDK=$ANDROID_HOME/ndk/21.3.6528147
             cd TMessagesProj/jni
             ./build_ffmpeg_clang.sh
             ./patch_ffmpeg.sh
       - run:
           name: Patch and build boringssl
           command: |
+            export NDK=$ANDROID_HOME/ndk/21.3.6528147
             cd TMessagesProj/jni
             ./patch_boringssl.sh
             ./build_boringssl.sh
